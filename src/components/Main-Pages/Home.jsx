@@ -40,7 +40,7 @@ export const HomePage = () => {
     }, []);
 
     return (
-        <section className="h-full w-full flex flex-col md:flex-row items-center justify-between gap-10 md:gap-0 p-4 md:p-0" >
+        <section className="h-full w-full flex flex-col xl:flex-row items-center justify-between gap-10 md:gap-0 p-4 md:p-0" >
 
             {/* left part for greeting and name */}
             <div className="flex flex-col justify-center h-full gap-4 w-full md:w-auto">
