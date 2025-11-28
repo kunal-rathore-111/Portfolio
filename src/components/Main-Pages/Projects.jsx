@@ -87,11 +87,13 @@ const LinksForMoreDiv = () => {
     const LinkIconComp = TECH_ICONS.Link;
     const ReadmoreIcon = TECH_ICONS.Readmore;
 
+
+    const classname = "transition-transform duration-400 hover:scale-125"
     return (
         <div className="flex gap-3 ml-0 md:ml-2">
-            <a href={props.github} target="_blank" rel="noopener noreferrer"><GithubIcon /></a>
-            <a href={props.deployLink} target="_blank" rel="noopener noreferrer"><LinkIconComp /></a>
-            <a href=" need to implement later via useNavigate SPA "><ReadmoreIcon /></a>
+            <a href={props.github} target="_blank" rel="noopener noreferrer" className={classname}><GithubIcon /></a>
+            <a href={props.deployLink} target="_blank" rel="noopener noreferrer" className={classname}><LinkIconComp /></a>
+            <a href=" need to implement later via useNavigate SPA " className={classname}><ReadmoreIcon /></a>
         </div>
     )
 }

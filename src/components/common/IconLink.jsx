@@ -7,17 +7,19 @@ export function IconLink({ href, icon: Icon, label, className, ...props }) {
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-                "inline-flex items-center gap-3 px-3 py-1 rounded-lg",
-                "text-lg font-light border-1 border-black dark:border-white",
-                "transition-colors cursor-pointer",
-                "hover:bg-black hover:text-white",
-                "dark:hover:bg-white dark:hover:text-black",
+                "inline-flex items-center gap-4 px-3 py-2 rounded-2xl",
+                "text-lg font-light",
+                "transition-colors duration-700 cursor-pointer",
+                "bg-black text-white",
+                "dark:bg-white dark:text-black",
+                "hover:bg-white hover:text-black",
+                "dark:hover:bg-black dark:hover:text-white",
                 className
             )}
             {...props}
         >
-            {Icon && <Icon strokeWidth={1.5} size={20} />}
-            <span>{label}</span>
+            {Icon && <Icon strokeWidth={1.6} size={25} className="transition-transform duration-400 hover:scale-135" />}
+
         </a>
     );
 }
