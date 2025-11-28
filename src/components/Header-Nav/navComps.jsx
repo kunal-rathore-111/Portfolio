@@ -1,15 +1,12 @@
 
 import { Link } from "react-router-dom";
-/* icons */
-
 import { HomeIcon, ProjectIcon, AboutIcon, ReadsIcon } from "../../assets/icons/sideBarIcon";
 import { useScrollContext } from "@/context/ScrollContext";
-
-import { useLenis } from "lenis/react";
+import { useScrollTo } from "@/hooks/useScrollTo";
 
 export const NavComps = ({ toggle }) => {
     const { HomeRef, AboutRef, ProjectsRef, ReadsRef } = useScrollContext();
-
+    const scrollTo = useScrollTo();
 
     const navItems = [
         { ref: HomeRef, label: "Home", Icon: HomeIcon },
@@ -18,18 +15,11 @@ export const NavComps = ({ toggle }) => {
         { ref: ReadsRef, label: "Reads", Icon: ReadsIcon }
     ]
 
-    const lenis = useLenis();
-
-    const scrollToFunc = (ref) => {
-        if (ref?.current) {
-            lenis?.scrollTo(ref.current, { offset: 0 });
-        }
-    }
     return (<>
         {
             navItems.map(({ ref, label, Icon }) => {
-                return <div className="flex w-22 h-12 items-center justify-center gap-2 cursor-pointer"
-                    onClick={() => scrollToFunc(ref)}>
+                return <div key={label} className="flex w-auto md:w-22 h-12 items-center justify-center gap-2 cursor-pointer"
+                    onClick={() => scrollTo(ref)}>
                     {toggle ? <Icon strokeWidth={1.5} /> : <span>{label}</span>}
                 </div>
             })

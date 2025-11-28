@@ -17,8 +17,8 @@ export function ExpandableChat({ children, className, position = 'bottom-right',
     const toggleExpanded = () => setIsExpanded(!isExpanded);
 
     const positionClasses = {
-        'bottom-right': 'bottom-4 right-4',
-        'bottom-left': 'bottom-4 left-4',
+        'bottom-right': 'bottom-18 right-4 md:bottom-4 md:right-4',
+        'bottom-left': 'bottom-18 left-4 md:bottom-4 md:left-4',
         'top-right': 'top-4 right-4',
         'top-left': 'top-4 left-4',
     };

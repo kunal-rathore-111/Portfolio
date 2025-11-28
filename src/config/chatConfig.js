@@ -14,7 +14,7 @@ export const heroConfig = {
     skills: [
         { name: 'HTML' },
         { name: 'CSS' },
-        { name: 'Reac   t' },
+        { name: 'React' },
         { name: 'Javascript' },
         { name: 'Typescript' },
         { name: 'Node.js' },

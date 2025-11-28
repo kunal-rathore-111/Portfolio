@@ -6,7 +6,8 @@ import "../../assets/styles/prism-holi-theme.css"
 import "prismjs/components/prism-javascript"; // importing language
 import { useEffect } from "react";
 
-import { Linkedin, Github, Mail } from "lucide-react";
+import { SOCIAL_LINKS } from "@/constants";
+import { IconLink } from "@/components/common/IconLink";
 
 const codeString = `const Profile = {
   name: 'Kunal Rathore',
@@ -39,17 +40,17 @@ export const HomePage = () => {
     }, []);
 
     return (
-        <section className="h-full w-full flex flex-row  items-center justify-between" >
+        <section className="h-full w-full flex flex-col md:flex-row items-center justify-between gap-10 md:gap-0 p-4 md:p-0" >
 
             {/* left part for greeting and name */}
-            <div className="flex flex-col justify-center h-full gap-4 ">
+            <div className="flex flex-col justify-center h-full gap-4 w-full md:w-auto">
                 <GreetComp />
             </div>
 
             {/* right part, code themed my info */}
-            <div className="bg-gradient-to-r from-purple-400 via-violet-400 to-pink-400 p-1 rounded-xl w-[300px] md:w-auto">
+            <div className="bg-gradient-to-r from-purple-400 via-violet-400 to-pink-400 p-1 rounded-xl w-full md:w-auto max-w-[90vw] md:max-w-none overflow-x-auto">
                 <pre className="!m-0">
-                    <code className="language-javascript">
+                    <code className="language-javascript text-xs md:text-base">
                         {codeString}
                     </code>
                 </pre>
@@ -66,8 +67,8 @@ const GreetComp = () => {
                 text-[#4B0096] dark:text-yellow-300" >Hey there!, I'm-
         </h1>
 
-        <div className="pl-3 flex flex-col gap-6 w-[600px]">
-            <h1 className="text-7xl md:text-[150px] font-[600] text-black dark:text-gray-200 " >Kunal Rathore
+        <div className="pl-0 md:pl-3 flex flex-col gap-4 md:gap-6 w-full md:w-[600px]">
+            <h1 className="text-8xl md:text-[150px] font-[600] text-black dark:text-gray-200 leading-tight" >Kunal Rathore
             </h1>
             <DiscComp />
             <div className="flex gap-3">
@@ -78,7 +79,7 @@ const GreetComp = () => {
 }
 
 const DiscComp = () => {
-    return <p className="text-3xl font-[400]">
+    return <p className="text-xl md:text-3xl font-[400]">
         Software Engineer Student.
         <span className="text-gray-600 dark:text-slate-400 font-[300]"> A self-taught full-stack developer with an
             interest in Computer Science.</span>
@@ -87,25 +88,15 @@ const DiscComp = () => {
 }
 
 const ContactComps = () => {
-    const Contact = [
-        { title: "Github", icon: <Github strokeWidth={1.5} />, navigateLink: 'https://github.com/kunal-rathore-111' },
-        { title: "Email", icon: <Mail strokeWidth={1.5} />, navigateLink: 'https://mail.google.com/mail/?view=cm&fs=1&to=kunalworkspace111@gmail.com' },
-        // { title: "Linkdin", icon: <Linkedin strokeWidth={1.5} />, navigateLink: '' }
-    ]
-
     return <>
-        {Contact.map((d) => { return <ContactDiv title={d.title} icon={d.icon} navigateLink={d.navigateLink} /> })}
+        {SOCIAL_LINKS.map((link) => (
+            <IconLink
+                key={link.id}
+                href={link.navigateLink}
+                icon={link.icon}
+                label={link.title}
+            />
+        ))}
     </>
 }
 
-const ContactDiv = (props) => {
-    return (
-        <a href={props.navigateLink} target="_blank">
-            <span className="text-lg font-light border-1 border-black dark:border-white py-1 px-3 rounded-lg cursor-pointer flex gap-3 items-center">
-                {props.icon ? props.icon : ""}
-                <span>{props?.title}</span>
-
-            </span >
-        </a>
-    )
-}

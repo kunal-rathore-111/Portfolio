@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { useState } from "react";
 
 // files
 import { Nav } from "./components/Header-Nav/nav.jsx";
 //icons 
 import { SunMedium, Moon } from "lucide-react";
+import { useDarkMode } from "@/hooks/useDarkMode";
 
 import { ReactLenis, useLenis } from "lenis/react";
 
@@ -21,12 +21,7 @@ import ChatBubble from "./components/ChatBubble.jsx"; // chatbot component
 
 export default function App() {
 
-    const [isDarkMode, setMode] = useState(true); //  by default it will be dark
-
-    function toggleMode() {
-        document.documentElement.classList.toggle('dark');
-        setMode(!isDarkMode);
-    }
+    const { isDark, toggle: toggleMode } = useDarkMode();
 
     return (
         <BrowserRouter>
@@ -37,12 +32,12 @@ export default function App() {
                 <ChatBubble />
                 <div className="w-screen flex box-border ">
 
-                 {/*<div className="m-5 text-lgflex justify-center fixed gap-2 bg-gray-800  dark:bg-black text-emerald-300 dark:text-lime-400  px-2 py-1.5 ring-2 rounded-xl z-111" > Project status- Working... </div>
+                    {/*<div className="m-5 text-lgflex justify-center fixed gap-2 bg-gray-800  dark:bg-black text-emerald-300 dark:text-lime-400  px-2 py-1.5 ring-2 rounded-xl z-111" > Project status- Working... </div>
  */}
                     {/* dark mode toggle button */}
-                    <button className="fixed z-12 dark:bg-black border-2 dark:border-white right-10 top-5 bg-gray-50 p-2 shadow-md rounded-lg transition duration-600 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black"
+                    <button className="fixed z-12 dark:bg-black border-2 dark:border-white right-4 top-4 md:right-10 md:top-5 bg-gray-50 p-2 shadow-md rounded-lg transition duration-600 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black"
                         onClick={toggleMode}>
-                        {isDarkMode ? <SunMedium strokeWidth={1.5} /> : <Moon strokeWidth={1.5} />}
+                        {isDark ? <SunMedium strokeWidth={1.5} /> : <Moon strokeWidth={1.5} />}
                     </button>
 
                     <ScrollContextProvider>
