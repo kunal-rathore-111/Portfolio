@@ -2,13 +2,24 @@ import { PROJECTS, TECH_ICONS } from "@/constants";
 import { TechStack } from "@/components/common/TechStack";
 
 import { ProjectContextProvider, useProject } from "@/context/ProjectContext";
+import { motion } from "framer-motion";
+import { useState } from "react";
+import { onhoverBlackWhite } from "@/lib/default_Tailwind";
+
+
+
+
 
 /* main function of the file */
 export const ProjectsPage = () => {
+    const [showAllProjects, updateProjectShowCount] = useState(false);
+    const ProjectsArray = PROJECTS.slice(0, showAllProjects ? PROJECTS.length : 3);
+
+
     return <div className="h-full flex flex-col p-2 ">
         <span className="text-3xl">Projects- </span>
         <div className="flex flex-col">
-            {PROJECTS.map((props, i) => {
+            {ProjectsArray.map((props, i) => {
                 // passing the data in p and the 0 or 1 for condtional alignment 
                 const index = i % 2;
                 const val = { props, index };
@@ -17,6 +28,7 @@ export const ProjectsPage = () => {
                 </ProjectContextProvider>
             })}
         </div>
+        <LoadMoreProjects showAllProjects={showAllProjects} updateProjectShowCount={updateProjectShowCount} />
     </div>
 }
 
@@ -88,12 +100,42 @@ const LinksForMoreDiv = () => {
     const ReadmoreIcon = TECH_ICONS.Readmore;
 
 
-    const classname = "transition-transform duration-400 hover:scale-125"
+    const onhoverScale = "transition-transform duration-400 hover:scale-125";
+
     return (
         <div className="flex gap-3 ml-0 md:ml-2">
-            <a href={props.github} target="_blank" rel="noopener noreferrer" className={classname}><GithubIcon /></a>
-            <a href={props.deployLink} target="_blank" rel="noopener noreferrer" className={classname}><LinkIconComp /></a>
-            <a href=" need to implement later via useNavigate SPA " className={classname}><ReadmoreIcon /></a>
+            <a href={props.github} target="_blank" rel="noopener noreferrer" className={onhoverScale}><GithubIcon /></a>
+            <a href={props.deployLink} target="_blank" rel="noopener noreferrer" className={onhoverScale}><LinkIconComp /></a>
+            <a href=" need to implement later via useNavigate SPA " className={onhoverScale}><ReadmoreIcon /></a>
         </div>
     )
+}
+
+
+
+
+const LoadMoreProjects = ({ showAllProjects, updateProjectShowCount }) => {
+    return <div className="flex justify-center relative mt-10">
+        <div className=" group ">
+            {showAllProjects ? null :
+                <div>
+                    <button className={`cursor-pointer ring-2 px-3 text-sm md:text-lg font-semibold  py-1 rounded-xl ${onhoverBlackWhite} `}
+                        onClick={() => { updateProjectShowCount(!showAllProjects) }}>
+                        More Projects</button>
+                    <motion.span
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 100, }}
+                        animate={{ y: [0, -7, 1] }}
+                        transition={{
+                            duration: 2.5,
+                            y: { duration: 0.98, repeat: Infinity }
+                        }}
+                        className="absolute bottom-10 transform -translate-x-1/2 left-1/2 text-2xl font-extrabold "
+                        viewport={{ once: true, amount: 'all' }}
+                    >
+                        ⇣
+                    </motion.span>
+                </div>}
+        </div>
+    </div>
 }

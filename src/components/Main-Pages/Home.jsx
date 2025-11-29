@@ -94,7 +94,6 @@ const ContactComps = () => {
                 key={link.id}
                 href={link.navigateLink}
                 icon={link.icon}
-
             />
         ))}
     </>

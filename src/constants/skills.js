@@ -6,14 +6,14 @@ export const SKILLS = [
         title: 'Frontend Development',
         icon: Code2,
         iconColor: 'text-sky-600',
-        detail: 'React, Tailwind CSS, Shadcn, TypeScript'
+        detail: 'React, Tailwind CSS, Shadcn...'
     },
     {
         id: 'backend',
         title: 'Backend Development',
         icon: Server,
         iconColor: 'text-sky-600',
-        detail: 'Node.js, Express.js, RESTful APIs, AI Integration'
+        detail: 'Node.js, Express.js, RESTful APIs, AI Integration...'
     },
     {
         id: 'database',
@@ -27,6 +27,6 @@ export const SKILLS = [
         title: 'Modern Tools',
         icon: Sparkles,
         iconColor: 'text-sky-600',
-        detail: 'Git, Figma'
+        detail: 'Git, Github, Figma, Postman, Fedora...'
     },
 ];
