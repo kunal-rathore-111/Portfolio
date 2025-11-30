@@ -18,6 +18,7 @@ import { ScrollContextProvider } from "./context/ScrollContext.jsx";
 import { NavToggleContextProvider } from "./context/NavToggleContext.jsx";
 import Oneko from "./components/Oneko.jsx"; // existing import
 import ChatBubble from "./components/ChatBubble.jsx"; // chatbot component
+import { onhoverBlackWhite } from "./lib/default_Tailwind.js";
 
 export default function App() {
 
@@ -27,15 +28,13 @@ export default function App() {
         <BrowserRouter>
             <ReactLenis root options={{ smoothWheel: true, duration: 3.7 }} >
                 <ScrollHandler />
-                <Oneko />
+                {/*  <Oneko /> */}
                 {/* Chatbot floating widget */}
                 <ChatBubble />
                 <div className="w-screen flex box-border ">
 
-                    {/*<div className="m-5 text-lgflex justify-center fixed gap-2 bg-gray-800  dark:bg-black text-emerald-300 dark:text-lime-400  px-2 py-1.5 ring-2 rounded-xl z-111" > Project status- Working... </div>
- */}
                     {/* dark mode toggle button */}
-                    <button className="fixed z-12 dark:bg-black border-2 dark:border-white right-4 top-4 md:right-10 md:top-5 bg-gray-50 p-2 shadow-md rounded-lg transition duration-600 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black"
+                    <button className={`fixed z-12  right-4 top-4 md:right-10 md:top-5 p-2 shadow-md rounded-lg ${onhoverBlackWhite}`}
                         onClick={toggleMode}>
                         {isDark ? <SunMedium strokeWidth={1.5} /> : <Moon strokeWidth={1.5} />}
                     </button>

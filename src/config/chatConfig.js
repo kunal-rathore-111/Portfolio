@@ -1,7 +1,7 @@
 // Chat configuration similar to sleek-portfolio but adapted for Vite React
 // You can expand these arrays with real data from your portfolio.
 
-import profile from '@/assets/profile.png';
+import logo from '@/assets/logo.png';
 
 export const about = {
     name: "Kunal's Portfolio Assistant",
@@ -10,7 +10,7 @@ export const about = {
 
 export const heroConfig = {
     name: about.name,
-    avatar: profile,
+    avatar: logo,
     skills: [
         { name: 'HTML' },
         { name: 'CSS' },

@@ -12,7 +12,7 @@ export const NavComps = ({ toggle }) => {
         { ref: HomeRef, label: "Home", Icon: HomeIcon },
         { ref: AboutRef, label: "About", Icon: AboutIcon },
         { ref: ProjectsRef, label: "Projects", Icon: ProjectIcon },
-        { ref: ReadsRef, label: "Reads", Icon: ReadsIcon }
+        { ref: ReadsRef, label: "Reads", Icon: ReadsIcon },
     ]
 
     return (<>
