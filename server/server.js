@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { GoogleGenerativeAI } from '@google/generative-ai';
-import rateLimit from 'express-rate-limit'; // <-- Add this line
+import rateLimit from 'express-rate-limit';
 
 dotenv.config();
 
@@ -33,16 +33,11 @@ function sanitizeInput(input) {
   return String(input).trim().slice(0, 1500);
 }
 
-function getClientIP(req) {
-  return req.headers['x-forwarded-for']?.split(',')[0].trim() || req.socket.remoteAddress || 'unknown';
-}
-
-// Remove custom rate limit logic here
 
 // Add express-rate-limit middleware
 const chatLimiter = rateLimit({
   windowMs: Number(process.env.RATE_LIMIT_WINDOW_MS) || 60000, // 30s
-  max: Number(process.env.RATE_LIMIT_MAX_REQUESTS) || 8, // default 8 requests per window per IP
+  max: Number(process.env.RATE_LIMIT_MAX_REQUESTS) || 8, // default 8 requests per 30s window per IP
   standardHeaders: true,
   legacyHeaders: false,
   message: (req, res) => {
@@ -127,6 +122,10 @@ app.post('/api/chat', chatLimiter, async (req, res) => {
     }
   }
 });
+
+
+
+
 
 app.listen(PORT, () => {
   console.log(`✅ Server running on http://localhost:${PORT}`);
