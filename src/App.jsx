@@ -28,7 +28,7 @@ export default function App() {
         <BrowserRouter>
             <ReactLenis root options={{ smoothWheel: true, duration: 3.7 }} >
                 <ScrollHandler />
-                <Oneko />
+                {/*  <Oneko /> */}
                 {/* Chatbot floating widget */}
                 <ChatBubble />
                 <div className="w-screen flex box-border ">

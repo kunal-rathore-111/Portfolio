@@ -8,6 +8,7 @@ import { useEffect } from "react";
 
 import { SOCIAL_LINKS } from "@/constants";
 import { IconLink } from "@/components/common/IconLink";
+import { headerSharedColor } from "@/lib/default_Tailwind";
 
 const codeString = `const Profile = {
   name: 'Kunal Rathore',
@@ -63,8 +64,7 @@ export const HomePage = () => {
 
 const GreetComp = () => {
     return <div>
-        <h1 className="text-3xl md:text-4xl font-[300] 
-                text-[#4B0096] dark:text-yellow-300" >Hey there!, I'm-
+        <h1 className={`text-3xl md:text-4xl font-[300] ${headerSharedColor}`} >Hey there!, I'm-
         </h1>
 
         <div className="pl-0 md:pl-3 flex flex-col gap-4 md:gap-6 w-full md:w-[600px]">
@@ -72,6 +72,9 @@ const GreetComp = () => {
             </h1>
             <DiscComp />
             <div className="flex gap-4 pl-2">
+
+                <ResumeComp />
+
                 <ContactComps />
             </div>
         </div>
@@ -87,6 +90,16 @@ const DiscComp = () => {
 
 }
 
+const ResumeComp = () => {
+    return <a
+        href="/resume.pdf"
+        download
+        className="inline-flex items-center gap-2 px-3 py-2 rounded-2xl text-lg font-light transition-colors duration-700 cursor-pointer bg-black text-white dark:bg-white dark:text-black hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white"
+    >
+        Resume
+    </a >
+}
+
 const ContactComps = () => {
     return <>
         {SOCIAL_LINKS.map((link) => (
@@ -96,6 +109,7 @@ const ContactComps = () => {
                 icon={link.icon}
             />
         ))}
+
     </>
 }
 

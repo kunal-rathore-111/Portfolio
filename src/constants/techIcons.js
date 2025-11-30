@@ -25,6 +25,8 @@ import SocketIoIcon from '@/assets/icons/technologies/SocketIo';
 import DockerIcon from '@/assets/icons/technologies/Docker';
 import LinkIcon from '@/assets/icons/technologies/Link';
 import ReadmoreIcon from '@/assets/icons/technologies/Readmore';
+import PostgresIcon from '@/assets/icons/technologies/Postgres';
+import DrizzleIcon from '@/assets/icons/technologies/Drizzle';
 
 export const TECH_ICONS = {
     React: ReactIcon,
@@ -53,4 +55,6 @@ export const TECH_ICONS = {
     Docker: DockerIcon,
     Link: LinkIcon,
     Readmore: ReadmoreIcon,
+    Postgres: PostgresIcon,
+    Drizzle: DrizzleIcon,
 };
