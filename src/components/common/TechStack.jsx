@@ -5,7 +5,7 @@ import { TechBadge } from './TechBadge';
 export function TechStack({ technologies, className }) {
     return (
         <span className={cn(
-            "flex justify-start gap-4 bg-[#EDE8DC] dark:bg-gray-700",
+            "flex flex-wrap justify-start gap-2 md:gap-4 bg-[#EDE8DC] dark:bg-gray-700",
             "w-fit p-2 rounded px-3 py-1.5",
             className
         )}>

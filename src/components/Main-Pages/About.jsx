@@ -3,10 +3,12 @@ import { SKILLIcons } from "@/constants";
 import { PageHeader } from "../common/PageHeader";
 import { HighLightText } from "../common/HighLightText";
 import { TechStack } from "../common/TechStack";
+import { motion } from "framer-motion";
+import { animations } from "@/lib/animations";
 
 export const AboutPage = () => {
     {/* second section  */ }
-    return <section className="h-full w-full flex flex-col items-center justify-evenly gap-10 md:gap-25 p-4 md:p-0" >
+    return <motion.section {...animations.fadeInUp} className="h-full w-full flex flex-col items-center justify-evenly gap-10 md:gap-25 p-4 md:p-0" >
         {/* image div */}
         <div className="h-full w-full flex flex-col md:flex-row items-center justify-evenly gap-8 md:gap-0">
             <img src={profileImg} alt="profileImg" className="rounded-xl h-60 md:h-100 shadow-xl object-cover" />
@@ -15,7 +17,7 @@ export const AboutPage = () => {
                 <AboutComp />
             </div>
         </div>
-    </section >
+    </motion.section >
 }
 
 

@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { onhoverBlackWhite } from "@/lib/default_Tailwind";
 import { PageHeader } from "../common/PageHeader";
+import { animations } from "@/lib/animations";
 
 
 
@@ -17,10 +18,10 @@ export const ProjectsPage = () => {
     const ProjectsArray = PROJECTS.slice(0, showAllProjects ? PROJECTS.length : 3);
 
 
-    return <div className="h-full flex flex-col p-2 font-light ">
+    return <div className="h-full flex flex-col p-2 font-light overflow-x-hidden">
         <PageHeader val={'02.'} subheading={"Some Things"} mainHeading={"I've Built"} />
 
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-4 overflow-x-hidden w-full max-w-full">
             {ProjectsArray.map((props, i) => {
                 // passing the data in p and the 0 or 1 for condtional alignment 
                 const index = i % 2;
@@ -37,11 +38,13 @@ export const ProjectsPage = () => {
 
 const ProjectInfoDiv = () => {
     const { index } = useProject();
+    const slideAnimation = index ? animations.slideFromRight : animations.slideFromLeft;
+
     return (
-        <div className={`flex flex-col md:flex-row items-center ${index ? "md:justify-start" : "md:justify-end"} relative mx-0 md:mx-4 my-10 md:my-20 gap-5 md:gap-0`}>
+        <motion.div {...slideAnimation} className={`flex flex-col md:flex-row items-center ${index ? "md:justify-start" : "md:justify-end"} relative mx-0 md:mx-4 my-10 md:my-20 gap-5 md:gap-0`}>
             <ProjectImageDiv />
             <ProjectTextDiv />
-        </div >)
+        </motion.div >)
 }
 
 const ProjectImageDiv = () => {
@@ -56,7 +59,7 @@ const ProjectImageDiv = () => {
         <img
             src={props.image}
             alt={props?.topicName || "Project preview"}
-            className="h-[32vh] md:h-[64vh] w-full md:w-[46vw] object-cover transition-transform duration-500 group-hover:scale-105"
+            className="h-[28vh] md:h-[52vh] w-full md:w-[46vw] object-cover transition-transform duration-500 group-hover:scale-105"
         />
     </div>)
 }
@@ -67,7 +70,7 @@ const ProjectTextDiv = () => {
     const { props, index } = useProject();
     return <section className={`w-full md:w-[48vw] ${index ? "md:right-0 md:items-end" : "md:left-0 md:items-start"} flex flex-col justify-center p-0 md:p-4 static md:absolute gap-2 z-10`}>
         <span className="text-2xl md:text-2xl text-slate-900 dark:text-gray-300">
-            <span className="pr-1 dark:text-lime-400 text-red-600">{props?.no}.</span>
+            <span className="pr-1 text-red-600 dark:text-yellow-300">{props?.no}.</span>
             {props?.topicName}
         </span>
         <ProjectDiscriptionDiv />
@@ -81,10 +84,20 @@ const ProjectDiscriptionDiv = () => {
     return <div className={`flex flex-col ${index ? "md:items-end" : "md:items-start"} gap-4 ml-0 md:ml-2 w-full`}>
 
         <div className={`bg-green-400 dark:bg-gray-900 shadow-sm shadow-slate-900 rounded-sm p-4 flex flex-col ${index ? "md:items-end" : "md:items-start"} gap-5 w-full`}  >
-
             <p className="text-sm md:text-base">{props?.discription}
                 {/* extras like the demo email, role and all */}
-                {props?.extras ? <p className="whitespace-pre-line mt-2">{props.extras}</p> : ""}
+                {props?.extras && (
+                    <span>
+                        <br />
+                        <span className="inline-block mt-3 p-2 bg-amber-50 dark:bg-gray-800 border-l-4 border-amber-500 dark:border-emerald-500 rounded-md">
+                            <span className="flex items-start gap-2">
+                                <span className=" text-xs md:text-sm font-mono text-amber-900 dark:text-gray-100">
+                                    <span className="whitespace-pre-line opacity-90 block">{props.extras}</span>
+                                </span>
+                            </span>
+                        </span>
+                    </span>
+                )}
             </p>
             <TechnologyIcons />
 

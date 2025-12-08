@@ -1,5 +1,5 @@
 
 export const SKILLIcons = [
-    'JavaScript', 'TypeScript', 'NodeJs', 'ExpressJs', 'MongoDB', 'React', 'Postman', 'SocketIo', 'Postgres', 'Drizzle'
+    'JavaScript', 'TypeScript', 'React', 'NodeJs', 'ExpressJs', 'MongoDB', 'Postman', 'SocketIo', 'Postgres', 'Drizzle'
 ];
 
