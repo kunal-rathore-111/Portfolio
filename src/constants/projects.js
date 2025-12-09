@@ -23,7 +23,7 @@ export const PROJECTS = [
         discription: 'A sleek dark theme for Visual Studio Code designed for developers. Provides balanced contrast, vibrant syntax highlighting, and smooth visual flow to maintain focus during extended coding sessions. Ensures consistency and readability across all UI elements.',
         techStack: ['JSON', 'VS', 'Cursor', 'Mdx', 'Git'],
         github: 'https://github.com/kunal-rathore-111/dark-dev-theme.git',
-        deployLink: 'https://marketplace.visualstudio.com/items?itemName=KunalRathore.kunal-dark-dev-theme',
+        deployLink: 'https://marketplace.visualstudio.com/items?itemName=KunalRathore.dark-dev-theme',
         readmore: 'will add later',
         image: themeProjectPng,
     },
