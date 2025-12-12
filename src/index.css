@@ -6,6 +6,13 @@
 
 body {
   overflow-x: hidden;
+  overscroll-behavior-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+html {
+  scroll-behavior: smooth;
+  overscroll-behavior-y: auto;
 }
 
 @theme inline {

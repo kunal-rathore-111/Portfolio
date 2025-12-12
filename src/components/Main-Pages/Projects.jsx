@@ -19,7 +19,9 @@ export const ProjectsPage = () => {
 
 
     return <div className="h-full flex flex-col p-2 font-light overflow-x-hidden">
-        <PageHeader val={'02.'} subheading={"Some Things"} mainHeading={"I've Built"} />
+        <motion.div {...animations.fadeInUp}>
+            <PageHeader val={'02.'} subheading={"Some Things"} mainHeading={"I've Built"} />
+        </motion.div>
 
         <div className="flex flex-col gap-4 overflow-x-hidden w-full max-w-full">
             {ProjectsArray.map((props, i) => {
@@ -38,10 +40,9 @@ export const ProjectsPage = () => {
 
 const ProjectInfoDiv = () => {
     const { index } = useProject();
-    const slideAnimation = index ? animations.slideFromRight : animations.slideFromLeft;
 
     return (
-        <motion.div {...slideAnimation} className={`flex flex-col md:flex-row items-center ${index ? "md:justify-start" : "md:justify-end"} relative mx-0 md:mx-4 my-10 md:my-20 gap-5 md:gap-0`}>
+        <motion.div {...animations.fadeInUp} className={`flex flex-col md:flex-row items-center ${index ? "md:justify-start" : "md:justify-end"} relative mx-0 md:mx-4 my-10 md:my-20 gap-5 md:gap-0`}>
             <ProjectImageDiv />
             <ProjectTextDiv />
         </motion.div >)
@@ -59,6 +60,8 @@ const ProjectImageDiv = () => {
         <img
             src={props.image}
             alt={props?.topicName || "Project preview"}
+            loading="lazy"
+            decoding="async"
             className="h-[28vh] md:h-[52vh] w-full md:w-[46vw] object-cover transition-transform duration-500 group-hover:scale-105"
         />
     </div>)
@@ -70,7 +73,7 @@ const ProjectTextDiv = () => {
     const { props, index } = useProject();
     return <section className={`w-full md:w-[48vw] ${index ? "md:right-0 md:items-end" : "md:left-0 md:items-start"} flex flex-col justify-center p-0 md:p-4 static md:absolute gap-2 z-10`}>
         <span className="text-2xl md:text-2xl text-slate-900 dark:text-gray-300">
-            <span className="pr-1 text-red-600 dark:text-yellow-300">{props?.no}.</span>
+            <span className="pr-1 text-red-500 dark:text-yellow-300">{props?.no}.</span>
             {props?.topicName}
         </span>
         <ProjectDiscriptionDiv />

@@ -15,10 +15,10 @@ export const animations = {
         },
         viewport: { once: true, amount: 0.25 },
         transition: {
-            duration: 0.7,
+            duration: 0.8,
             ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic-bezier for smoothness
-            opacity: { duration: 0.5 },
-            scale: { duration: 0.6 }
+            opacity: { duration: 0.7 },
+            scale: { duration: 0.8 }
         }
     },
 

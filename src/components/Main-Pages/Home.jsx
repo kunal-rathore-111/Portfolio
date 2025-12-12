@@ -9,9 +9,7 @@ import React from "react";
 
 import { SOCIAL_LINKS } from "@/constants";
 import { IconLink } from "@/components/common/IconLink";
-import { headerSharedColor } from "@/lib/default_Tailwind";
 import { motion } from "framer-motion";
-import { animations } from "@/lib/animations";
 
 const codeString = `const Profile = {
   name: 'Kunal Rathore',
@@ -53,9 +51,13 @@ export const HomePage = () => {
 
             {/* right part, code themed my info */}
             <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ delay: 2.0, duration: 0.5, ease: "easeOut" }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                    delay: 1.0,
+                    duration: 0.8,
+                    ease: [0.25, 0.1, 0.25, 1]
+                }}
                 className="bg-gradient-to-r from-purple-400 via-violet-400 to-pink-400 p-1 rounded-sm w-full md:w-auto max-w-[90vw] md:max-w-none overflow-x-auto"
             >
                 <pre className="!m-0">
@@ -71,50 +73,55 @@ export const HomePage = () => {
 
 
 const GreetComp = () => {
-    return <motion.div
-        initial={{ clipPath: "inset(0 0 100% 0)" }}
-        animate={{ clipPath: "inset(0 0 0% 0)" }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
-    >
-        {/* Left to right reveal for greeting - very long */}
+    return <>
+        {/* Greeting text */}
         <motion.h1
-            initial={{ clipPath: "inset(0 100% 0 0)" }}
-            animate={{ clipPath: "inset(0 0% 0 0)" }}
-            transition={{ duration: 3.0, ease: "easeOut", delay: 0.3 }}
-            className={`text-3xl md:text-4xl font-[300] ${headerSharedColor}`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+                delay: 0.2,
+                duration: 0.8,
+                ease: [0.25, 0.1, 0.25, 1]
+            }}
+            className={`text-3xl md:text-4xl font-[300] text-red-500 dark:text-yellow-300`}
         >
             Hey there!, I'm-
         </motion.h1>
 
         <div className="pl-0 md:pl-3 flex flex-col gap-4 md:gap-6 w-full md:w-[600px]">
-            {/* Kunal Rathore - very long, dramatic entrance */}
+            {/* Name */}
             <motion.h1
-                initial={{ opacity: 0, x: -150, filter: "blur(10px)" }}
-                animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{
-                    duration: 2.5,
-                    delay: 0.8,
-                    ease: [0.22, 1, 0.36, 1]
+                    delay: 0.4,
+                    duration: 0.8,
+                    ease: [0.25, 0.1, 0.25, 1]
                 }}
                 className="text-8xl md:text-[150px] font-[600] text-black dark:text-gray-200 leading-tight"
             >
                 Kunal Rathore
             </motion.h1>
+
+            {/* Description */}
             <DiscComp />
-            {/* Resume and GitHub buttons - appear after description */}
+
+            {/* Buttons */}
             <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 2.5, duration: 0.4 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                    delay: 0.8,
+                    duration: 0.8,
+                    ease: [0.25, 0.1, 0.25, 1]
+                }}
                 className="flex gap-4 pl-2"
             >
-
                 <ResumeComp />
-
                 <ContactComps />
             </motion.div>
         </div>
-    </motion.div >
+    </>
 }
 
 const DiscComp = () => {
@@ -129,15 +136,19 @@ const DiscComp = () => {
     React.useEffect(() => {
         const interval = setInterval(() => {
             setCurrentIndex((prev) => (prev + 1) % descriptions.length);
-        }, 4500); // Change every 4.5 seconds - faster switching
+        }, 4000); // 4 seconds per description
 
         return () => clearInterval(interval);
     }, []);
 
     return <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2.0, duration: 0.4 }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+            delay: 0.6,
+            duration: 0.8,
+            ease: [0.25, 0.1, 0.25, 1]
+        }}
         className="relative h-28 overflow-hidden"
     >
         {descriptions.map((text, index) => {
@@ -147,12 +158,15 @@ const DiscComp = () => {
             return (
                 <motion.p
                     key={index}
-                    initial={{ opacity: 0, x: 100 }}
+                    initial={{ opacity: 0, y: 40 }}
                     animate={{
                         opacity: isActive ? 1 : 0,
-                        x: isActive ? 0 : isPrev ? -100 : 100
+                        y: isActive ? 0 : isPrev ? -40 : 40
                     }}
-                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                    transition={{
+                        duration: 0.7,
+                        ease: [0.25, 0.1, 0.25, 1]
+                    }}
                     className="absolute top-0 left-0 text-xl md:text-3xl font-[400] w-full"
                 >
                     {text.split('.')[0]}.

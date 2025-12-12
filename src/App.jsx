@@ -7,9 +7,53 @@ import { SunMedium, Moon } from "lucide-react";
 import { useDarkMode } from "@/hooks/useDarkMode";
 
 import { ReactLenis, useLenis } from "lenis/react";
+import { motion, useSpring } from "framer-motion";
+import { useEffect } from "react";
 
 function ScrollHandler() {
     useLenis((lenis) => { })
+}
+
+// Spring wrapper component for overscroll effect
+function SpringWrapper({ children }) {
+    const y = useSpring(0, { stiffness: 300, damping: 30, restDelta: 0.001 });
+
+    useEffect(() => {
+        const handleWheel = (e) => {
+            // Optimization: Check direction first to avoid unnecessary layout reads
+            if (e.deltaY === 0) return;
+
+            const scrollTop = window.scrollY;
+
+            // At top - trying to scroll up
+            if (scrollTop === 0 && e.deltaY < 0) {
+                e.preventDefault();
+                const stretch = Math.min(Math.abs(e.deltaY) * 0.7, 150);
+                y.set(stretch);
+                setTimeout(() => y.set(0), 100);
+                return;
+            }
+
+            // At bottom - trying to scroll down
+            // Only read layout properties if we are scrolling down
+            if (e.deltaY > 0) {
+                const clientHeight = window.innerHeight;
+                const scrollHeight = document.documentElement.scrollHeight;
+
+                if (scrollTop + clientHeight >= scrollHeight - 2) {
+                    e.preventDefault();
+                    const stretch = Math.min(e.deltaY * 0.7, 150);
+                    y.set(-stretch);
+                    setTimeout(() => y.set(0), 100);
+                }
+            }
+        };
+
+        window.addEventListener('wheel', handleWheel, { passive: false });
+        return () => window.removeEventListener('wheel', handleWheel);
+    }, [y]);
+
+    return <motion.div style={{ y, width: '100%' }}>{children}</motion.div>;
 }
 
 import { ErrorPage } from "./components/Main-Pages/ErrorPage.jsx";
@@ -19,6 +63,7 @@ import { NavToggleContextProvider } from "./context/NavToggleContext.jsx";
 import Oneko from "./components/Oneko.jsx"; // existing import
 import ChatBubble from "./components/ChatBubble.jsx"; // chatbot component
 import { onhoverBlackWhite } from "./lib/default_Tailwind.js";
+import { TooltipProvider } from "./components/tooltip.jsx";
 
 export default function App() {
 
@@ -26,7 +71,14 @@ export default function App() {
 
     return (
         <BrowserRouter>
-            <ReactLenis root options={{ smoothWheel: true, duration: 3.7 }} >
+            <ReactLenis root options={{
+                smoothWheel: true,
+                duration: 3.65,
+                infinite: false,
+                gestureOrientation: 'vertical',
+                smoothTouch: false,
+                touchMultiplier: 2
+            }} >
                 <ScrollHandler />
                 {/*  <Oneko /> */}
                 {/* Chatbot floating widget */}
@@ -40,20 +92,24 @@ export default function App() {
                     </button>
 
                     <ScrollContextProvider>
-                        {/* navbar */}
-                        <NavToggleContextProvider>
-                            <Nav></Nav>
+                        <TooltipProvider>
+                            {/* navbar */}
+                            <NavToggleContextProvider>
+                                <Nav></Nav>
 
-                            {/* Main pages*/}
-                            <Routes>
-                                <Route path="/" element={
-                                    <div className="w-full flex flex-col text-black bg-white dark:text-white dark:bg-black">
-                                        <MainComp />
-                                    </div>
-                                } />
-                                <Route path="/*" element={<ErrorPage />} />
-                            </Routes>
-                        </NavToggleContextProvider>
+                                {/* Main pages*/}
+                                <Routes>
+                                    <Route path="/" element={
+                                        <SpringWrapper>
+                                            <div className="w-full flex flex-col text-black bg-white dark:text-white dark:bg-black">
+                                                <MainComp />
+                                            </div>
+                                        </SpringWrapper>
+                                    } />
+                                    <Route path="/*" element={<ErrorPage />} />
+                                </Routes>
+                            </NavToggleContextProvider>
+                        </TooltipProvider>
                     </ScrollContextProvider>
 
                 </div >
