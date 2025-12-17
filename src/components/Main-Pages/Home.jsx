@@ -33,6 +33,38 @@ const codeString = `const Profile = {
   }};`;
 
 
+// OrbitLine Component for background effect - SVG for professional smoothness
+const OrbitLine = ({ width, height, rotate, opacity, color, blur = 0, className }) => (
+    <div
+        className={`absolute animate-float ${className || ''}`}
+        style={{
+            width,
+            height,
+            '--rotate': rotate,
+            transform: `rotate(${rotate})`,
+            zIndex: 0,
+            pointerEvents: 'none'
+        }}
+    >
+        <svg
+            viewBox="0 0 100 100"
+            className="w-full h-full overflow-visible"
+            style={{ opacity, filter: `blur(${blur}px)` }}
+        >
+            <ellipse
+                cx="50"
+                cy="50"
+                rx="49.5"
+                ry="49.5"
+                fill="none"
+                stroke={color}
+                strokeWidth="1.2" // Increased to "little bold"
+                vectorEffect="non-scaling-stroke" // Keeps stroke constant regardless of scale
+            />
+        </svg>
+    </div>
+);
+
 
 export const HomePage = () => {
 
@@ -42,14 +74,50 @@ export const HomePage = () => {
     }, []);
 
     return (
-        <section className="h-full w-full flex flex-col xl:flex-row items-center justify-between gap-10 md:gap-0 p-4 md:p-0" >
+        /* Changed layout to centered column, removed xl:flex-row and justify-between */
+        <section className="min-h-screen w-full flex flex-col items-center justify-center gap-10 p-4 md:p-0 relative overflow-hidden" >
 
-            {/* left part for greeting and name */}
-            <div className="flex flex-col justify-center h-full gap-4 w-full md:w-auto">
+            {/* Orbit Background Effect - Refined Composition */}
+            <div className="absolute top-0 left-0 w-full h-[150vh] overflow-hidden pointer-events-none z-0">
+                {/* Large outer arc - Peach */}
+                <OrbitLine
+                    width="190vw" // Increased spread
+                    height="190vh"
+                    className="top-[-35%] left-[-80%] md:top-[-50%] md:left-[-25%]"
+                    rotate="45deg"
+                    opacity={0.7}
+                    color="#FDBA74"
+                    blur={1} // Slight blur for depth
+                />
+
+                {/* Medium intersection - Cyan */}
+                <OrbitLine
+                    width="150vw" // Increased spread
+                    height="150vh"
+                    className="top-[10%] left-[10%] md:top-[5%] md:left-[20%]"
+                    rotate="-15deg"
+                    opacity={0.6}
+                    color="#22D3EE"
+                />
+
+                {/* Smaller focused arc - Purple */}
+                <OrbitLine
+                    width="120vw" // Increased spread
+                    height="120vh"
+                    className="top-[45%] left-[-40%] md:top-[40%] md:left-[-15%]"
+                    rotate="35deg"
+                    opacity={0.8}
+                    color="#A78BFA"
+                />
+            </div>
+
+            {/* left part for greeting and name - Now Centered - Added z-10 to stay above orbits */}
+            <div className="flex flex-col justify-center items-center h-full gap-4 w-full md:w-auto text-center z-10 relative">
                 <GreetComp />
             </div>
 
-            {/* right part, code themed my info */}
+            {/* right part, code themed my info - COMMENTED OUT AS REQUESTED */}
+            {/* 
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -65,7 +133,8 @@ export const HomePage = () => {
                         {codeString}
                     </code>
                 </pre>
-            </motion.div>
+            </motion.div> 
+            */}
         </section >
 
     )
@@ -85,10 +154,11 @@ const GreetComp = () => {
             }}
             className={`text-3xl md:text-4xl font-[300] text-red-500 dark:text-yellow-300`}
         >
-            Hey there!, I'm-
+            👋Hey there!, I'm-
         </motion.h1>
 
-        <div className="pl-0 md:pl-3 flex flex-col gap-4 md:gap-6 w-full md:w-[600px]">
+        {/* Removed padding-left (pl-3) to ensure true center alignment */}
+        <div className="flex flex-col gap-4 md:gap-6 w-full md:w-auto items-center">
             {/* Name */}
             <motion.h1
                 initial={{ opacity: 0, y: 20 }}
@@ -98,7 +168,7 @@ const GreetComp = () => {
                     duration: 0.8,
                     ease: [0.25, 0.1, 0.25, 1]
                 }}
-                className="text-8xl md:text-[150px] font-[600] text-black dark:text-gray-200 leading-tight"
+                className="text-[14vw] sm:text-7xl md:text-[148px] font-[600] text-black dark:text-gray-200 leading-tight text-center whitespace-nowrap"
             >
                 Kunal Rathore
             </motion.h1>
@@ -106,7 +176,7 @@ const GreetComp = () => {
             {/* Description */}
             <DiscComp />
 
-            {/* Buttons */}
+            {/* Buttons - Centered */}
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -115,7 +185,7 @@ const GreetComp = () => {
                     duration: 0.8,
                     ease: [0.25, 0.1, 0.25, 1]
                 }}
-                className="flex gap-4 pl-2"
+                className="flex gap-4 justify-center" // Removed pl-2, added justify-center
             >
                 <ResumeComp />
                 <ContactComps />
@@ -149,7 +219,7 @@ const DiscComp = () => {
             duration: 0.8,
             ease: [0.25, 0.1, 0.25, 1]
         }}
-        className="relative h-28 overflow-hidden"
+        className="relative h-28 overflow-hidden w-full flex justify-center" // Added flex justify-center
     >
         {descriptions.map((text, index) => {
             const isActive = currentIndex === index;
@@ -167,7 +237,7 @@ const DiscComp = () => {
                         duration: 0.7,
                         ease: [0.25, 0.1, 0.25, 1]
                     }}
-                    className="absolute top-0 left-0 text-xl md:text-3xl font-[400] w-full"
+                    className="absolute top-0 left-0 text-xl md:text-3xl font-[400] w-full text-center" // Added text-center
                 >
                     {text.split('.')[0]}.
                     <span className="text-gray-600 dark:text-slate-400 font-[300]">
@@ -201,4 +271,3 @@ const ContactComps = () => {
 
     </>
 }
-

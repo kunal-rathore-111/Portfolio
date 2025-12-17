@@ -10,7 +10,7 @@ export const PROJECTS = [
         topicName: 'Research Paper Copilot',
         discription: 'An AI-powered backend system for researchers to discover, analyze, and summarize academic papers. Features multi-agent architecture using Google\'s Gemini AI and arXiv API, streamlining research with intelligent insights and efficient data retrieval.',
         techStack: ['React', 'Figma', 'NodeJs', 'ExpressJs', 'MongoDB', 'Gemini', 'Arxiv'],
-        extras: 'Role: Backend Developer, Team Superwiser',
+        extras: 'Role: Backend Developer,\n  Team Superwiser',
         github: 'https://github.com/kunal-rathore-111/MINOR_PROJECT',
         deployLink: 'https://minor-deploy-64gx.vercel.app',
         readmore: 'will add later',

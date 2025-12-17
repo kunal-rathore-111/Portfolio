@@ -10,6 +10,7 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
+
 html {
   scroll-behavior: smooth;
   overscroll-behavior-y: auto;
@@ -130,4 +131,23 @@ html {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Custom Animation for Orbit Effect */
+@keyframes float {
+  0% {
+    transform: translate(0, 0) rotate(var(--rotate, 0deg));
+  }
+
+  50% {
+    transform: translate(20px, -20px) rotate(var(--rotate, 0deg));
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(var(--rotate, 0deg));
+  }
+}
+
+.animate-float {
+  animation: float 10s ease-in-out infinite;
 }
