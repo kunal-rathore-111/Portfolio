@@ -11,17 +11,18 @@ export const AboutPage = () => {
     return <section className="h-full w-full flex flex-col items-center justify-evenly gap-10 md:gap-25 p-4 md:p-0" >
         {/* image div */}
         <div className="h-full w-full flex flex-col md:flex-row items-center justify-evenly gap-8 md:gap-0">
+
+            {/* rigth part for about me */}
+            <div className="flex flex-col justify-center gap-8 w-full md:w-[50%] ">
+                <AboutComp />
+            </div>
             {/* Image - animates with first paragraph */}
             <motion.img
                 {...animations.fadeInUp}
                 src={profileImg}
                 alt="profileImg"
-                className="rounded-xl h-60 md:h-100 shadow-xl object-cover"
+                className="rounded-xl h-60 md:h-90 shadow-xl object-cover"
             />
-            {/* rigth part for about me */}
-            <div className="flex flex-col justify-center gap-8 w-full md:w-[50%] ">
-                <AboutComp />
-            </div>
         </div>
     </section >
 }
@@ -61,7 +62,7 @@ const AboutComp = () => {
 
 
 const SkillsComponent = () => {
-    return <p className="px-3 py-2 font-extrabold flex flex-col gap-2 text-2xl ">
+    return <p className="px-3 py-2 font-medium flex flex-col gap-2 text-2xl ">
         Skills <TechStack technologies={SKILLIcons} className={''} />
     </p>
 }

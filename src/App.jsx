@@ -56,8 +56,9 @@ function SpringWrapper({ children }) {
     return <motion.div style={{ y, width: '100%' }}>{children}</motion.div>;
 }
 
-import { ErrorPage } from "./components/Main-Pages/ErrorPage.jsx";
 import { MainComp } from "./components/Main-Pages/Main.jsx";
+import { ErrorPage } from "./components/Main-Pages/ErrorPage.jsx";
+import { ProjectInfoPage } from "./components/Main-Pages/ProjectInfoPage.jsx";
 import { ScrollContextProvider } from "./context/ScrollContext.jsx";
 import { NavToggleContextProvider } from "./context/NavToggleContext.jsx";
 import Oneko from "./components/Oneko.jsx"; // existing import
@@ -106,6 +107,7 @@ export default function App() {
                                             </div>
                                         </SpringWrapper>
                                     } />
+                                    <Route path="/project/:id" element={<ProjectInfoPage />} />
                                     <Route path="/*" element={<ErrorPage />} />
                                 </Routes>
                             </NavToggleContextProvider>

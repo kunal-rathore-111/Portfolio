@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { HomeIcon, ProjectIcon, AboutIcon, ReadsIcon } from "../../assets/icons/sideBarIcon";
 import { useScrollContext } from "@/context/ScrollContext";
 import { useScrollTo } from "@/hooks/useScrollTo";
@@ -8,6 +8,21 @@ export const NavComps = ({ toggle }) => {
     const { HomeRef, AboutRef, ProjectsRef, ReadsRef } = useScrollContext();
     const scrollTo = useScrollTo();
     const activeSection = useActiveSection({ HomeRef, AboutRef, ProjectsRef, ReadsRef });
+
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const handleScroll = (ref, label) => {
+        // Clear saved scroll position to prevent restoration logic from kicking in
+        // This ensures clicking "Home" starts fresh at the target section
+        sessionStorage.removeItem('scrollPosition');
+
+        if (location.pathname !== '/') {
+            navigate('/', { state: { scrollTo: label } });
+        } else {
+            scrollTo(ref);
+        }
+    }
 
     const navItems = [
         { ref: HomeRef, label: "Home", Icon: HomeIcon },
@@ -27,7 +42,7 @@ export const NavComps = ({ toggle }) => {
                                active:scale-95 active:text-red-600 dark:active:text-yellow-400
                                md:hover:bg-gray-100 dark:md:hover:bg-gray-800 md:rounded-lg md:px-2
                                ${isActive ? 'text-red-500 dark:text-yellow-300' : ''}`}
-                    onClick={() => scrollTo(ref)}>
+                    onClick={() => handleScroll(ref, label)}>
                     {toggle ? <Icon strokeWidth={1.5} className="transition-transform duration-300" /> : <span className="font-medium">{label}</span>}
                 </div>
             })

@@ -4,6 +4,8 @@ import { TechStack } from "@/components/common/TechStack";
 import { ProjectContextProvider, useProject } from "@/context/ProjectContext";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useLenis } from "lenis/react";
 import { onhoverBlackWhite } from "@/lib/default_Tailwind";
 import { PageHeader } from "../common/PageHeader";
 import { animations } from "@/lib/animations";
@@ -13,16 +15,28 @@ import { cn } from "@/lib/utils";
 
 /* main function of the file */
 export const ProjectsPage = () => {
-    const [showAllProjects, updateProjectShowCount] = useState(false);
+    // Initialize state from sessionStorage if available, ensuring it's a boolean
+    const [showAllProjects, updateProjectShowCount] = useState(() => {
+        const saved = sessionStorage.getItem('showAllProjects');
+        return saved === 'true';
+    });
+
+    // Update sessionStorage whenever state changes
+    const handleUpdateShowCount = (newState) => {
+        updateProjectShowCount(newState);
+        sessionStorage.setItem('showAllProjects', newState.toString());
+    };
+
     const ProjectsArray = PROJECTS.slice(0, showAllProjects ? PROJECTS.length : 3);
 
 
     return <div className="h-full flex flex-col p-2 font-light overflow-x-hidden">
-        <motion.div {...animations.fadeInUp}>
-            <PageHeader val={'02.'} subheading={"Some Things"} mainHeading={"I've Built"} />
-        </motion.div>
+
 
         <div className="flex flex-col gap-4 overflow-x-hidden w-full max-w-full">
+            <motion.div {...animations.fadeInUp}>
+                <PageHeader val={'02.'} subheading={"Some Things"} mainHeading={"I've Built"} />
+            </motion.div>
             {ProjectsArray.map((props, i) => {
                 const index = i % 2;
                 const val = { props, index };
@@ -31,8 +45,8 @@ export const ProjectsPage = () => {
                 </ProjectContextProvider>
             })}
         </div>
-        <LoadMoreProjects showAllProjects={showAllProjects} updateProjectShowCount={updateProjectShowCount} />
-    </div>
+        <LoadMoreProjects showAllProjects={showAllProjects} updateProjectShowCount={handleUpdateShowCount} />
+    </div >
 }
 
 
@@ -132,22 +146,34 @@ const TechnologyIcons = () => {
 /* Reverted to Simple Icons + AppWindow */
 const LinksForMoreDiv = () => {
     const { props } = useProject();
+    const navigate = useNavigate();
+    const lenis = useLenis();
     const GithubIcon = TECH_ICONS.Github;
     const ReadmoreIcon = TECH_ICONS.Readmore;
 
     const onhoverScale = "transition-transform duration-400 hover:scale-125";
 
+    const handleNavigation = () => {
+        // Save current scroll position
+        const scrollPos = window.scrollY;
+        sessionStorage.setItem('scrollPosition', scrollPos.toString());
+
+        navigate(`/project/${props.id}`);
+    }
+
     return (
-        <div className="flex gap-3 ml-0 md:ml-2">
+        <div className="flex gap-3 ml-0 md:ml-2 flex items-center">
             <a href={props.github} target="_blank" rel="noopener noreferrer" className={onhoverScale}><GithubIcon /></a>
-            <a href={props.deployLink} target="_blank" rel="noopener noreferrer" className={onhoverScale}><AppWindow className="w-6 h-6" /></a>
+            <a href={props.deployLink} target="_blank" rel="noopener noreferrer" className={onhoverScale}><Globe className="w-6 h-6" /></a>
 
             {/* Share / Learn More - Pill Button */}
-            <a href=" need to implement later via useNavigate SPA "
-                className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-full text-sm font-medium text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors ml-auto md:ml-0">
+            <button
+                onClick={handleNavigation}
+                className="flex items-center gap-2 px-3 py-2 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-full text-sm font-medium text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors ml-auto md:ml-0"
+            >
                 Learn more
                 <ArrowRight className="w-4 h-4" />
-            </a>
+            </button>
         </div>
     )
 }

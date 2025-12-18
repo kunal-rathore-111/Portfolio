@@ -197,7 +197,7 @@ const GreetComp = () => {
 const DiscComp = () => {
     const descriptions = [
         "Software Engineer Student. A self-taught full-stack developer with an interest in Computer Science.",
-        "Building scalable web applications. Turning ideas into real, functional products.",
+        "Building scalable web applications. \nTurning ideas into real, functional products.",
         "Passionate about AI and modern web technologies. Always learning, always building."
     ];
 
