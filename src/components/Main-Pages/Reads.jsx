@@ -1,17 +1,20 @@
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, BookOpen } from 'lucide-react';
 import ReadCard from '../ReadCard.jsx';
 import { PageHeader } from "../common/PageHeader";
 import { useQuery } from '@tanstack/react-query';
 import { API_URL } from '@/config/api';
+import { useLoadingContext } from '@/context/LoadingContext';
 
 // TODO: Replace these with actual values from the user or environment variables
 const BACKEND_URL = "https://2nd-mind-backend.vercel.app/app/v2";
 const SHARE_HASH = "651fc01baab9917efc55573a00b5d0f94cdaf54a6c436f64c596d63b15f865d1";
 
 export const ReadsPage = () => {
+    const { registerLoader, markLoaderComplete } = useLoadingContext();
 
-    const { data: reads = [], isLoading: loading, error } = useQuery({
+    const { data: reads = [], isLoading: loading, error, isSuccess } = useQuery({
         queryKey: ['reads'],
         queryFn: async () => {
             const response = await fetch(`${API_URL}/api/reads`);
@@ -27,6 +30,17 @@ export const ReadsPage = () => {
         },
         staleTime: Infinity, // Fetch once and cache for the entire session
     });
+
+    // Register this loader on mount and mark complete when data arrives
+    useEffect(() => {
+        registerLoader('reads');
+    }, [registerLoader]);
+
+    useEffect(() => {
+        if (isSuccess || error) {
+            markLoaderComplete('reads');
+        }
+    }, [isSuccess, error, markLoaderComplete]);
 
     if (SHARE_HASH === "PLACEHOLDER_HASH") {
         return (

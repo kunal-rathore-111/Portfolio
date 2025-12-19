@@ -6,8 +6,11 @@ import { PageHeader } from "../common/PageHeader";
 import { animations } from '@/lib/animations';
 import { useQuery } from '@tanstack/react-query';
 import { API_URL } from '@/config/api';
+import { useLoadingContext } from '@/context/LoadingContext';
 
 export const ExtrasPage = () => {
+    const { registerLoader, markLoaderComplete } = useLoadingContext();
+
     // Detect dark mode from DOM class
     const [isDark, setIsDark] = useState(() =>
         document.documentElement.classList.contains('dark')
@@ -22,7 +25,7 @@ export const ExtrasPage = () => {
         return () => observer.disconnect();
     }, []);
 
-    const { data, isLoading, error } = useQuery({
+    const { data, isLoading, error, isSuccess } = useQuery({
         queryKey: ['githubStats'],
         queryFn: async () => {
             const response = await fetch(`${API_URL}/api/github`);
@@ -40,6 +43,17 @@ export const ExtrasPage = () => {
         },
         staleTime: Infinity, // Fetch once and cache for the entire session
     });
+
+    // Register this loader on mount and mark complete when data arrives
+    useEffect(() => {
+        registerLoader('github');
+    }, [registerLoader]);
+
+    useEffect(() => {
+        if (isSuccess || error) {
+            markLoaderComplete('github');
+        }
+    }, [isSuccess, error, markLoaderComplete]);
 
     // Red for light mode, Yellow for dark mode
     const explicitTheme = {

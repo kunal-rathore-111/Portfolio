@@ -83,9 +83,6 @@ export const ReadDetail = () => {
         );
     }
 
-    // Default image if missing
-    const displayImage = post.image || "https://images.unsplash.com/photo-1499750310159-53f0f88a52b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80";
-
     // Format date
     const displayDate = post.date_created ? new Date(post.date_created).toLocaleDateString('en-US', {
         year: 'numeric',
@@ -94,6 +91,9 @@ export const ReadDetail = () => {
     }) : "Unknown Date";
 
     const displayTags = post.tags || [];
+
+    // Check if post has a valid image
+    const hasValidImage = post.image && post.image.trim() !== '';
 
     return (
         <div className="min-h-screen w-full bg-white dark:bg-black text-slate-900 dark:text-white font-light overflow-x-hidden pt-20 pb-20">
@@ -107,19 +107,21 @@ export const ReadDetail = () => {
                     <ArrowLeft className="w-4 h-4" /> Back to posts
                 </motion.button>
 
-                {/* Hero Image */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="w-full aspect-video rounded-3xl overflow-hidden shadow-2xl border border-gray-100 dark:border-white/10"
-                >
-                    <img
-                        src={displayImage}
-                        alt={post.title}
-                        className="w-full h-full object-cover"
-                    />
-                </motion.div>
+                {/* Hero Image - Only show if post has a valid image */}
+                {hasValidImage && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="w-full aspect-video rounded-3xl overflow-hidden shadow-2xl border border-gray-100 dark:border-white/10"
+                    >
+                        <img
+                            src={post.image}
+                            alt={post.title}
+                            className="w-full h-full object-cover"
+                        />
+                    </motion.div>
+                )}
 
                 {/* Date and Category/Tags - Below Image */}
                 <motion.div
@@ -224,12 +226,6 @@ export const ReadDetail = () => {
                         Share this post
                     </h3>
                     <div className="flex flex-wrap gap-3">
-                        <button className="px-6 py-3 rounded-full transition-all bg-gray-100 text-black hover:bg-gray-200 border border-gray-200 dark:bg-white/10 dark:text-white dark:hover:bg-white/20 dark:border-white/20">
-                            Twitter
-                        </button>
-                        <button className="px-6 py-3 rounded-full transition-all bg-gray-100 text-black hover:bg-gray-200 border border-gray-200 dark:bg-white/10 dark:text-white dark:hover:bg-white/20 dark:border-white/20">
-                            LinkedIn
-                        </button>
                         <button
                             onClick={() => {
                                 navigator.clipboard.writeText(window.location.href);

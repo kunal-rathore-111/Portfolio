@@ -66,6 +66,8 @@ import { TooltipProvider } from "./components/tooltip.jsx";
 
 import { ReadDetail } from "./components/Main-Pages/ReadDetail.jsx";
 import { AllProjectsPage } from "./components/Main-Pages/AllProjectsPage.jsx";
+import { CinematicIntro } from "./components/CinematicIntro.jsx";
+import { LoadingProvider } from "./context/LoadingContext.jsx";
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
@@ -77,54 +79,59 @@ export default function App() {
 
     return (
         <QueryClientProvider client={queryClient}>
-            <BrowserRouter>
-                <ReactLenis root options={{
-                    smoothWheel: true,
-                    duration: 3.65,
-                    infinite: false,
-                    gestureOrientation: 'vertical',
-                    smoothTouch: false,
-                    touchMultiplier: 2
-                }} >
+            <LoadingProvider>
+                <BrowserRouter>
+                    {/* Welcome Intro - shows once per session */}
+                    <CinematicIntro />
+
+                    <ReactLenis root options={{
+                        smoothWheel: true,
+                        duration: 3.65,
+                        infinite: false,
+                        gestureOrientation: 'vertical',
+                        smoothTouch: false,
+                        touchMultiplier: 2
+                    }} >
 
 
-                    {/* Chatbot floating widget */}
-                    <ChatBubble />
-                    <div className="w-screen flex box-border ">
+                        {/* Chatbot floating widget */}
+                        <ChatBubble />
+                        <div className="w-screen flex box-border ">
 
-                        {/* dark mode toggle button */}
-                        <button className={`fixed z-12  right-4 top-4 md:right-10 md:top-5 p-2 shadow-md rounded-lg ${onhoverBlackWhite}`}
-                            onClick={toggleMode}>
-                            {isDark ? <SunMedium strokeWidth={1.5} /> : <Moon strokeWidth={1.5} />}
-                        </button>
+                            {/* dark mode toggle button */}
+                            <button className={`fixed z-12  right-4 top-4 md:right-10 md:top-5 p-2 shadow-md rounded-lg ${onhoverBlackWhite}`}
+                                onClick={toggleMode}>
+                                {isDark ? <SunMedium strokeWidth={1.5} /> : <Moon strokeWidth={1.5} />}
+                            </button>
 
-                        <ScrollContextProvider>
-                            <TooltipProvider>
-                                {/* navbar */}
-                                <NavToggleContextProvider>
-                                    <Nav></Nav>
+                            <ScrollContextProvider>
+                                <TooltipProvider>
+                                    {/* navbar */}
+                                    <NavToggleContextProvider>
+                                        <Nav></Nav>
 
-                                    {/* Main pages*/}
-                                    <Routes>
-                                        <Route path="/" element={
-                                            <SpringWrapper>
-                                                <div className="w-full flex flex-col text-black bg-white dark:text-white dark:bg-black">
-                                                    <MainComp />
-                                                </div>
-                                            </SpringWrapper>
-                                        } />
-                                        <Route path="/project/:id" element={<ProjectInfoPage />} />
-                                        <Route path="/all-projects" element={<AllProjectsPage />} />
-                                        <Route path="/read/:id" element={<ReadDetail />} />
-                                        <Route path="/*" element={<ErrorPage />} />
-                                    </Routes>
-                                </NavToggleContextProvider>
-                            </TooltipProvider>
-                        </ScrollContextProvider>
+                                        {/* Main pages*/}
+                                        <Routes>
+                                            <Route path="/" element={
+                                                <SpringWrapper>
+                                                    <div className="w-full flex flex-col text-black bg-white dark:text-white dark:bg-black">
+                                                        <MainComp />
+                                                    </div>
+                                                </SpringWrapper>
+                                            } />
+                                            <Route path="/project/:id" element={<ProjectInfoPage />} />
+                                            <Route path="/all-projects" element={<AllProjectsPage />} />
+                                            <Route path="/read/:id" element={<ReadDetail />} />
+                                            <Route path="/*" element={<ErrorPage />} />
+                                        </Routes>
+                                    </NavToggleContextProvider>
+                                </TooltipProvider>
+                            </ScrollContextProvider>
 
-                    </div >
-                </ReactLenis >
-            </BrowserRouter >
+                        </div >
+                    </ReactLenis >
+                </BrowserRouter >
+            </LoadingProvider>
         </QueryClientProvider>
     )
 

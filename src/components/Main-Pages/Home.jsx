@@ -46,8 +46,8 @@ export const HomePage = () => {
     // useEffect for highlighing code
 
     return (
-        /* Changed layout to centered column, removed xl:flex-row and justify-between */
-        <section className="min-h-screen w-full flex flex-col items-center justify-center gap-10 p-4 md:p-0 relative overflow-hidden" >
+        /* Left aligned below xl (1280px), centered on xl+ */
+        <section className="min-h-screen w-full flex flex-col items-start xl:items-center justify-center gap-10 p-4 md:p-0 relative overflow-hidden" >
 
             {/* Orbit Background Effect - Refined Composition */}
             <div className="absolute top-0 left-0 w-full h-[150vh] overflow-hidden pointer-events-none z-0">
@@ -83,8 +83,8 @@ export const HomePage = () => {
                 />
             </div>
 
-            {/* left part for greeting and name - Now Centered - Added z-10 to stay above orbits */}
-            <div className="flex flex-col justify-center items-center h-full gap-4 w-full md:w-auto text-center z-10 relative">
+            {/* left part for greeting and name - Left below xl, Centered on xl+ */}
+            <div className="flex flex-col justify-center items-start xl:items-center h-full gap-4 w-full md:w-auto text-left xl:text-center z-10 relative px-4 md:px-8 xl:px-0">
                 <GreetComp />
             </div>
 
@@ -111,8 +111,8 @@ const GreetComp = () => {
             👋Hey there!, I'm-
         </motion.h1>
 
-        {/* Removed padding-left (pl-3) to ensure true center alignment */}
-        <div className="flex flex-col gap-4 md:gap-6 w-full md:w-auto items-center">
+        {/* Left aligned below xl, centered on xl+ */}
+        <div className="flex flex-col gap-4 md:gap-6 w-full md:w-auto items-start xl:items-center">
             {/* Name */}
             <motion.h1
                 initial={{ opacity: 0, y: 20 }}
@@ -122,7 +122,7 @@ const GreetComp = () => {
                     duration: 0.8,
                     ease: [0.25, 0.1, 0.25, 1]
                 }}
-                className="text-[14vw] sm:text-7xl md:text-[148px] font-[600] text-black dark:text-gray-200 leading-tight text-center whitespace-nowrap"
+                className="text-[14vw] sm:text-7xl md:text-[148px] font-[600] text-black dark:text-gray-200 leading-tight text-left xl:text-center xl:whitespace-nowrap"
             >
                 Kunal Rathore
             </motion.h1>
@@ -139,7 +139,7 @@ const GreetComp = () => {
                     duration: 0.8,
                     ease: [0.25, 0.1, 0.25, 1]
                 }}
-                className="flex gap-4 justify-center" // Removed pl-2, added justify-center
+                className="flex gap-4 justify-start xl:justify-center"
             >
                 <ResumeComp />
                 <ContactComps />
@@ -173,7 +173,7 @@ const DiscComp = () => {
             duration: 0.8,
             ease: [0.25, 0.1, 0.25, 1]
         }}
-        className="relative h-28 overflow-hidden w-full flex justify-center" // Added flex justify-center
+        className="relative h-28 overflow-hidden w-full flex justify-start xl:justify-center"
     >
         {descriptions.map((text, index) => {
             const isActive = currentIndex === index;
@@ -191,7 +191,7 @@ const DiscComp = () => {
                         duration: 0.7,
                         ease: [0.25, 0.1, 0.25, 1]
                     }}
-                    className="absolute top-0 left-0 text-xl md:text-3xl font-[400] w-full text-center" // Added text-center
+                    className="absolute top-0 left-0 text-xl md:text-3xl font-[400] w-full text-left xl:text-center"
                 >
                     {text.split('.')[0]}.
                     <span className="text-gray-600 dark:text-slate-400 font-[300]">
