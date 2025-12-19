@@ -9,25 +9,17 @@ import { useLenis } from "lenis/react";
 import { onhoverBlackWhite } from "@/lib/default_Tailwind";
 import { PageHeader } from "../common/PageHeader";
 import { animations } from "@/lib/animations";
-import { ArrowUpRight, ArrowRight, Globe, Github, AppWindow } from "lucide-react"; // Using ArrowRight, Globe, Github
+import { ArrowRight, Globe, Github } from "lucide-react"; // Using ArrowRight, Globe, Github
 import { cn } from "@/lib/utils";
 
 
 /* main function of the file */
 export const ProjectsPage = () => {
     // Initialize state from sessionStorage if available, ensuring it's a boolean
-    const [showAllProjects, updateProjectShowCount] = useState(() => {
-        const saved = sessionStorage.getItem('showAllProjects');
-        return saved === 'true';
-    });
+    const navigate = useNavigate();
 
-    // Update sessionStorage whenever state changes
-    const handleUpdateShowCount = (newState) => {
-        updateProjectShowCount(newState);
-        sessionStorage.setItem('showAllProjects', newState.toString());
-    };
 
-    const ProjectsArray = PROJECTS.slice(0, showAllProjects ? PROJECTS.length : 3);
+    const ProjectsArray = PROJECTS.slice(0, 2);
 
 
     return <div className="h-full flex flex-col p-2 font-light overflow-x-hidden">
@@ -45,7 +37,20 @@ export const ProjectsPage = () => {
                 </ProjectContextProvider>
             })}
         </div>
-        <LoadMoreProjects showAllProjects={showAllProjects} updateProjectShowCount={handleUpdateShowCount} />
+        <div className="flex justify-center mt-10">
+            <button
+                onClick={() => {
+                    sessionStorage.setItem('scrollPosition', window.scrollY.toString());
+                    navigate('/all-projects');
+                }}
+                className={`group relative px-6 py-3 text-lg font-medium overflow-hidden rounded-full transition-all duration-300 ${onhoverBlackWhite} border border-black dark:border-white`}
+            >
+                <span className="relative z-10 flex items-center gap-2">
+                    Show All Projects
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </span>
+            </button>
+        </div>
     </div >
 }
 
@@ -123,7 +128,7 @@ const ProjectInfoDiv = () => {
 
 const ProjectImageDiv = () => {
     const { props } = useProject();
-    return (<div className="relative rounded-xl overflow-hidden shadow-2xl border-2 border-gray-200 dark:border-gray-700 group h-full">
+    return (<div className="relative rounded-xl overflow-hidden shadow-2xl border-2 border-gray-200 dark:border-gray-700 group h-full w-full aspect-video">
         {/* Previous Gradient Logic: z-20 overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-purple-500/40 via-red-500/40 to-blue-500/40 dark:from-green-500/30 dark:via-emerald-400/25 dark:to-teal-500/30 z-20 transition-opacity duration-500 md:group-hover:opacity-0 pointer-events-none mix-blend-multiply dark:mix-blend-overlay"></div>
 
@@ -147,7 +152,6 @@ const TechnologyIcons = () => {
 const LinksForMoreDiv = () => {
     const { props } = useProject();
     const navigate = useNavigate();
-    const lenis = useLenis();
     const GithubIcon = TECH_ICONS.Github;
     const ReadmoreIcon = TECH_ICONS.Readmore;
 
@@ -179,28 +183,4 @@ const LinksForMoreDiv = () => {
 }
 
 
-const LoadMoreProjects = ({ showAllProjects, updateProjectShowCount }) => {
-    return <div className="flex justify-center relative mt-10">
-        <div className=" group ">
-            {showAllProjects ? null :
-                <div>
-                    <button className={`cursor-pointer ring-2 px-3 text-sm md:text-lg font-semibold  py-1 rounded-xl ${onhoverBlackWhite} `}
-                        onClick={() => { updateProjectShowCount(!showAllProjects) }}>
-                        More Projects</button>
-                    <motion.span
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 100, }}
-                        animate={{ y: [0, -7, 1] }}
-                        transition={{
-                            duration: 3.2,
-                            y: { duration: 0.98, repeat: Infinity }
-                        }}
-                        className="absolute bottom-10 transform -translate-x-1/2 left-1/2 text-2xl font-extrabold "
-                        viewport={{ once: true, amount: 'all' }}
-                    >
-                        ⇣
-                    </motion.span>
-                </div>}
-        </div>
-    </div>
-}
+

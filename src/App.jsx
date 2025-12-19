@@ -10,9 +10,7 @@ import { ReactLenis, useLenis } from "lenis/react";
 import { motion, useSpring } from "framer-motion";
 import { useEffect } from "react";
 
-function ScrollHandler() {
-    useLenis((lenis) => { })
-}
+
 
 // Spring wrapper component for overscroll effect
 function SpringWrapper({ children }) {
@@ -61,63 +59,73 @@ import { ErrorPage } from "./components/Main-Pages/ErrorPage.jsx";
 import { ProjectInfoPage } from "./components/Main-Pages/ProjectInfoPage.jsx";
 import { ScrollContextProvider } from "./context/ScrollContext.jsx";
 import { NavToggleContextProvider } from "./context/NavToggleContext.jsx";
-import Oneko from "./components/Oneko.jsx"; // existing import
+
 import ChatBubble from "./components/ChatBubble.jsx"; // chatbot component
 import { onhoverBlackWhite } from "./lib/default_Tailwind.js";
 import { TooltipProvider } from "./components/tooltip.jsx";
+
+import { ReadDetail } from "./components/Main-Pages/ReadDetail.jsx";
+import { AllProjectsPage } from "./components/Main-Pages/AllProjectsPage.jsx";
+
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
 
 export default function App() {
 
     const { isDark, toggle: toggleMode } = useDarkMode();
 
     return (
-        <BrowserRouter>
-            <ReactLenis root options={{
-                smoothWheel: true,
-                duration: 3.65,
-                infinite: false,
-                gestureOrientation: 'vertical',
-                smoothTouch: false,
-                touchMultiplier: 2
-            }} >
-                <ScrollHandler />
-                {/*  <Oneko /> */}
-                {/* Chatbot floating widget */}
-                <ChatBubble />
-                <div className="w-screen flex box-border ">
+        <QueryClientProvider client={queryClient}>
+            <BrowserRouter>
+                <ReactLenis root options={{
+                    smoothWheel: true,
+                    duration: 3.65,
+                    infinite: false,
+                    gestureOrientation: 'vertical',
+                    smoothTouch: false,
+                    touchMultiplier: 2
+                }} >
 
-                    {/* dark mode toggle button */}
-                    <button className={`fixed z-12  right-4 top-4 md:right-10 md:top-5 p-2 shadow-md rounded-lg ${onhoverBlackWhite}`}
-                        onClick={toggleMode}>
-                        {isDark ? <SunMedium strokeWidth={1.5} /> : <Moon strokeWidth={1.5} />}
-                    </button>
 
-                    <ScrollContextProvider>
-                        <TooltipProvider>
-                            {/* navbar */}
-                            <NavToggleContextProvider>
-                                <Nav></Nav>
+                    {/* Chatbot floating widget */}
+                    <ChatBubble />
+                    <div className="w-screen flex box-border ">
 
-                                {/* Main pages*/}
-                                <Routes>
-                                    <Route path="/" element={
-                                        <SpringWrapper>
-                                            <div className="w-full flex flex-col text-black bg-white dark:text-white dark:bg-black">
-                                                <MainComp />
-                                            </div>
-                                        </SpringWrapper>
-                                    } />
-                                    <Route path="/project/:id" element={<ProjectInfoPage />} />
-                                    <Route path="/*" element={<ErrorPage />} />
-                                </Routes>
-                            </NavToggleContextProvider>
-                        </TooltipProvider>
-                    </ScrollContextProvider>
+                        {/* dark mode toggle button */}
+                        <button className={`fixed z-12  right-4 top-4 md:right-10 md:top-5 p-2 shadow-md rounded-lg ${onhoverBlackWhite}`}
+                            onClick={toggleMode}>
+                            {isDark ? <SunMedium strokeWidth={1.5} /> : <Moon strokeWidth={1.5} />}
+                        </button>
 
-                </div >
-            </ReactLenis >
-        </BrowserRouter >
+                        <ScrollContextProvider>
+                            <TooltipProvider>
+                                {/* navbar */}
+                                <NavToggleContextProvider>
+                                    <Nav></Nav>
 
+                                    {/* Main pages*/}
+                                    <Routes>
+                                        <Route path="/" element={
+                                            <SpringWrapper>
+                                                <div className="w-full flex flex-col text-black bg-white dark:text-white dark:bg-black">
+                                                    <MainComp />
+                                                </div>
+                                            </SpringWrapper>
+                                        } />
+                                        <Route path="/project/:id" element={<ProjectInfoPage />} />
+                                        <Route path="/all-projects" element={<AllProjectsPage />} />
+                                        <Route path="/read/:id" element={<ReadDetail />} />
+                                        <Route path="/*" element={<ErrorPage />} />
+                                    </Routes>
+                                </NavToggleContextProvider>
+                            </TooltipProvider>
+                        </ScrollContextProvider>
+
+                    </div >
+                </ReactLenis >
+            </BrowserRouter >
+        </QueryClientProvider>
     )
 
 

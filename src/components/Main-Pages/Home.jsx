@@ -1,9 +1,3 @@
-
-// using prism for styling code block of profile
-import Prism from "prismjs";
-import "../../assets/styles/prism-holi-theme.css"
-
-import "prismjs/components/prism-javascript"; // importing language
 import { useEffect } from "react";
 import React from "react";
 
@@ -11,26 +5,7 @@ import { SOCIAL_LINKS } from "@/constants";
 import { IconLink } from "@/components/common/IconLink";
 import { motion } from "framer-motion";
 
-const codeString = `const Profile = {
-  name: 'Kunal Rathore',
-  title: 'Full-Stack Developer | Problem Solver',
 
-  technologies: [
-    'C', 'C++', 'HTML', 'CSS', 'JS', 'NODE.js',
-    'Express', 'MySQL', 'MongoDB', 'REACT',
-    'Typescript', 'Figma', 'Git', 'Linux-OS',
-    Understanding more...
-  ],
-
-  problemSolver: true,
-  hireable: function () {
-    return (
-      this.hardWorker &&
-      this.problemSolver &&
-      this.skills.length >= 5 &&
-      this.enjoy's_whatever_he_do
-    );
-  }};`;
 
 
 // OrbitLine Component for background effect - SVG for professional smoothness
@@ -69,9 +44,6 @@ const OrbitLine = ({ width, height, rotate, opacity, color, blur = 0, className 
 export const HomePage = () => {
 
     // useEffect for highlighing code
-    useEffect(() => {
-        Prism.highlightAll();
-    }, []);
 
     return (
         /* Changed layout to centered column, removed xl:flex-row and justify-between */
@@ -116,25 +88,7 @@ export const HomePage = () => {
                 <GreetComp />
             </div>
 
-            {/* right part, code themed my info - COMMENTED OUT AS REQUESTED */}
-            {/* 
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                    delay: 1.0,
-                    duration: 0.8,
-                    ease: [0.25, 0.1, 0.25, 1]
-                }}
-                className="bg-gradient-to-r from-purple-400 via-violet-400 to-pink-400 p-1 rounded-sm w-full md:w-auto max-w-[90vw] md:max-w-none overflow-x-auto"
-            >
-                <pre className="!m-0">
-                    <code className="language-javascript text-xs md:text-base">
-                        {codeString}
-                    </code>
-                </pre>
-            </motion.div> 
-            */}
+            {/* right part, code themed my info - REMOVED */}
         </section >
 
     )

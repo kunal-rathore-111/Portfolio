@@ -1,6 +1,9 @@
 
-
 node_modules/
 dist/
 .env
 node_modules
+
+# TEMPORARY - Remove after committing tomorrow
+src/components/Main-Pages/Extras.jsx
+server/githubController.js

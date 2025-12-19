@@ -9,9 +9,37 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+import { getGitHubData } from './githubController.js';
+import { getReadsData } from './readsController.js';
+
+
 // Added: trust proxy for reverse proxies
 const isTrustProxy = process.env.isTrustProxy ? true : false;
 app.set('trust proxy', isTrustProxy);
+
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://127.0.0.1:5173',
+  process.env.CORS_ORIGIN
+].filter(Boolean);
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true); // Allow non-browser requests
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      console.log(`[CORS] Blocked request from: ${origin}`);
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+}));
+
+// GitHub API Route
+app.get('/api/github', getGitHubData);
+// Reads API Route
+app.get('/api/reads', getReadsData);
 
 // Added: server-side prompt with ENV override (first-person voice)
 const SYSTEM_PROMPT = [
@@ -22,10 +50,6 @@ const SYSTEM_PROMPT = [
   'Be friendly, professional, and helpful.',
 ].join(' ');
 
-app.use(cors({
-  origin: process.env.CORS_ORIGIN || 'http://localhost:5173',
-  credentials: true,
-}));
 
 app.use(express.json());
 
