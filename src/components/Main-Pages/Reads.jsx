@@ -3,6 +3,7 @@ import { ArrowRight, BookOpen } from 'lucide-react';
 import ReadCard from '../ReadCard.jsx';
 import { PageHeader } from "../common/PageHeader";
 import { useQuery } from '@tanstack/react-query';
+import { API_URL } from '@/config/api';
 
 // TODO: Replace these with actual values from the user or environment variables
 const BACKEND_URL = "https://2nd-mind-backend.vercel.app/app/v2";
@@ -13,7 +14,7 @@ export const ReadsPage = () => {
     const { data: reads = [], isLoading: loading, error } = useQuery({
         queryKey: ['reads'],
         queryFn: async () => {
-            const response = await fetch('http://localhost:5000/api/reads');
+            const response = await fetch(`${API_URL}/api/reads`);
             if (!response.ok) {
                 throw new Error('Failed to fetch reads');
             }

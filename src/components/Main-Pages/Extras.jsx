@@ -5,6 +5,7 @@ import { Tooltip as ReactTooltip } from 'react-tooltip';
 import { PageHeader } from "../common/PageHeader";
 import { animations } from '@/lib/animations';
 import { useQuery } from '@tanstack/react-query';
+import { API_URL } from '@/config/api';
 
 export const ExtrasPage = () => {
     // Detect dark mode from DOM class
@@ -24,7 +25,7 @@ export const ExtrasPage = () => {
     const { data, isLoading, error } = useQuery({
         queryKey: ['githubStats'],
         queryFn: async () => {
-            const response = await fetch('http://localhost:5000/api/github');
+            const response = await fetch(`${API_URL}/api/github`);
             if (!response.ok) {
                 throw new Error('Failed to fetch stats');
             }

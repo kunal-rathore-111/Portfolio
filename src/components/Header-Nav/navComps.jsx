@@ -3,11 +3,14 @@ import { HomeIcon, ProjectIcon, AboutIcon, ReadsIcon } from "../../assets/icons/
 import { useScrollContext } from "@/context/ScrollContext";
 import { useScrollTo } from "@/hooks/useScrollTo";
 import { useActiveSection } from "@/hooks/useActiveSection";
+import { useQueryClient } from "@tanstack/react-query";
+import { API_URL } from "@/config/api";
 
 export const NavComps = ({ toggle }) => {
     const { HomeRef, AboutRef, ProjectsRef, ReadsRef } = useScrollContext();
     const scrollTo = useScrollTo();
     const activeSection = useActiveSection({ HomeRef, AboutRef, ProjectsRef, ReadsRef });
+    const queryClient = useQueryClient();
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -23,6 +26,22 @@ export const NavComps = ({ toggle }) => {
             scrollTo(ref);
         }
     }
+
+    // Prefetch data on hover for faster loading
+    const handleHover = (label) => {
+        if (label === 'Reads') {
+            queryClient.prefetchQuery({
+                queryKey: ['reads'],
+                queryFn: async () => {
+                    const response = await fetch(`${API_URL}/api/reads`);
+                    if (!response.ok) throw new Error('Failed to fetch reads');
+                    const data = await response.json();
+                    return data.result?.slice(0, 5) || [];
+                },
+                staleTime: Infinity,
+            });
+        }
+    };
 
     const navItems = [
         { ref: HomeRef, label: "Home", Icon: HomeIcon },
@@ -42,7 +61,8 @@ export const NavComps = ({ toggle }) => {
                                active:scale-95 active:text-red-600 dark:active:text-yellow-400
                                md:hover:bg-gray-100 dark:md:hover:bg-gray-800 md:rounded-lg md:px-2
                                ${isActive ? 'text-red-500 dark:text-yellow-300' : ''}`}
-                    onClick={() => handleScroll(ref, label)}>
+                    onClick={() => handleScroll(ref, label)}
+                    onMouseEnter={() => handleHover(label)}>
                     {toggle ? <Icon strokeWidth={1.5} className="transition-transform duration-300" /> : <span className="font-medium">{label}</span>}
                 </div>
             })

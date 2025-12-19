@@ -9,6 +9,7 @@ import { ScrollArea } from '@/components/ui/scroll-area.jsx';
 import { chatSuggestions, heroConfig, systemPrompt } from '@/config/chatConfig.js';
 import ReactMarkdown from 'react-markdown';
 import { cn } from '@/lib/utils';
+import { API_URL } from '@/config/api';
 
 const initialMessages = [
 	{
@@ -45,18 +46,7 @@ export default function ChatBubble() {
 				parts: [{ text: msg.text }],
 			}));
 
-			// Prefer env, otherwise use a dev-friendly fallback to the Node server
-			const apiBase =
-				import.meta.env.VITE_API_BASE ??
-				((window?.location?.hostname === 'localhost' || window?.location?.hostname === '127.0.0.1')
-					? 'http://localhost:5000/api'
-					: '/api');
-
-			if (!import.meta.env.VITE_API_BASE) {
-				console.warn('[Chat] VITE_API_BASE not set. Using fallback:', apiBase);
-			}
-
-			const response = await fetch(`${apiBase}/chat`, {
+			const response = await fetch(`${API_URL}/api/chat`, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ message: messageText, history, systemPrompt }),
