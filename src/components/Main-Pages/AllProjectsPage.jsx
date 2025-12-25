@@ -1,5 +1,6 @@
 import { PROJECTS } from "@/constants";
 import { ProjectContextProvider, useProject } from "@/context/ProjectContext";
+import { useNavToggleContextProvider } from "@/context/NavToggleContext";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Github, Globe } from "lucide-react";
@@ -23,10 +24,12 @@ export const AllProjectsPage = () => {
         navigate('/');
     };
 
+    const { toggle } = useNavToggleContextProvider();
+
     return (
-        <div className="min-h-screen w-full bg-white dark:bg-black text-black dark:text-white p-4 md:p-8">
+        <div className={`min-h-screen w-full bg-white dark:bg-black text-black dark:text-white p-4 md:py-8 md:pr-8 ${toggle ? "md:pl-[10vw]" : "md:pl-[13vw]"}`}>
             {/* Header */}
-            <div className="max-w-7xl mx-auto mb-12 pt-4">
+            <div className="max-w-6xl mx-auto mb-12 pt-4">
                 <button
                     onClick={handleBack}
                     className="group flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors mb-6"
@@ -53,7 +56,7 @@ export const AllProjectsPage = () => {
             </div>
 
             {/* Grid */}
-            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 pb-20">
+            <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 pb-20">
                 {PROJECTS.map((project, index) => (
                     <ProjectContextProvider key={project.id} value={{ props: project, index }}>
                         <ProjectCard index={index} />

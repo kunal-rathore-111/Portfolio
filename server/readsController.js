@@ -3,7 +3,7 @@
 export const getReadsData = async (req, res) => {
     try {
         const BACKEND_URL = "https://2nd-mind-backend.vercel.app/app/v2";
-        const SHARE_HASH = "651fc01baab9917efc55573a00b5d0f94cdaf54a6c436f64c596d63b15f865d1";
+        const SHARE_HASH = "837601c51b76284a22c91d086a5252a2d42f56df5b40f80e6fcae86e42cf4717";
 
         const response = await fetch(`${BACKEND_URL}/user/public/${SHARE_HASH}`);
 

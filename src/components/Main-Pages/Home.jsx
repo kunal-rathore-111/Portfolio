@@ -207,7 +207,7 @@ const ResumeComp = () => {
     return <a
         href="/resume.pdf"
         download
-        className="inline-flex items-center gap-2 px-3 py-2 rounded-2xl text-lg font-light transition-colors duration-700 cursor-pointer bg-black text-white dark:bg-white dark:text-black hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white"
+        className="inline-flex items-center gap-2 px-3 py-2 rounded-2xl text-xl transition-colors duration-700 cursor-pointer bg-black text-white dark:bg-white dark:text-black hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white"
     >
         Resume
     </a >

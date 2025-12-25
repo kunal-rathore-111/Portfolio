@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useLoadingContext } from '@/context/LoadingContext';
+
 import { useDarkMode } from '@/hooks/useDarkMode';
 import { SunMedium, Moon } from 'lucide-react';
 import { onhoverBlackWhite } from '@/lib/default_Tailwind';
@@ -14,14 +14,9 @@ export const CinematicIntro = ({ onComplete }) => {
         return 'welcome'; // 'welcome' | 'name' | 'entering' | 'done'
     });
     const [welcomeIndex, setWelcomeIndex] = useState(0);
-    const [minimumTimePassed, setMinimumTimePassed] = useState(false);
-
-    // Get loading state from context
-    const { isDataLoaded } = useLoadingContext();
 
     // Dark mode toggle
     const { isDark, toggle: toggleMode } = useDarkMode();
-
     // Different welcome variations for the animation
     const welcomeVariations = [
         "Welcome",
@@ -51,13 +46,15 @@ export const CinematicIntro = ({ onComplete }) => {
         return () => clearInterval(interval);
     }, [phase, welcomeVariations.length]);
 
-    // When data is loaded, switch from welcome to name phase
+    // Strict 3 second welcome screen, then switch to name
     useEffect(() => {
-        if (phase === 'welcome' && isDataLoaded) {
-            // Data loaded, show name
-            setPhase('name');
+        if (phase === 'welcome') {
+            const timer = setTimeout(() => {
+                setPhase('name');
+            }, 3000);
+            return () => clearTimeout(timer);
         }
-    }, [isDataLoaded, phase]);
+    }, [phase]);
 
     // After 2 seconds in name phase, trigger entering
     useEffect(() => {
@@ -180,7 +177,7 @@ export const CinematicIntro = ({ onComplete }) => {
                                         <h1 className={`text-4xl md:text-7xl font-light tracking-wide ${isDark ? 'text-white/80' : 'text-black/70'
                                             }`}>
                                             It's{' '}
-                                            <span className={`font-semibold ${isDark ? 'text-white' : 'text-black'
+                                            <span className={`font-bold text-5xl md:text-8xl block mt-2 ${isDark ? 'text-white' : 'text-black'
                                                 }`}>
                                                 Kunal Rathore
                                             </span>
@@ -203,16 +200,12 @@ export const CinematicIntro = ({ onComplete }) => {
                         {/* Skip button - bottom right */}
                         <motion.button
                             initial={{ opacity: 0 }}
-                            animate={{ opacity: (phase === 'welcome' || phase === 'name') ? 0.4 : 0 }}
-                            whileHover={{ opacity: 0.8 }}
+                            animate={{ opacity: (phase === 'welcome' || phase === 'name') ? 1 : 0 }}
                             onClick={handleSkip}
-                            className={`absolute bottom-8 right-8 text-sm tracking-widest uppercase transition-colors flex items-center gap-2 ${isDark ? 'text-white/30 hover:text-white/70' : 'text-black/30 hover:text-black/60'
+                            className={`absolute bottom-8 right-8 text-sm md:text-base font-light tracking-widest uppercase transition-colors flex items-center gap-2 ${isDark ? 'text-white' : 'text-black'
                                 }`}
                         >
-                            Skip
-                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 5l7 7-7 7M5 5l7 7-7 7" />
-                            </svg>
+                            SKIP &gt;&gt;&gt;
                         </motion.button>
                     </motion.div>
                 </>
