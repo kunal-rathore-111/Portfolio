@@ -69,15 +69,6 @@ export const ReadDetail = () => {
         }
     }, [id, post]);
 
-    const handleCopyLink = async () => {
-        try {
-            await navigator.clipboard.writeText(window.location.href);
-            setCopied(true);
-            setTimeout(() => setCopied(false), 2000);
-        } catch (err) {
-            console.error('Failed to copy:', err);
-        }
-    };
 
     if (loading) {
         return (
@@ -205,13 +196,8 @@ export const ReadDetail = () => {
                     </motion.p>
                 )}
 
-                {/* Divider */}
-                <motion.div
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ duration: 0.8, delay: 0.7 }}
-                    className={`h-px w-full ${isDark ? 'bg-white/10' : 'bg-black/10'}`}
-                />
+
+                <div className={`border-t ${isDark ? 'border-white/20' : 'border-black/20'}`} />
 
                 {/* Content */}
                 <motion.div
@@ -256,22 +242,9 @@ export const ReadDetail = () => {
                     )}
                 </motion.div>
 
-                {/* Share Section */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.9 }}
-                    className={`mt-12 pt-8 border-t ${isDark ? 'border-white/10' : 'border-black/10'}`}
-                >
-                    <h3 className="text-xl mb-4 font-semibold">Share this post</h3>
-                    <button
-                        onClick={handleCopyLink}
-                        className={`px-6 py-3 rounded-full transition-all border ${isDark ? 'bg-white/10 text-white hover:bg-white/20 border-white/20' : 'bg-gray-100 text-black hover:bg-gray-200 border-gray-200'}`}
-                    >
-                        {copied ? 'Copied!' : 'Copy Link'}
-                    </button>
-                </motion.div>
+                <div className={`border-t ${isDark ? 'border-white/20' : 'border-black/20'}`}>
+                </div>
             </div>
-        </div>
+        </div >
     );
 };
