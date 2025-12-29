@@ -85,12 +85,12 @@ export default function App() {
                     <CinematicIntro />
 
                     <ReactLenis root options={{
+                        lerp: 0.12,
+                        duration: 1.0,
                         smoothWheel: true,
-                        duration: 3.65,
+                        wheelMultiplier: 1,
+                        touchMultiplier: 2,
                         infinite: false,
-                        gestureOrientation: 'vertical',
-                        smoothTouch: false,
-                        touchMultiplier: 2
                     }} >
 
 
@@ -109,21 +109,21 @@ export default function App() {
                                     {/* navbar */}
                                     <NavToggleContextProvider>
                                         <Nav></Nav>
+                                        <SpringWrapper>
 
-                                        {/* Main pages*/}
-                                        <Routes>
-                                            <Route path="/" element={
-                                                <SpringWrapper>
+                                            {/* Main pages*/}
+                                            <Routes>
+                                                <Route path="/" element={
                                                     <div className="w-full flex flex-col text-black bg-white dark:text-white dark:bg-black">
                                                         <MainComp />
                                                     </div>
-                                                </SpringWrapper>
-                                            } />
-                                            <Route path="/project/:id" element={<ProjectInfoPage />} />
-                                            <Route path="/all-projects" element={<AllProjectsPage />} />
-                                            <Route path="/read/:id" element={<ReadDetail />} />
-                                            <Route path="/*" element={<ErrorPage />} />
-                                        </Routes>
+                                                } />
+                                                <Route path="/project/:id" element={<ProjectInfoPage />} />
+                                                <Route path="/all-projects" element={<AllProjectsPage />} />
+                                                <Route path="/read/:id" element={<ReadDetail />} />
+                                                <Route path="/*" element={<ErrorPage />} />
+                                            </Routes>
+                                        </SpringWrapper>
                                     </NavToggleContextProvider>
                                 </TooltipProvider>
                             </ScrollContextProvider>

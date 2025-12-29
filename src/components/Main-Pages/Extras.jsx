@@ -62,9 +62,11 @@ export const ExtrasPage = () => {
     };
 
     return (
-        <div className="min-h-screen flex flex-col justify-center items-center p-4 md:p-8">
+        <div className="min-h-screen flex flex-col items-center p-4">
             <motion.div
-                {...animations.fadeInUp}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
                 className="w-full max-w-5xl"
             >
                 <div className="mb-12">

@@ -27,7 +27,7 @@ export const AllProjectsPage = () => {
     const { toggle } = useNavToggleContextProvider();
 
     return (
-        <div className={`min-h-screen w-full bg-white dark:bg-black text-black dark:text-white p-4 md:py-8 md:pr-8 ${toggle ? "md:pl-[10vw]" : "md:pl-[13vw]"}`}>
+        <div className={`transition-all duration-700 min-h-screen w-full bg-white dark:bg-black text-black dark:text-white p-4 md:py-8 md:pr-8 ${toggle ? "md:pl-[10vw]" : "md:pl-[13vw]"}`}>
             {/* Header */}
             <div className="max-w-6xl mx-auto mb-12 pt-4">
                 <button
@@ -38,17 +38,17 @@ export const AllProjectsPage = () => {
                     Back to home
                 </button>
                 <motion.h1
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     className="text-4xl md:text-6xl font-light italic"
                 >
                     All <span className="not-italic font-bold">Projects</span>
                 </motion.h1>
                 <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3, duration: 0.8 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
                     className="text-gray-500 dark:text-gray-400 mt-4 text-lg"
                 >
                     Showing {PROJECTS.length} of {PROJECTS.length} projects
@@ -82,9 +82,9 @@ const ProjectCard = ({ index }) => {
 
     return (
         <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 + (index * 0.15), duration: 0.8, ease: "easeOut" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="group relative flex flex-col h-[500px] rounded-3xl overflow-hidden bg-gray-50 dark:bg-[#0a0a0a] border border-gray-100 dark:border-white/10 hover:shadow-2xl transition-all duration-300"
         >
             {/* Image Section - Takes top 60% */}

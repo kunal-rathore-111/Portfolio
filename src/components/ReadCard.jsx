@@ -1,75 +1,85 @@
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
-import { ExternalLink, Twitter, Youtube, Instagram, FileText } from 'lucide-react';
+import { ArrowUpRight, FileText, Twitter, Youtube, Instagram } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useDarkMode } from '@/hooks/useDarkMode';
 
 const ReadCard = (props) => {
-    const { id, title, link, type, description, tags } = props;
+    const { id, title, image, type, description, tags, category } = props;
     const navigate = useNavigate();
+    const { isDark } = useDarkMode();
 
-    const getIcon = () => {
-        switch (type) {
-            case 'Twitter':
-                return <Twitter className="w-5 h-5 text-blue-400" />;
-            case 'Youtube':
-                return <Youtube className="w-5 h-5 text-red-500" />;
-            case 'Instagram':
-                return <Instagram className="w-5 h-5 text-pink-500" />;
-            default:
-                return <FileText className="w-5 h-5 text-gray-500 dark:text-gray-400" />;
-        }
-    };
+    const displayType = type || category || 'Article';
+    const displayImage = image || props.imageUrl || 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800';
 
     const handleClick = (e) => {
-        // Prevent default if it was a link behaviors
         e.preventDefault();
-        if (id) {
-            // Save current scroll position for restoration (similar to Projects implementation)
-            sessionStorage.setItem('scrollPosition', window.scrollY.toString());
-            // Pass the entire props object as 'post' state to avoid re-fetching
-            navigate(`/read/${id}`, { state: { post: props } });
-        } else {
-            // Fallback for missing ID, though unlikely with real data
-            window.open(link, '_blank');
-        }
+        // Save current scroll position for restoration
+        sessionStorage.setItem('scrollPosition', window.scrollY.toString());
+        // Pass the entire props object as 'post' state to avoid re-fetching
+        navigate(`/read/${id}`, {
+            state: {
+                post: {
+                    ...props,
+                    type: displayType,
+                    image: displayImage,
+                    content: props.fullDetail || props.content,
+                    date_created: props.created_at || props.date_created
+                }
+            }
+        });
     };
 
     return (
         <motion.div
             onClick={handleClick}
-            className="block relative group overflow-hidden rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 p-6 shadow-sm hover:shadow-md dark:hover:bg-white/10 transition-all cursor-pointer"
+            className={`relative rounded-3xl overflow-hidden h-100 group cursor-pointer shadow-sm hover:shadow-xl transition-all duration-500 ${isDark ? 'bg-gray-800' : 'bg-gray-100'}`}
             whileHover={{ scale: 1.02 }}
             transition={{ type: "spring", stiffness: 300 }}
         >
-            <div className="flex items-start justify-between mb-4">
-                <div className="p-2 rounded-lg bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 group-hover:border-gray-300 dark:group-hover:border-white/20 transition-colors">
-                    {getIcon()}
-                </div>
-                <ExternalLink className="w-4 h-4 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+            {/* Background Image */}
+            <img
+                src={displayImage}
+                alt={title}
+                loading="lazy"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+
+            {/* Overlay Gradient */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+            {/* Top Info (Tags) */}
+            <div className="absolute top-4 left-4 right-12 flex flex-wrap gap-2">
+                {tags && tags.slice(0, 2).map((tag, index) => (
+                    <span
+                        key={index}
+                        className="px-3 py-1 rounded-full border border-white/40 backdrop-blur text-white text-[10px] md:text-xs"
+                    >
+                        + {tag}
+                    </span>
+                ))}
             </div>
 
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 line-clamp-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
-                {title}
-            </h3>
+            {/* Arrow Button */}
+            <div className={`absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100 bg-white text-black hover:bg-gray-100`}>
+                <ArrowUpRight className="w-5 h-5" />
+            </div>
 
-            {description && (
-                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-3">
-                    {description}
-                </p>
-            )}
-
-            {tags && tags.length > 0 && (
-                <div className="flex flex-wrap gap-2 mt-auto">
-                    {tags.map((tag, index) => (
-                        <span
-                            key={index}
-                            className="px-2 py-1 text-xs rounded-full bg-gray-100 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-white/10"
-                        >
-                            #{tag}
-                        </span>
-                    ))}
+            {/* Bottom Content */}
+            <div className="absolute bottom-0 left-0 right-0 p-6">
+                <div className="mb-2 text-[10px] md:text-xs text-white/60 font-medium uppercase tracking-wider">
+                    {displayType}
                 </div>
-            )}
+                <h3 className="text-xl font-bold text-white mb-2 line-clamp-2 transition-colors">
+                    {title}
+                </h3>
+
+                {description && (
+                    <p className="text-white/80 text-sm line-clamp-2 mb-0">
+                        {description}
+                    </p>
+                )}
+            </div>
         </motion.div>
     );
 };
@@ -77,10 +87,16 @@ const ReadCard = (props) => {
 ReadCard.propTypes = {
     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     title: PropTypes.string.isRequired,
-    link: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
+    image: PropTypes.string,
+    imageUrl: PropTypes.string,
+    type: PropTypes.string,
+    category: PropTypes.string,
     description: PropTypes.string,
     tags: PropTypes.arrayOf(PropTypes.string),
+    fullDetail: PropTypes.string,
+    content: PropTypes.string,
+    created_at: PropTypes.string,
+    date_created: PropTypes.string,
 };
 
 export default ReadCard;
