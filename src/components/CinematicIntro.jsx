@@ -177,7 +177,7 @@ export const CinematicIntro = ({ onComplete }) => {
                                         <h1 className={`text-4xl md:text-7xl font-light tracking-wide ${isDark ? 'text-white/80' : 'text-black/70'
                                             }`}>
                                             It's{' '}
-                                            <span className={`font-bold text-5xl md:text-8xl block mt-2 ${isDark ? 'text-white' : 'text-black'
+                                            <span className={`font-bold text-5xl md:text-9xl block mt-2 ${isDark ? 'text-white' : 'text-black'
                                                 }`}>
                                                 Kunal Rathore
                                             </span>
