@@ -1,4 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import "tailwindcss";
+
 @import "tw-animate-css";
 
 /* line for dark mode */
@@ -150,4 +152,29 @@ html {
 
 .animate-float {
   animation: float 10s ease-in-out infinite;
+}
+
+@keyframes float-text {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float-text {
+  animation: float-text 3s ease-in-out infinite;
+}
+
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-vogue {
+  font-family: 'fontVogueAvantGarde', 'fontVogueAvantGarde Fallback', sans-serif;
+  font-weight: 600;
 }

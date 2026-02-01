@@ -43,7 +43,7 @@ export const AllProjectsPage = () => {
                         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                         className="text-5xl md:text-7xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100"
                     >
-                        My Works
+                        My Work
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
@@ -51,7 +51,7 @@ export const AllProjectsPage = () => {
                         transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
                         className="text-xl text-zinc-500 dark:text-zinc-400 max-w-2xl font-light leading-relaxed"
                     >
-                        A curated collection of projects exploring web development, design systems, and interactive experiences.
+                        A collection of projects focused on web development, design systems, and interactive interfaces.
                     </motion.p>
                 </div>
             </div>
