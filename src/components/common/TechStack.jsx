@@ -2,6 +2,7 @@ import { cn } from '@/lib/utils';
 import { TECH_ICONS } from '@/constants';
 import { TechBadge } from './TechBadge';
 
+// shows tech stack badges
 export function TechStack({ technologies, className }) {
     return (
         <span className={cn(

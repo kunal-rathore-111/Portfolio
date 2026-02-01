@@ -53,7 +53,7 @@ export default function ChatBubble() {
 			});
 
 			if (!response.ok) {
-				// Try to extract meaningful server error
+				// get error message
 				let errorText = `HTTP error! status: ${response.status}`;
 				let parsed = null;
 				const raw = await response.text().catch(() => null);

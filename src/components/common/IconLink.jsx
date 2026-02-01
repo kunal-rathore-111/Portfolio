@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils';
 
+// link with icon
 export function IconLink({ href, icon: Icon, label, className, ...props }) {
     return (
         <a

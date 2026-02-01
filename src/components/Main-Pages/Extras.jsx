@@ -17,7 +17,7 @@ export const ExtrasPage = () => {
     );
 
     useEffect(() => {
-        // Watch for class changes on documentElement
+        // checks for dark mode class
         const observer = new MutationObserver(() => {
             setIsDark(document.documentElement.classList.contains('dark'));
         });
@@ -97,20 +97,28 @@ export const ExtrasPage = () => {
                                 </div>
                             </div>
 
-                            <div className="flex justify-center">
-                                <ActivityCalendar
-                                    data={data?.contributions || []}
-                                    theme={explicitTheme} // Use the robust theme
-                                    labels={{
-                                        totalCount: '{{count}} contributions in {{year}}',
-                                    }}
-                                    colorScheme={isDark ? 'dark' : 'light'}
-                                    showWeekdayLabels
-                                    blockSize={13}
-                                    blockMargin={4}
-                                    fontSize={14}
-                                />
-                                <ReactTooltip id="github-tooltip" />
+                            <div className="flex justify-center w-full">
+                                {data?.contributions && data.contributions.length > 0 ? (
+                                    <>
+                                        <ActivityCalendar
+                                            data={data.contributions}
+                                            theme={explicitTheme} // Use the robust theme
+                                            labels={{
+                                                totalCount: '{{count}} contributions in {{year}}',
+                                            }}
+                                            colorScheme={isDark ? 'dark' : 'light'}
+                                            showWeekdayLabels
+                                            blockSize={13}
+                                            blockMargin={4}
+                                            fontSize={14}
+                                        />
+                                        <ReactTooltip id="github-tooltip" />
+                                    </>
+                                ) : (
+                                    <div className="text-gray-500 dark:text-gray-400 py-10 text-center italic w-full">
+                                        No contribution data available to display.
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </div>

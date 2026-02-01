@@ -16,8 +16,7 @@ export const NavComps = ({ toggle }) => {
     const navigate = useNavigate();
 
     const handleScroll = (ref, label) => {
-        // Clear saved scroll position to prevent restoration logic from kicking in
-        // This ensures clicking "Home" starts fresh at the target section
+        // restart scroll on page change
         sessionStorage.removeItem('scrollPosition');
 
         if (location.pathname !== '/') {
@@ -27,7 +26,7 @@ export const NavComps = ({ toggle }) => {
         }
     }
 
-    // Prefetch data on hover for faster loading
+    // fetch data early on hover
     const handleHover = (label) => {
         if (label === 'Reads') {
             queryClient.prefetchQuery({

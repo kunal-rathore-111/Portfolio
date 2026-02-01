@@ -24,7 +24,7 @@ export const ReadsPage = () => {
             const data = await response.json();
 
             if (data.posts && Array.isArray(data.posts)) {
-                // Map new API fields to match ReadCard expectations
+                // format post data
                 return data.posts.slice(0, 3).map(post => ({
                     ...post,
                     type: post.category || 'Article',
@@ -38,7 +38,7 @@ export const ReadsPage = () => {
         staleTime: Infinity,
     });
 
-    // Register this loader on mount and mark complete when data arrives
+    // loader logic
     useEffect(() => {
         registerLoader('reads');
     }, [registerLoader]);

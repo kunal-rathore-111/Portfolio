@@ -6,12 +6,12 @@ import { SunMedium, Moon } from 'lucide-react';
 import { onhoverBlackWhite } from '@/lib/default_Tailwind';
 
 export const CinematicIntro = ({ onComplete }) => {
-    // Check sessionStorage BEFORE first render to prevent flash
+    // check session storage to show intro only once
     const [phase, setPhase] = useState(() => {
         if (typeof window !== 'undefined' && sessionStorage.getItem('introShown')) {
             return 'done';
         }
-        return 'welcome'; // 'welcome' | 'name' | 'entering' | 'done'
+        return 'welcome'; // phases: welcome, name, entering, done
     });
     const [welcomeIndex, setWelcomeIndex] = useState(0);
 

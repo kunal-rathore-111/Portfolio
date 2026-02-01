@@ -15,7 +15,7 @@ export const ProjectInfoPage = () => {
 
     const lenis = useLenis();
 
-    // Scroll to top on mount using Lenis for smooth scrolling compatibility
+    // scroll to top
     useEffect(() => {
         if (lenis) {
             lenis.scrollTo(0, { immediate: true });
@@ -46,9 +46,9 @@ export const ProjectInfoPage = () => {
                 <motion.button
                     {...animations.fadeInUp}
                     onClick={() => navigate(-1)}
-                    className="flex items-center gap-2 self-start text-sm md:text-base opacity-70 hover:opacity-100 transition-all hover:-translate-x-1"
+                    className="flex items-center gap-2 self-start text-sm md:text-base font-medium opacity-60 hover:opacity-100 transition-all duration-500 ease-out hover:-translate-x-2 p-2 -ml-2 rounded-lg hover:bg-gray-100 dark:hover:bg-white/5"
                 >
-                    <ArrowLeft className="w-4 h-4" /> Back to Projects
+                    <ArrowLeft className="w-4 h-4 transition-transform duration-500" /> Back to Projects
                 </motion.button>
 
                 {/* Header Section */}
@@ -68,12 +68,12 @@ export const ProjectInfoPage = () => {
                     {/* Action Buttons */}
                     <motion.div {...animations.fadeInUp} className="flex flex-wrap gap-4">
                         <a href={project.github} target="_blank" rel="noopener noreferrer"
-                            className="flex items-center gap-2 px-6 py-2.5 bg-black dark:bg-white dark:text-black text-white rounded-full font-medium transition-all hover:scale-105 active:scale-95 shadow-lg shadow-black/10 dark:shadow-white/5">
-                            <Github className="w-5 h-5" /> View on GitHub
+                            className="group flex items-center gap-2 px-6 py-2.5 bg-black dark:bg-white dark:text-black text-white rounded-full font-medium transition-all duration-500 ease-out hover:scale-105 active:scale-95 shadow-lg shadow-black/10 dark:shadow-white/5 hover:bg-slate-800 dark:hover:bg-gray-200">
+                            <Github className="w-5 h-5 transition-transform duration-500" /> View on GitHub
                         </a>
                         <a href={project.deployLink} target="_blank" rel="noopener noreferrer"
-                            className="flex items-center gap-2 px-6 py-2.5 bg-black dark:bg-white dark:text-black text-white rounded-full font-medium transition-all hover:scale-105 active:scale-95 shadow-lg shadow-black/10 dark:shadow-white/5">
-                            <ExternalLink className="w-5 h-5" /> View Live Demo
+                            className="group flex items-center gap-2 px-6 py-2.5 bg-black dark:bg-white dark:text-black text-white rounded-full font-medium transition-all duration-500 ease-out hover:scale-105 active:scale-95 shadow-lg shadow-black/10 dark:shadow-white/5 hover:bg-slate-800 dark:hover:bg-gray-200">
+                            <ExternalLink className="w-5 h-5 transition-transform duration-500" /> View Live Demo
                         </a>
                     </motion.div>
                 </div>
@@ -81,12 +81,12 @@ export const ProjectInfoPage = () => {
                 {/* Main Feature Image */}
                 <motion.div
                     {...animations.fadeInUp}
-                    className="w-full aspect-video rounded-3xl overflow-hidden shadow-2xl border border-gray-100 dark:border-white/10"
+                    className="w-full aspect-video rounded-3xl overflow-hidden shadow-2xl border border-gray-100 dark:border-white/10 group bg-gray-50 dark:bg-gray-900"
                 >
                     <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                     />
                 </motion.div>
 
@@ -120,7 +120,7 @@ export const ProjectInfoPage = () => {
                         <h2 className="text-2xl font-bold">My Role:</h2>
                         <p className="opacity-90">
                             {project.roleDetails.split(' ').map((word, i) => {
-                                // Simple logic to highlight some words like "architected", "led", "responsible"
+                                // highlight specific words
                                 const importantWords = ["architected", "led", "responsible", "design", "scalability", "performance", "backend", "frontend", "full-stack", "designed"];
                                 const cleanWord = word.replace(/[.,]/g, "").toLowerCase();
                                 if (importantWords.includes(cleanWord)) {
@@ -154,9 +154,9 @@ export const ProjectInfoPage = () => {
                 <motion.button
                     {...animations.fadeInUp}
                     onClick={() => navigate(-1)}
-                    className="flex items-center gap-2 self-start text-sm md:text-base opacity-70 hover:opacity-100 transition-all hover:-translate-x-1"
+                    className="flex items-center gap-2 self-start text-sm md:text-base font-medium opacity-60 hover:opacity-100 transition-all duration-500 ease-out hover:-translate-x-2"
                 >
-                    <ArrowLeft className="w-4 h-4" /> Back to Projects
+                    <ArrowLeft className="w-4 h-4 transition-transform duration-500" /> Back to Projects
                 </motion.button>
             </div>
         </div>

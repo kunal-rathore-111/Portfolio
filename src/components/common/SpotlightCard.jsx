@@ -26,7 +26,7 @@ export const SpotlightCard = ({ children, className }) => {
                 className
             )}
         >
-            {/* Spotlight Gradient Background */}
+            {/* spotlight effect */}
             <div
                 className="pointer-events-none absolute -inset-px opacity-0 transition duration-300 z-0"
                 style={{
@@ -35,7 +35,6 @@ export const SpotlightCard = ({ children, className }) => {
                 }}
             />
 
-            {/* Spotlight Border */}
             <div
                 className="pointer-events-none absolute inset-0 opacity-0 transition duration-300 z-0"
                 style={{

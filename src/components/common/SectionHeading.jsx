@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils';
 
+// simple heading styling
 export function SectionHeading({ children, className, ...props }) {
     return (
         <h2

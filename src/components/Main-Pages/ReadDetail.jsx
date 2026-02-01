@@ -45,7 +45,6 @@ export const ReadDetail = () => {
                 const foundPost = data.posts.find(p => p.id === id);
 
                 if (foundPost) {
-                    // Map new API fields to match what ReadDetail expects
                     setPost({
                         ...foundPost,
                         type: foundPost.category || 'Article',
@@ -242,8 +241,17 @@ export const ReadDetail = () => {
                     )}
                 </motion.div>
 
-                <div className={`border-t ${isDark ? 'border-white/20' : 'border-black/20'}`}>
-                </div>
+                <div className={`border-t ${isDark ? 'border-white/20' : 'border-black/20'}`} />
+
+                <motion.button
+                    onClick={() => navigate(-1)}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 0.7, x: 0 }}
+                    whileHover={{ opacity: 1, x: -4 }}
+                    className="flex items-center gap-2 self-start text-sm md:text-base transition-all mb-10"
+                >
+                    <ArrowLeft className="w-4 h-4" /> Back to posts
+                </motion.button>
             </div>
         </div >
     );

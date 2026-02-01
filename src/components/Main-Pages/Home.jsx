@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 
 
 
-// OrbitLine Component for background effect - SVG for professional smoothness
+// orbit background
 const OrbitLine = ({ width, height, rotate, opacity, color, blur = 0, className }) => (
     <div
         className={`absolute animate-float ${className || ''}`}
@@ -106,7 +106,7 @@ const GreetComp = () => {
                 duration: 0.8,
                 ease: [0.25, 0.1, 0.25, 1]
             }}
-            className={`text-3xl md:text-4xl font-[300] text-red-500 dark:text-yellow-300`}
+            className={`text-2xl md:text-4xl font-[300] text-red-500 dark:text-yellow-300`}
         >
             👋Hey there!, I'm-
         </motion.h1>
@@ -122,7 +122,7 @@ const GreetComp = () => {
                     duration: 0.8,
                     ease: [0.25, 0.1, 0.25, 1]
                 }}
-                className="text-[14vw] sm:text-7xl md:text-[148px] font-[600] text-black dark:text-gray-200 leading-tight text-left xl:text-center xl:whitespace-nowrap"
+                className="text-[21vw] sm:text-7xl md:text-[148px] font-[600] text-black dark:text-gray-200 leading-tight text-left xl:text-center xl:whitespace-nowrap"
             >
                 Kunal Rathore
             </motion.h1>
@@ -191,7 +191,7 @@ const DiscComp = () => {
                         duration: 0.7,
                         ease: [0.25, 0.1, 0.25, 1]
                     }}
-                    className="absolute top-0 left-0 text-xl md:text-3xl font-[400] w-full text-left xl:text-center"
+                    className="absolute top-0 left-0 text-lg md:text-3xl font-[400] w-full text-left xl:text-center"
                 >
                     {text.split('.')[0]}.
                     <span className="text-gray-600 dark:text-slate-400 font-[300]">
@@ -215,7 +215,7 @@ const ResumeComp = () => {
 
 const ContactComps = () => {
     return <>
-        {SOCIAL_LINKS.map((link) => (
+        {SOCIAL_LINKS.filter(link => link.id !== 'twitter').map((link) => (
             <IconLink
                 key={link.id}
                 href={link.navigateLink}

@@ -14,9 +14,9 @@ const ReadCard = (props) => {
 
     const handleClick = (e) => {
         e.preventDefault();
-        // Save current scroll position for restoration
+        // save scroll position
         sessionStorage.setItem('scrollPosition', window.scrollY.toString());
-        // Pass the entire props object as 'post' state to avoid re-fetching
+        // pass post data to avoid fetch
         navigate(`/read/${id}`, {
             state: {
                 post: {

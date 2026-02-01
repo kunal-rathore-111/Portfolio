@@ -3,6 +3,7 @@
 import { NavComps } from "./navComps";
 import { useNavToggleContextProvider } from "@/context/NavToggleContext";
 
+// main navigation bar
 export const Nav = () => {
 
     const { toggle, setToggle } = useNavToggleContextProvider();

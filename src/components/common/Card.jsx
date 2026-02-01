@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils';
 
+// simple card component with gradient option
 export function Card({ children, className, gradient = false, ...props }) {
     return (
         <div

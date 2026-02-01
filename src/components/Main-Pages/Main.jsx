@@ -30,7 +30,7 @@ export const MainComp = () => {
     useEffect(() => {
         if (!lenis) return;
 
-        // Helper function to retry scroll until successful or timeout
+        // scroll helper
         const attemptScroll = (target, options = {}, maxAttempts = 20, interval = 100, isRestoreOperation = false) => {
             let attempts = 0;
             const scrollInterval = setInterval(() => {

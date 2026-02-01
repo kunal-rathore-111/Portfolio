@@ -13,7 +13,7 @@ import { ArrowRight, Globe, Github } from "lucide-react"; // Using ArrowRight, G
 import { cn } from "@/lib/utils";
 
 
-/* main function of the file */
+// main projects page
 export const ProjectsPage = () => {
     // Initialize state from sessionStorage if available, ensuring it's a boolean
     const navigate = useNavigate();
@@ -63,11 +63,11 @@ export const ProjectsPage = () => {
                     sessionStorage.setItem('scrollPosition', window.scrollY.toString());
                     navigate('/all-projects');
                 }}
-                className={`group relative px-6 py-3 text-lg font-medium overflow-hidden rounded-full transition-all duration-300 ${onhoverBlackWhite} border border-black dark:border-white`}
+                className={`group relative px-6 py-3 text-lg font-medium overflow-hidden rounded-full transition-all duration-700 ease-out ${onhoverBlackWhite} border border-black dark:border-white`}
             >
                 <span className="relative z-10 flex items-center gap-2">
                     Show All Projects
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-700 ease-out" />
                 </span>
             </button>
         </div>
@@ -91,7 +91,7 @@ const ProjectInfoDiv = () => {
             className="max-w-6xl w-full mx-auto p-2 md:p-4 my-8 md:my-16"
         >
             <div className={cn(
-                "bg-white dark:bg-[#0a0a0a] rounded-[2rem] p-4 md:p-6 shadow-2xl border-3 border-gray-100 dark:border-white/10 flex flex-col gap-6 relative overflow-hidden transition-all duration-300 hover:shadow-2xl dark:hover:shadow-emerald-500/5",
+                "bg-white dark:bg-[#0a0a0a] rounded-[2rem] p-4 md:p-6 shadow-2xl border-3 border-gray-100 dark:border-white/10 flex flex-col gap-6 relative overflow-hidden transition-all duration-700 ease-out hover:shadow-2xl dark:hover:shadow-emerald-500/5",
                 index === 0 ? "md:flex-row items-center" : "md:flex-row-reverse items-center"
             )}>
                 {/* Decorative background blur */}
@@ -156,14 +156,14 @@ const ProjectImageDiv = () => {
     const { props } = useProject();
     return (<div className="relative rounded-xl overflow-hidden shadow-2xl border-2 border-gray-200 dark:border-gray-700 group h-full w-full aspect-video">
         {/* Previous Gradient Logic: z-20 overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/40 via-red-500/40 to-blue-500/40 dark:from-green-500/30 dark:via-emerald-400/25 dark:to-teal-500/30 z-20 transition-opacity duration-500 md:group-hover:opacity-0 pointer-events-none mix-blend-multiply dark:mix-blend-overlay"></div>
+        <div className="absolute inset-0 bg-black/0 dark:bg-gradient-to-br dark:from-green-500/30 dark:via-emerald-400/25 dark:to-teal-500/30 z-20 transition-opacity duration-700 ease-out md:group-hover:opacity-0 pointer-events-none mix-blend-multiply dark:mix-blend-overlay"></div>
 
         <img
             src={props.image}
             alt={props?.topicName || "Project preview"}
             loading="lazy"
             decoding="async"
-            className="w-full h-full object-cover z-10 transition-transform duration-500 md:group-hover:scale-105"
+            className="w-full h-full object-cover z-10 transition-transform duration-1000 ease-out md:group-hover:scale-110"
         />
     </div>)
 }
@@ -199,10 +199,10 @@ const LinksForMoreDiv = () => {
             {/* Share / Learn More - Pill Button */}
             <button
                 onClick={handleNavigation}
-                className="flex items-center gap-2 px-3 py-2 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-full text-sm font-medium text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors ml-auto md:ml-0"
+                className="flex items-center gap-2 px-3 py-2 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-full text-sm font-medium text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors duration-500 ease-out ml-auto md:ml-0"
             >
                 Learn more
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1" />
             </button>
         </div>
     )
