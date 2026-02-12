@@ -70,7 +70,7 @@ export const ReadsPage = () => {
     if (error) return null; // Or hide the section on error
 
     return (
-        <section className="py-20 px-4 relative overflow-hidden w-full">
+        <section className="py-20 relative overflow-hidden w-full">
             {/* Background Elements */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl -z-10" />
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl -z-10" />

@@ -62,12 +62,12 @@ export const ExtrasPage = () => {
     };
 
     return (
-        <div className="min-h-screen flex flex-col items-center p-4">
+        <div className="min-h-screen flex flex-col w-full">
             <motion.div
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
-                className="w-full max-w-5xl"
+                className="w-full max-w-6xl mx-auto"
             >
                 <div className="mb-12">
                     <PageHeader val={'04.'} subheading={"Beyond Code"} mainHeading={"My Activity"} />

@@ -39,7 +39,7 @@ export const ProjectsPage = () => {
                     }
                 }
             }}
-            className="flex flex-col gap-4 overflow-x-hidden w-full max-w-full"
+            className="flex flex-col gap-4 overflow-x-hidden w-full max-w-6xl mx-auto"
         >
             <motion.div
                 variants={{

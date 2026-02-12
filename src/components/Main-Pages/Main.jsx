@@ -114,7 +114,7 @@ export const MainComp = () => {
 
     }, [lenis, location]);
 
-    return <main className={`w-full flex flex-col transition-all duration-1000 pb-20 px-4 md:pt-0 md:pb-0 md:pr-18 md:pl-0 ${toggle ? "md:pl-[10vw]" : "md:pl-[13vw]"}`}>
+    return <main className={`w-full flex flex-col items-center transition-all duration-1000 pb-20 px-4 md:pt-0 md:pb-0 md:px-8 ${toggle ? "md:pl-[10vw]" : "md:pl-[13vw]"}`}>
 
         {/* Scroll Restoration Loader with Fade */}
         {isRestoring && (
@@ -126,11 +126,11 @@ export const MainComp = () => {
             </div>
         )}
 
-        <div className="lg:py-10" ref={HomeRef} data-section="Home"><HomePage /></div>
-        <div className="py-18" ref={AboutRef} data-section="About"><AboutPage /></div>
-        <div className="py-10" ref={ProjectsRef} data-section="Projects"><ProjectsPage /></div>
-        <div className="py-10" ref={ReadsRef} data-section="Reads"><ReadsPage /></div>
-        <div className="py-10"><ExtrasPage /></div>
+        <div className="w-full lg:py-10" ref={HomeRef} data-section="Home"><HomePage /></div>
+        <div className="w-full max-w-6xl py-18" ref={AboutRef} data-section="About"><AboutPage /></div>
+        <div className="w-full max-w-6xl py-10" ref={ProjectsRef} data-section="Projects"><ProjectsPage /></div>
+        <div className="w-full max-w-6xl py-10" ref={ReadsRef} data-section="Reads"><ReadsPage /></div>
+        <div className="w-full max-w-6xl py-10"><ExtrasPage /></div>
         <Footer />
     </main>
 }

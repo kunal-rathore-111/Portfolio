@@ -10,7 +10,7 @@ export const AboutPage = () => {
     {/* second section  */ }
     return <section className="h-full w-full flex flex-col items-center justify-evenly gap-10 md:gap-25 p-4 md:p-0" >
         {/* image div */}
-        <div className="h-full w-full flex flex-col md:flex-row items-center justify-evenly gap-8 md:gap-0">
+        <div className="h-full w-full flex flex-col md:flex-row items-center justify-between gap-8 md:gap-0">
 
             {/* rigth part for about me */}
             <div className="flex flex-col justify-center gap-8 w-full md:w-[50%] ">
