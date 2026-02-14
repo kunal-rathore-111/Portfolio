@@ -3,12 +3,9 @@ import { TechStack } from "@/components/common/TechStack";
 
 import { ProjectContextProvider, useProject } from "@/context/ProjectContext";
 import { motion } from "framer-motion";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useLenis } from "lenis/react";
 import { onhoverBlackWhite } from "@/lib/default_Tailwind";
 import { PageHeader } from "../common/PageHeader";
-import { animations } from "@/lib/animations";
 import { ArrowRight, Globe, Github } from "lucide-react"; // Using ArrowRight, Globe, Github
 import { cn } from "@/lib/utils";
 

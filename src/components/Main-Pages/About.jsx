@@ -2,7 +2,7 @@ import { ProfileCard } from "../common/ProfileCard";
 import { SKILLIcons } from "@/constants";
 import { PageHeader } from "../common/PageHeader";
 import { HighLightText } from "../common/HighLightText";
-import { TechStack } from "../common/TechStack";
+import { MarqueeTechStack } from "../common/MarqueeTechStack";
 import { motion } from "framer-motion";
 import { animations } from "@/lib/animations";
 
@@ -53,7 +53,7 @@ const AboutComp = () => {
             </motion.p>
 
             {/* Skills - animates last */}
-            <motion.div {...animations.fadeInUp}>
+            <motion.div {...animations.fadeInUp} className="w-full">
                 <SkillsComponent />
             </motion.div>
         </span>
@@ -63,14 +63,13 @@ const AboutComp = () => {
 
 const SkillsComponent = () => {
     return (
-        <div className="mt-4">
-            <h3 className="text-xl md:text-2xl mb-4 text-primary relative inline-block">
+        <div className="mt-4 w-full">
+            <h3 className="text-sm md:text-base font-semibold tracking-widest text-muted-foreground uppercase mb-2 pl-1">
                 Expertise Areas
-                <span className="absolute -bottom-1 left-0 w-1/2 h-1 bg-primary rounded-full"></span>
             </h3>
-            <p className="px-1 py-2 font-medium flex flex-col gap-2 text-2xl">
-                <TechStack technologies={SKILLIcons} className={''} />
-            </p>
+            <div className="font-medium flex flex-col gap-2 text-2xl w-full">
+                <MarqueeTechStack technologies={SKILLIcons} className={''} />
+            </div>
         </div>
     );
 }

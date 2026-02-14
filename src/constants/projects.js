@@ -2,14 +2,26 @@ import researchProjectPng from '@/assets/projects/researchPaperCopilot.png';
 import themeProjectPng from '@/assets/projects/theme.png';
 import expnesifyProjectPng from '@/assets/projects/expensify.png';
 import todoProjectPng from '@/assets/projects/todo.png';
+import genderProjectPng from '@/assets/projects/genderFinder.png';
 
 export const PROJECTS = [
     {
-        id: 'research-copilot',
+        id: 'gender-finder',
         no: '1',
+        topicName: 'Gender Finder',
+        discription: 'A robust Brutalist-style web application for real-time gender prediction using the Genderize.io API. Features confidence scoring, Zod validation, and a high-contrast UI built with Next.js 16 and Tailwind CSS 4.',
+        techStack: ['NextJS', 'React', 'TypeScript', 'Tailwind CSS', 'Zod', 'Axios', 'Figma', 'Github'],
+        github: 'https://github.com/kunal-rathore-111/gender-finder',
+        deployLink: 'https://gender-finder-woad.vercel.app/',
+        readmore: 'will add later',
+        image: genderProjectPng,
+    },
+    {
+        id: 'research-copilot',
+        no: '2',
         topicName: 'Research Paper Copilot',
         discription: 'An AI-powered backend system for researchers to discover, analyze, and summarize academic papers. Features multi-agent architecture using Google\'s Gemini AI and arXiv API, streamlining research with intelligent insights and efficient data retrieval.',
-        techStack: ['React', 'Figma', 'NodeJs', 'ExpressJs', 'MongoDB', 'Gemini', 'Arxiv'],
+        techStack: ['React', 'Figma', 'NodeJs', 'ExpressJs', 'MongoDB', 'Gemini', 'Arxiv', 'Zod'],
         extras: 'Role: Backend Developer,\n  Team Superwiser',
         github: 'https://github.com/kunal-rathore-111/MINOR_PROJECT',
         deployLink: 'https://minor-deploy-64gx.vercel.app',
@@ -17,7 +29,7 @@ export const PROJECTS = [
         image: researchProjectPng,
     },
     {
-        no: '2',
+        no: '3',
         id: 'vscode-theme',
         topicName: 'Dark-Dev-Theme',
         discription: 'A sleek dark theme for Visual Studio Code designed for developers. Provides balanced contrast, vibrant syntax highlighting, and smooth visual flow to maintain focus during extended coding sessions. Ensures consistency and readability across all UI elements.',
@@ -28,7 +40,7 @@ export const PROJECTS = [
         image: themeProjectPng,
     },
     {
-        no: '3',
+        no: '4',
         id: 'expensify',
         topicName: 'Expensify - An Expense Tracker',
         discription: 'A robust full-stack expense tracking app to help users manage finances effectively. Includes a powerful backend API and intuitive frontend for organizing and monitoring expenses. Features secure data handling and responsive design for optimal user experience.',
@@ -39,7 +51,7 @@ export const PROJECTS = [
         image: expnesifyProjectPng,
     },
     {
-        no: '4',
+        no: '5',
         id: 'todo-app',
         topicName: 'Todo Web-Application',
         discription: 'A comprehensive full-stack Todo application with secure user authentication and responsive design. Enables seamless task management and daily tracking. Built with modern web technologies for efficient productivity and user-friendly interface across devices.',

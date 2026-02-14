@@ -27,6 +27,9 @@ import LinkIcon from '@/assets/icons/technologies/Link';
 import ReadmoreIcon from '@/assets/icons/technologies/Readmore';
 import PostgresIcon from '@/assets/icons/technologies/Postgres';
 import DrizzleIcon from '@/assets/icons/technologies/Drizzle';
+import NextIcon from '@/assets/icons/technologies/NextJS';
+import ZodIcon from '@/assets/icons/technologies/Zod';
+import NextJS from '@/assets/icons/technologies/NextJS';
 
 export const TECH_ICONS = {
     React: ReactIcon,
@@ -57,4 +60,6 @@ export const TECH_ICONS = {
     Readmore: ReadmoreIcon,
     Postgres: PostgresIcon,
     Drizzle: DrizzleIcon,
+    NextJS: NextJS,
+    Zod: ZodIcon,
 };

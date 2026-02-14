@@ -2,8 +2,40 @@ import researchProjectPng from '@/assets/projects/researchPaperCopilot.png';
 import themeProjectPng from '@/assets/projects/theme.png';
 import expnesifyProjectPng from '@/assets/projects/expensify.png';
 import todoProjectPng from '@/assets/projects/todo.png';
+import genderProjectPng from '@/assets/projects/genderFinder.png';
 
 export const PROJECTS_INFO = {
+    'gender-finder': {
+        id: 'gender-finder',
+        title: 'Gender Finder',
+        tagline: 'Predict gender with confidence.',
+        role: 'Full Stack Developer',
+        github: 'https://github.com/kunal-rathore-111/gender-finder',
+        deployLink: 'https://gender-finder-woad.vercel.app/',
+        image: genderProjectPng,
+        description: 'A modern, brutalist-style web application that predicts gender based on names using the Genderize.io API. Built with Next.js 16 and Tailwind CSS 4, it features a bold high-contrast UI and robust client-side validation.',
+        keyFeatures: [
+            {
+                title: 'Real-time Prediction',
+                description: 'Instantly predicts gender based on first names with high accuracy using the Genderize.io API.'
+            },
+            {
+                title: 'Confidence and Count',
+                description: 'Displays probability percentages and the count of samples used for the prediction, providing context to the results.'
+            },
+            {
+                title: 'Brutalist Design',
+                description: 'Features a distinctive high-contrast aesthetic with bold typography and neo-brutalist shadows.'
+            },
+            {
+                title: 'Robust Validation',
+                description: 'Uses Zod for strict client-side input validation effectively handling edge cases and errors.'
+            }
+        ],
+        roleDetails: 'I developed the entire application from scratch, focusing on the brutalist design aesthetic and seamless API integration. I implemented the frontend with Next.js and handled state management and validation.',
+        technicalHighlights: 'Built with Next.js 16 app router and React 19. Utilizes Tailwind CSS 4 for styling and Zod for schema validation. Implements a responsive layout that works across devices.',
+        impact: 'Provides a fun and quick way for users to check gender associations with names, wrapped in a unique and engaging visual experience.'
+    },
     'research-copilot': {
         id: 'research-copilot',
         title: 'Research Paper Copilot',
