@@ -6,16 +6,16 @@ import { motion } from 'framer-motion';
 // Scrolling marquee for skills
 export function MarqueeTechStack({ technologies, className }) {
     // Duplicate the array to ensure seamless looping
-    const duplicatedTechnologies = [...technologies, ...technologies, ...technologies, ...technologies];
+    const duplicatedTechnologies = [...technologies, ...technologies, ...technologies];
 
     return (
         <div className={cn(
             "relative flex overflow-hidden",
-            // Mobile: Full width, break out of container
-            "w-screen -ml-[50vw] left-1/2",
-            // Desktop: Back to normal width/container behavior
-            "md:w-full md:ml-0 md:left-auto md:static md:rounded-full",
-            "bg-[#EDE8DC] dark:bg-gray-700 py-2  items-center md:py-3",
+
+            "-mx-4 md:mx-0",
+
+            "md:w-full md:rounded-full",
+            "bg-[#EDE8DC] dark:bg-gray-700 py-2  items-center md:py-3 items-center",
             className
         )}>
             {/* Gradient masks for smooth fade edges */}
@@ -28,7 +28,7 @@ export function MarqueeTechStack({ technologies, className }) {
                     x: ["0%", "-50%"],
                 }}
                 transition={{
-                    duration: 60,
+                    duration: 30,
                     ease: "linear",
                     repeat: Infinity,
                 }}
@@ -36,7 +36,7 @@ export function MarqueeTechStack({ technologies, className }) {
                 {duplicatedTechnologies.map((tech, index) => {
                     const Icon = TECH_ICONS[tech];
                     return (
-                        <div key={`${tech}-${index}`} className="flex-shrink-0">
+                        <div key={index} className="flex-shrink-0">
                             <TechBadge iconName={tech} Icon={Icon} className="size-10 md:size-14" />
                         </div>
                     );

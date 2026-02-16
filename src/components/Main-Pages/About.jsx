@@ -63,10 +63,12 @@ const AboutComp = () => {
 
 const SkillsComponent = () => {
     return (
-        <div className="mt-4 w-full">
-            <h3 className="text-sm md:text-base font-semibold tracking-widest text-muted-foreground uppercase mb-2 pl-1">
-                Expertise Areas
+        <div className="mt-4 w-full flex flex-col">
+
+            <h3 className="text-sm md:text-base font-semibold tracking-widest text-muted-foreground  mb-2 pl-1">
+                EXPERTISE AREAS
             </h3>
+
             <div className="font-medium flex flex-col gap-2 text-2xl w-full">
                 <MarqueeTechStack technologies={SKILLIcons} className={''} />
             </div>
