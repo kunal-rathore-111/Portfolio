@@ -8,12 +8,12 @@ export const Nav = () => {
 
     const { toggle, setToggle } = useNavToggleContextProvider();
 
-    return <nav className={`fixed z-100 bg-gray-50 text-black md:bg-white md:text-black dark:bg-black dark:text-white transition-all duration-1000
-        bottom-0 w-full h-16 flex flex-row items-center justify-around border-t border-gray-300 md:border-t-0 md:border-r md:border-gray-200 dark:border-gray-800
+    return <nav className={`hidden lg:flex fixed z-100 bg-gray-50 text-black md:bg-white md:text-black dark:bg-black dark:text-white transition-all duration-1000
+        bottom-0 w-full h-16  flex-row items-center justify-around border-t border-gray-300 md:border-t-0 md:border-r md:border-gray-200 dark:border-gray-800
         md:h-full md:flex-col md:justify-end md: gap-[5%] md:pl-2 md:pt-0 md:top-0 md:left-0
         ${toggle ? "md:w-[8vw]" : "md:w-[12vw]"}`}
-        onMouseEnter={() => window.innerWidth >= 768 && setToggle(false)}
-        onMouseLeave={() => window.innerWidth >= 768 && setToggle(true)}>
+        onMouseEnter={() => window.innerWidth >= 1024 && setToggle(false)}
+        onMouseLeave={() => window.innerWidth >= 1024 && setToggle(true)}>
 
         <div className="flex flex-row w-full justify-around items-center h-full md:w-full md:flex-col md:h-[75%] md:justify-evenly">
             <NavComps toggle={toggle} />

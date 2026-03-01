@@ -109,8 +109,8 @@ export default function App() {
                                     {/* navbar */}
                                     <NavToggleContextProvider>
                                         <Nav></Nav>
-                                        <SpringWrapper>
 
+                                        <SpringWrapper>
                                             {/* Main pages*/}
                                             <Routes>
                                                 <Route path="/" element={
@@ -127,7 +127,6 @@ export default function App() {
                                     </NavToggleContextProvider>
                                 </TooltipProvider>
                             </ScrollContextProvider>
-
                         </div >
                     </ReactLenis >
                 </BrowserRouter >

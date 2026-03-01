@@ -20,16 +20,17 @@ app.set('trust proxy', isTrustProxy);
 const allowedOrigins = [
   'http://localhost:5173',
   process.env.CORS_ORIGIN
-].filter(Boolean);
+]
 
 app.use(cors({
   origin: function (origin, callback) {
     if (!origin) return callback(null, true); // Allow non-browser requests
-    if (allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    else {
       console.log(`[CORS] Blocked request from: ${origin}`);
-      callback(new Error('Not allowed by CORS'));
+      return callback(new Error('Not allowed by CORS'));
     }
   },
   credentials: true,
@@ -152,5 +153,4 @@ app.post('/api/chat', chatLimiter, async (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`✅ Server running on http://localhost:${PORT}`);
-  console.log(`📡 CORS enabled for: ${process.env.CORS_ORIGIN || 'http://localhost:5173'}`);
 });

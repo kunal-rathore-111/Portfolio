@@ -104,7 +104,7 @@ const ProjectCard = ({ index }) => {
             {/* Info */}
             <div className="flex flex-col gap-2">
                 <div className="flex justify-between items-start">
-                    <h3 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-red-600 dark:group-hover:text-yellow-400 transition-colors duration-500">
+                    <h3 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-red-500 dark:group-hover:text-yellow-400 transition-colors duration-500">
                         {props.topicName}
                     </h3>
                     <div className="flex gap-2">

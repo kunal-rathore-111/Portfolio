@@ -12,15 +12,15 @@ export function MarqueeTechStack({ technologies, className }) {
         <div className={cn(
             "relative flex overflow-hidden",
 
-            "-mx-4 md:mx-0",
+            "-mx-4 md:mx-0 ",
 
-            "md:w-full md:rounded-full",
-            "bg-[#EDE8DC] dark:bg-gray-700 py-2  items-center md:py-3 items-center",
+            "ring ring-gray-500 dark:ring-zinc-500 md:w-full rounded-lg border-3 ring-gray-400 ",
+            " py-1.5  items-center dark:bg-gray-600 ",
             className
         )}>
             {/* Gradient masks for smooth fade edges */}
-            <div className="absolute inset-y-0 left-0 w-8 md:w-20 bg-gradient-to-r from-[#EDE8DC] dark:from-gray-700 to-transparent z-10" />
-            <div className="absolute inset-y-0 right-0 w-8 md:w-20 bg-gradient-to-l from-[#EDE8DC] dark:from-gray-700 to-transparent z-10" />
+            <div className="absolute inset-y-0 left-0 w-8 md:w-20  dark:from-gray-700 to-transparent z-10" />
+            <div className="absolute inset-y-0 right-0 w-8 md:w-20 dark:from-gray-700 to-transparent z-10" />
 
             <motion.div
                 className="flex gap-4 md:gap-8 px-4"

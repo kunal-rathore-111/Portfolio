@@ -114,7 +114,7 @@ export const MainComp = () => {
 
     }, [lenis, location]);
 
-    return <main className={`w-full flex flex-col items-center transition-all duration-1000 pb-20 px-4 md:pt-0 md:pb-0 md:px-8 ${toggle ? "md:pl-[10vw]" : "md:pl-[13vw]"}`}>
+    return <main className={`w-full flex flex-col items-center transition-all duration-1000 pb-20 px-4 lg:pt-0 lg:pb-0 lg:px-8 md:pt-0 md:pb-0 md:px-10 ${toggle ? "lg:pl-[10vw]" : "lg:pl-[13vw]"}`}>
 
         {/* Scroll Restoration Loader with Fade */}
         {isRestoring && (
