@@ -81,7 +81,6 @@ export default function App() {
         <QueryClientProvider client={queryClient}>
             <LoadingProvider>
                 <BrowserRouter>
-                    <canvas id="game"></canvas>
                     {/* Welcome Intro - shows once per session */}
                     <CinematicIntro />
 
