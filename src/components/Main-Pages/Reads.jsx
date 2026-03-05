@@ -81,7 +81,7 @@ export const ReadsPage = () => {
                 viewport={{ once: true, amount: 0.1 }}
                 className="max-w-6xl mx-auto"
             >
-                <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                <div className="flex flex-col md:flex-row justify-between  items-start mb-12 gap-6">
                     <div>
                         <motion.div
                             variants={{
