@@ -1,11 +1,10 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { PROJECTS_INFO } from "@/constants";
-import { useLenis } from "lenis/react";
+
 import { motion } from "framer-motion";
 import { animations } from "@/lib/animations";
-import { ArrowLeft, Github, Globe, ExternalLink } from "lucide-react";
-import { HighLightText } from "../common/HighLightText";
-import { TechStack } from "../common/TechStack";
+import { ArrowLeft, Github, ExternalLink } from "lucide-react";
+import { HighLightText } from "../components/common/HighLightText";
 import { useEffect } from "react";
 
 export const ProjectInfoPage = () => {
@@ -13,16 +12,11 @@ export const ProjectInfoPage = () => {
     const navigate = useNavigate();
     const project = PROJECTS_INFO[id];
 
-    const lenis = useLenis();
 
-    // scroll to top
+
     useEffect(() => {
-        if (lenis) {
-            lenis.scrollTo(0, { immediate: true });
-        } else {
-            window.scrollTo(0, 0);
-        }
-    }, [lenis, id]);
+        window.scrollTo(0, 0);
+    }, [id]);
 
     if (!project) {
         return (

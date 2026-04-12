@@ -5,8 +5,8 @@ import { ProjectContextProvider, useProject } from "@/context/ProjectContext";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { onhoverBlackWhite } from "@/lib/default_Tailwind";
-import { PageHeader } from "../common/PageHeader";
-import { ArrowRight, Globe, Github } from "lucide-react"; // Using ArrowRight, Globe, Github
+import { PageHeader } from "../components/common/PageHeader";
+import { ArrowRight, Globe } from "lucide-react"; // Using ArrowRight, Globe
 import { cn } from "@/lib/utils";
 
 
@@ -176,7 +176,6 @@ const LinksForMoreDiv = () => {
     const { props } = useProject();
     const navigate = useNavigate();
     const GithubIcon = TECH_ICONS.Github;
-    const ReadmoreIcon = TECH_ICONS.Readmore;
 
     const onhoverScale = "transition-transform duration-400 hover:scale-125";
 

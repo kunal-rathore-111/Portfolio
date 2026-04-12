@@ -1,44 +1,12 @@
-import { useEffect } from "react";
 import React from "react";
 
 import { SOCIAL_LINKS } from "@/constants";
 import { IconLink } from "@/components/common/IconLink";
 import { motion } from "framer-motion";
+import { RetroGrid } from "@/components/ui/retro-grid";
 
 
 
-
-// orbit background
-const OrbitLine = ({ width, height, rotate, opacity, color, blur = 0, className }) => (
-    <div
-        className={`absolute animate-float ${className || ''}`}
-        style={{
-            width,
-            height,
-            '--rotate': rotate,
-            transform: `rotate(${rotate})`,
-            zIndex: 0,
-            pointerEvents: 'none'
-        }}
-    >
-        <svg
-            viewBox="0 0 100 100"
-            className="w-full h-full overflow-visible"
-            style={{ opacity, filter: `blur(${blur}px)` }}
-        >
-            <ellipse
-                cx="50"
-                cy="50"
-                rx="49.5"
-                ry="49.5"
-                fill="none"
-                stroke={color}
-                strokeWidth="1.2" // Increased to "little bold"
-                vectorEffect="non-scaling-stroke" // Keeps stroke constant regardless of scale
-            />
-        </svg>
-    </div>
-);
 
 
 export const HomePage = () => {
@@ -46,46 +14,14 @@ export const HomePage = () => {
     // useEffect for highlighing code
 
     return (
-        /* Left aligned below xl (1280px), centered on xl+ */
-        <section className="min-h-screen w-full flex flex-col items-start xl:items-center justify-center gap-10 p-4 md:p-0 relative overflow-hidden" >
+        <section className="min-h-screen w-full flex flex-col items-start xl:items-center justify-center gap-10 p-4 md:p-0 relative overflow-hidden " >
 
-            {/* Orbit Background Effect - Refined Composition */}
-            <div className="absolute top-0 left-0 w-full h-[150vh] overflow-hidden pointer-events-none z-0">
-                {/* Large outer arc - Peach */}
-                <OrbitLine
-                    width="190vw" // Increased spread
-                    height="190vh"
-                    className="top-[-35%] left-[-80%] md:top-[-50%] md:left-[-25%]"
-                    rotate="45deg"
-                    opacity={0.7}
-                    color="#FDBA74"
-                    blur={1} // Slight blur for depth
-                />
-
-                {/* Medium intersection - Cyan */}
-                <OrbitLine
-                    width="150vw" // Increased spread
-                    height="150vh"
-                    className="top-[10%] left-[10%] md:top-[5%] md:left-[20%]"
-                    rotate="-15deg"
-                    opacity={0.6}
-                    color="#22D3EE"
-                />
-
-                {/* Smaller focused arc - Purple */}
-                <OrbitLine
-                    width="120vw" // Increased spread
-                    height="120vh"
-                    className="top-[45%] left-[-40%] md:top-[40%] md:left-[-15%]"
-                    rotate="35deg"
-                    opacity={0.8}
-                    color="#A78BFA"
-                />
-            </div>
 
             {/* left part for greeting and name - Left below xl, Centered on xl+ */}
-            <div className="flex flex-col justify-center items-start xl:items-center h-full gap-4 w-full md:w-auto text-left xl:text-center z-10 relative px-4 md:px-8 xl:px-0">
+            <div className="flex flex-col justify-center items-start xl:items-center h-full gap-4 w-full md:w-auto text-left xl:text-center z-10 relative px-4 md:px-8 xl:px-0 ">
                 <GreetComp />
+
+
             </div>
 
             {/* right part, code themed my info - REMOVED */}
@@ -98,6 +34,7 @@ export const HomePage = () => {
 const GreetComp = () => {
     return <>
         {/* Greeting text */}
+
         <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -106,7 +43,7 @@ const GreetComp = () => {
                 duration: 0.8,
                 ease: [0.25, 0.1, 0.25, 1]
             }}
-            className={`text-2xl md:text-4xl font-[300] text-red-500 dark:text-yellow-300`}
+            className={`text-2xl  md:text-4xl font-[300] text-red-500 dark:text-yellow-300`}
         >
             👋Hey there!, I'm-
         </motion.h1>
@@ -144,6 +81,11 @@ const GreetComp = () => {
                 <ResumeComp />
                 <ContactComps />
             </motion.div>
+
+            {/* RetroGrid */}
+            <div className="absolute h-[500px] w-screen overflow-hidden -z-10">
+                <RetroGrid />
+            </div>
         </div>
     </>
 }

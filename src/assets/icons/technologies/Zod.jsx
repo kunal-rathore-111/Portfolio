@@ -1,6 +1,6 @@
-export default function Zod({ color = "currentColor" }) {
+export default function Zod({ color = "currentColor", size = 24 }) {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 203" className="size-6" fill="none">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 203" fill="none" width={size} height={size}>
             <defs>
                 <filter id="logosZod0" width="105.2%" height="106.5%" x="-2.2%" y="-2.8%" filterUnits="objectBoundingBox">
                     <feOffset dx="1" dy="1" in="SourceAlpha" result="shadowOffsetOuter1" />

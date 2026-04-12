@@ -1,14 +1,14 @@
 import { cn } from '@/lib/utils';
 
 // link with icon
-export function IconLink({ href, icon: Icon, label, className, ...props }) {
+export function IconLink({ href, icon: Icon, className, ...props }) {
     return (
         <a
             href={href}
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-                "inline-flex items-center gap-4 px-3 py-2 rounded-2xl",
+                "inline-flex item   s-center gap-4 px-3 py-2 rounded-2xl",
                 "text-lg font-light",
                 "transition-colors duration-700 cursor-pointer",
                 "bg-black text-white",

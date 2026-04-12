@@ -1,20 +1,13 @@
-import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, BookOpen } from 'lucide-react';
-import ReadCard from '../ReadCard.jsx';
-import { PageHeader } from "../common/PageHeader";
+import { ArrowRight } from 'lucide-react';
+import ReadCard from '../components/ReadCard.jsx';
+import { PageHeader } from "../components/common/PageHeader.jsx";
 import { useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import { API_URL, BLOGS_API_URL, BLOGS_PLATFORM_URL as BLOGS_URL } from '@/config/api';
-import { useLoadingContext } from '@/context/LoadingContext';
-import { useDarkMode } from '@/hooks/useDarkMode';
+import { BLOGS_API_URL, BLOGS_PLATFORM_URL as BLOGS_URL } from '@/config/api';
 
 export const ReadsPage = () => {
-    const { registerLoader, markLoaderComplete } = useLoadingContext();
-    const navigate = useNavigate();
-    const { isDark } = useDarkMode();
-
-    const { data: reads = [], isLoading: loading, error, isSuccess } = useQuery({
+    const { data: reads = [], isLoading: loading, error } = useQuery({
         queryKey: ['reads'],
         queryFn: async () => {
             const response = await fetch(BLOGS_API_URL);
@@ -38,16 +31,7 @@ export const ReadsPage = () => {
         staleTime: Infinity,
     });
 
-    // loader logic
-    useEffect(() => {
-        registerLoader('reads');
-    }, [registerLoader]);
 
-    useEffect(() => {
-        if (isSuccess || error) {
-            markLoaderComplete('reads');
-        }
-    }, [isSuccess, error, markLoaderComplete]);
 
 
     if (loading) {

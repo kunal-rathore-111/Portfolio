@@ -6,8 +6,8 @@ export default function Footer() {
 
                 <span className="font-playfair text-2xl md:text-3xl italic font-light mb-10 opacity-80 flex flex-col gap-6">
                     <span className="flex flex-col gap-2">
-                        Designed & Developed by
-                        <span className="text-red-600 dark:text-yellow-400 font-vogue">
+                        Designed & Developed <br /> by,
+                        <span className="text-red-600 dark:text-yellow-400 text-4xl md:text-5xl font-vogue">
                             Kunal Rathore
                         </span>
                     </span>

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, FileText, Twitter, Youtube, Instagram } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useDarkMode } from '@/hooks/useDarkMode';
 

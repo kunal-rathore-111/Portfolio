@@ -1,0 +1,292 @@
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/public/pet.js
+  116:17  error  'frameDelay' is already defined  no-redeclare
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/server/githubController.js
+  6:23  error  'process' is not defined  no-undef
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/server/server.js
+  10:14  error  'process' is not defined         no-undef
+  17:22  error  'process' is not defined         no-undef
+  22:3   error  'process' is not defined         no-undef
+  63:20  error  'process' is not defined         no-undef
+  64:15  error  'process' is not defined         no-undef
+  67:18  error  'res' is defined but never used  no-unused-vars
+  82:20  error  'process' is not defined         no-undef
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/App.jsx
+   1:10  error  'BrowserRouter' is defined but never used             no-unused-vars
+   1:25  error  'Routes' is defined but never used                    no-unused-vars
+   1:33  error  'Route' is defined but never used                     no-unused-vars
+   4:10  error  'Nav' is defined but never used                       no-unused-vars
+   6:10  error  'SunMedium' is defined but never used                 no-unused-vars
+   6:21  error  'Moon' is defined but never used                      no-unused-vars
+  10:10  error  'MainComp' is defined but never used                  no-unused-vars
+  11:10  error  'ErrorPage' is defined but never used                 no-unused-vars
+  12:10  error  'ProjectInfoPage' is defined but never used           no-unused-vars
+  13:10  error  'ScrollContextProvider' is defined but never used     no-unused-vars
+  14:10  error  'NavToggleContextProvider' is defined but never used  no-unused-vars
+  16:8   error  'ChatBubble' is defined but never used                no-unused-vars
+  18:10  error  'TooltipProvider' is defined but never used           no-unused-vars
+  20:10  error  'ReadDetail' is defined but never used                no-unused-vars
+  21:10  error  'AllProjectsPage' is defined but never used           no-unused-vars
+  24:23  error  'QueryClientProvider' is defined but never used       no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/About.jsx
+   1:10  error  'ProfileCard' is defined but never used               no-unused-vars
+   3:10  error  'PageHeader' is defined but never used                no-unused-vars
+   4:10  error  'HighLightText' is defined but never used             no-unused-vars
+   5:10  error  'motion' is defined but never used                    no-unused-vars
+   9:8   error  'ToolTipEffect' is defined but never used             no-unused-vars
+  35:7   error  'AboutComp' is assigned a value but never used        no-unused-vars
+  66:7   error  'SkillsComponent' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/AllProjectsPage.jsx
+   2:10  error  'ProjectContextProvider' is defined but never used  no-unused-vars
+   4:10  error  'motion' is defined but never used                  no-unused-vars
+   6:10  error  'ArrowLeft' is defined but never used               no-unused-vars
+   6:21  error  'Github' is defined but never used                  no-unused-vars
+   6:29  error  'Globe' is defined but never used                   no-unused-vars
+   6:36  error  'ArrowUpRight' is defined but never used            no-unused-vars
+  66:7   error  'ProjectCard' is assigned a value but never used    no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Extras.jsx
+   1:8   error  'React' is defined but never used               no-unused-vars
+   2:10  error  'ActivityCalendar' is defined but never used    no-unused-vars
+   3:10  error  'motion' is defined but never used              no-unused-vars
+   4:21  error  'ReactTooltip' is defined but never used        no-unused-vars
+   5:10  error  'PageHeader' is defined but never used          no-unused-vars
+  26:37  error  'isSuccess' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Home.jsx
+    4:10  error    'IconLink' is defined but never used                                                                                          no-unused-vars
+    5:10  error    'motion' is defined but never used                                                                                            no-unused-vars
+    6:10  error    'RetroGrid' is defined but never used                                                                                         no-unused-vars
+   34:7   error    'GreetComp' is assigned a value but never used                                                                                no-unused-vars
+   93:7   error    'DiscComp' is assigned a value but never used                                                                                 no-unused-vars
+  108:8   warning  React Hook React.useEffect has a missing dependency: 'descriptions.length'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  148:7   error    'ResumeComp' is assigned a value but never used                                                                               no-unused-vars
+  160:7   error    'ContactComps' is assigned a value but never used                                                                             no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Main.jsx
+   1:10  error  'HomePage' is defined but never used           no-unused-vars
+   2:10  error  'AboutPage' is defined but never used          no-unused-vars
+   3:10  error  'ProjectsPage' is defined but never used       no-unused-vars
+   6:10  error  'ReadsPage' is defined but never used          no-unused-vars
+   7:10  error  'ExtrasPage' is defined but never used         no-unused-vars
+   8:8   error  'Footer' is defined but never used             no-unused-vars
+  10:10  error  'useEffect' is defined but never used          no-unused-vars
+  10:21  error  'useState' is defined but never used           no-unused-vars
+  16:11  error  'location' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/ProjectInfoPage.jsx
+  4:10  error  'motion' is defined but never used         no-unused-vars
+  6:10  error  'ArrowLeft' is defined but never used      no-unused-vars
+  6:21  error  'Github' is defined but never used         no-unused-vars
+  6:29  error  'Globe' is defined but never used          no-unused-vars
+  6:36  error  'ExternalLink' is defined but never used   no-unused-vars
+  7:10  error  'HighLightText' is defined but never used  no-unused-vars
+  8:10  error  'TechStack' is defined but never used      no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Projects.jsx
+    2:10  error  'TechStack' is defined but never used                 no-unused-vars
+    4:10  error  'ProjectContextProvider' is defined but never used    no-unused-vars
+    5:10  error  'motion' is defined but never used                    no-unused-vars
+    8:10  error  'PageHeader' is defined but never used                no-unused-vars
+    9:10  error  'ArrowRight' is defined but never used                no-unused-vars
+    9:22  error  'Globe' is defined but never used                     no-unused-vars
+    9:29  error  'Github' is defined but never used                    no-unused-vars
+   79:7   error  'ProjectInfoDiv' is assigned a value but never used   no-unused-vars
+  152:7   error  'ProjectImageDiv' is assigned a value but never used  no-unused-vars
+  169:7   error  'TechnologyIcons' is assigned a value but never used  no-unused-vars
+  175:7   error  'LinksForMoreDiv' is assigned a value but never used  no-unused-vars
+  178:11  error  'GithubIcon' is assigned a value but never used       no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/ReadDetail.jsx
+   3:10  error  'ArrowLeft' is defined but never used           no-unused-vars
+   3:21  error  'Calendar' is defined but never used            no-unused-vars
+   3:31  error  'Tag' is defined but never used                 no-unused-vars
+   3:36  error  'SunMedium' is defined but never used           no-unused-vars
+   3:47  error  'Moon' is defined but never used                no-unused-vars
+   4:10  error  'motion' is defined but never used              no-unused-vars
+  16:12  error  'copied' is assigned a value but never used     no-unused-vars
+  16:20  error  'setCopied' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Reads.jsx
+   1:10  error  'useEffect' is defined but never used           no-unused-vars
+   2:10  error  'motion' is defined but never used              no-unused-vars
+   3:10  error  'ArrowRight' is defined but never used          no-unused-vars
+   3:22  error  'BookOpen' is defined but never used            no-unused-vars
+   4:8   error  'ReadCard' is defined but never used            no-unused-vars
+   5:10  error  'PageHeader' is defined but never used          no-unused-vars
+   8:10  error  'API_URL' is defined but never used             no-unused-vars
+  13:11  error  'navigate' is assigned a value but never used   no-unused-vars
+  14:13  error  'isDark' is assigned a value but never used     no-unused-vars
+  16:58  error  'isSuccess' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/ChatBubbleIcon.jsx
+  1:8  error  'React' is defined but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/SendIcon.jsx
+  1:8  error  'React' is defined but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/sideBarIcon.jsx
+  3:48  error  'Trophy' is defined but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/social/Email.jsx
+  1:8  error  'React' is defined but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/social/Github.jsx
+  1:8  error  'React' is defined but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/social/Linkedin.jsx
+  1:8  error  'React' is defined but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/social/Twitter.jsx
+  1:8  error  'React' is defined but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/CSS.jsx
+  2:31  error  'color' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/Cursor.jsx
+  1:34  error  'color' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/Docker.jsx
+  1:34  error  'color' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/Drizzle.jsx
+  1:8  error  'React' is defined but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/Figma.jsx
+  1:33  error  'color' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/Git.jsx
+  1:31  error  'color' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/HTML.jsx
+  1:32  error  'color' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/JSON.jsx
+  1:32  error  'color' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/MongoDB.jsx
+  1:35  error  'color' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/Node.jsx
+  1:34  error  'color' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/Npm.jsx
+  1:31  error  'color' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/Postgres.jsx
+  1:8  error  'React' is defined but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/Postman.jsx
+  1:35  error  'color' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/React.jsx
+  1:37  error  'color' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/TailwindCss.jsx
+  2:39  error  'color' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/TypeScript.jsx
+  1:38  error  'color' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/VS.jsx
+  1:30  error  'color' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/Vite.jsx
+  1:32  error  'color' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/Zod.jsx
+  1:31  error  'color' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ChatBubble.jsx
+   1:8   error  'React' is defined but never used                 no-unused-vars
+   2:8   error  'ChatBubbleIcon' is defined but never used        no-unused-vars
+   3:8   error  'SendIcon' is defined but never used              no-unused-vars
+   4:10  error  'Avatar' is defined but never used                no-unused-vars
+   4:18  error  'AvatarFallback' is defined but never used        no-unused-vars
+   4:34  error  'AvatarImage' is defined but never used           no-unused-vars
+   5:10  error  'Button' is defined but never used                no-unused-vars
+   6:10  error  'ExpandableChat' is defined but never used        no-unused-vars
+   6:26  error  'ExpandableChatBody' is defined but never used    no-unused-vars
+   6:46  error  'ExpandableChatFooter' is defined but never used  no-unused-vars
+   6:68  error  'ExpandableChatHeader' is defined but never used  no-unused-vars
+   7:10  error  'Input' is defined but never used                 no-unused-vars
+   8:10  error  'ScrollArea' is defined but never used            no-unused-vars
+  10:8   error  'ReactMarkdown' is defined but never used         no-unused-vars
+  62:13  error  Empty block statement                             no-empty
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/Header-Nav/nav.jsx
+  3:10  error  'NavComps' is defined but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/Header-Nav/navComps.jsx
+   1:10  error  'Link' is defined but never used  no-unused-vars
+  53:41  error  'Icon' is defined but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ReadCard.jsx
+  2:10  error  'motion' is defined but never used        no-unused-vars
+  3:10  error  'ArrowUpRight' is defined but never used  no-unused-vars
+  3:24  error  'FileText' is defined but never used      no-unused-vars
+  3:34  error  'Twitter' is defined but never used       no-unused-vars
+  3:43  error  'Youtube' is defined but never used       no-unused-vars
+  3:52  error  'Instagram' is defined but never used     no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/common/IconLink.jsx
+  4:46  error  'label' is defined but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/common/ProfileCard.jsx
+  1:8  error  'React' is defined but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/common/SpotlightCard.jsx
+  1:8  error  'React' is defined but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/common/TechBadge.jsx
+  2:8  error  'ToolTipEffect' is defined but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/common/TechStack.jsx
+  3:10  error  'TechBadge' is defined but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/expandable-chat.jsx
+  1:8   error  'React' is defined but never used      no-unused-vars
+  3:10  error  'X' is defined but never used          no-unused-vars
+  3:13  error  'Maximize2' is defined but never used  no-unused-vars
+  3:24  error  'Minimize2' is defined but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/scroll-area.jsx
+  1:8  error  'React' is defined but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/tooltip.jsx
+   1:13  error  'React' is defined but never used             no-unused-vars
+   2:13  error  'TooltipPrimitive' is defined but never used  no-unused-vars
+  13:10  error  'Tooltip' is defined but never used           no-unused-vars
+  21:10  error  'TooltipTrigger' is defined but never used    no-unused-vars
+  27:10  error  'TooltipContent' is defined but never used    no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/constants/techIcons.js
+  30:8  error  'NextIcon' is defined but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/context/NavToggleContext.jsx
+  15:17  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/context/ProjectContext.jsx
+   5:14  error  Fast refresh only works when a file only exports components. Move your React context(s) to a separate file                      react-refresh/only-export-components
+  15:14  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/context/ScrollContext.jsx
+  21:14  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/hooks/useActiveSection.js
+  44:40  error  'key' is defined but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/main.jsx
+  1:10  error  'StrictMode' is defined but never used  no-unused-vars
+  4:8   error  'App' is defined but never used         no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/vite.config.js
+  11:25  error  '__dirname' is not defined  no-undef
+
+✖ 173 problems (172 errors, 1 warning)
+

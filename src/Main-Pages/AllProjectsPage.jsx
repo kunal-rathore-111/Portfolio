@@ -4,19 +4,14 @@ import { useNavToggleContextProvider } from "@/context/NavToggleContext";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Github, Globe, ArrowUpRight } from "lucide-react";
-import { useLenis } from "lenis/react";
+
 import { useEffect } from "react";
 
 export const AllProjectsPage = () => {
     const navigate = useNavigate();
-    const lenis = useLenis();
-
     useEffect(() => {
         window.scrollTo(0, 0);
-        if (lenis) {
-            lenis.scrollTo(0, { immediate: true });
-        }
-    }, [lenis]);
+    }, []);
 
     const handleBack = () => {
         navigate('/');

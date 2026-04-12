@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
-import { ArrowLeft, Calendar, Tag, SunMedium, Moon } from 'lucide-react';
+import { ArrowLeft, SunMedium, Moon } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useLenis } from "lenis/react";
+
 import { useDarkMode } from '@/hooks/useDarkMode';
 import { BLOGS_API_URL } from '@/config/api';
 import { onhoverBlackWhite } from "@/lib/default_Tailwind";
@@ -11,23 +11,17 @@ export const ReadDetail = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const location = useLocation();
-    const lenis = useLenis();
+
     const { isDark, toggle: toggleMode } = useDarkMode();
-    const [copied, setCopied] = useState(false);
 
     // Initialize state from location.state if available (passed from ReadCard)
     const [post, setPost] = useState(location.state?.post || null);
     const [loading, setLoading] = useState(!location.state?.post);
     const [error, setError] = useState(null);
 
-    // Scroll to top on mount
     useEffect(() => {
-        if (lenis) {
-            lenis.scrollTo(0, { immediate: true });
-        } else {
-            window.scrollTo(0, 0);
-        }
-    }, [lenis, id]);
+        window.scrollTo(0, 0);
+    }, [id]);
 
     useEffect(() => {
         // If post data is already available via state, don't fetch

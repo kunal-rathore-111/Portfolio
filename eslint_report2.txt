@@ -1,0 +1,141 @@
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/public/pet.js
+  116:17  error  'frameDelay' is already defined  no-redeclare
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/server/githubController.js
+  6:23  error  'process' is not defined  no-undef
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/server/server.js
+  10:14  error  'process' is not defined         no-undef
+  17:22  error  'process' is not defined         no-undef
+  22:3   error  'process' is not defined         no-undef
+  63:20  error  'process' is not defined         no-undef
+  64:15  error  'process' is not defined         no-undef
+  67:18  error  'res' is defined but never used  no-unused-vars
+  82:20  error  'process' is not defined         no-undef
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Extras.jsx
+  26:37  error  'isSuccess' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Home.jsx
+  108:8  warning  React Hook React.useEffect has a missing dependency: 'descriptions.length'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Main.jsx
+  10:10  error  'useEffect' is defined but never used          no-unused-vars
+  10:21  error  'useState' is defined but never used           no-unused-vars
+  16:11  error  'location' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/ProjectInfoPage.jsx
+  6:29  error  'Globe' is defined but never used      no-unused-vars
+  8:10  error  'TechStack' is defined but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Projects.jsx
+  9:29  error  'Github' is defined but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/ReadDetail.jsx
+   3:21  error  'Calendar' is defined but never used            no-unused-vars
+   3:31  error  'Tag' is defined but never used                 no-unused-vars
+  16:12  error  'copied' is assigned a value but never used     no-unused-vars
+  16:20  error  'setCopied' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Reads.jsx
+   1:10  error  'useEffect' is defined but never used           no-unused-vars
+   3:22  error  'BookOpen' is defined but never used            no-unused-vars
+   8:10  error  'API_URL' is defined but never used             no-unused-vars
+  13:11  error  'navigate' is assigned a value but never used   no-unused-vars
+  14:13  error  'isDark' is assigned a value but never used     no-unused-vars
+  16:58  error  'isSuccess' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/sideBarIcon.jsx
+  3:48  error  'Trophy' is defined but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/CSS.jsx
+  2:31  error  'color' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/Cursor.jsx
+  1:34  error  'color' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/Docker.jsx
+  1:34  error  'color' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/Figma.jsx
+  1:33  error  'color' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/Git.jsx
+  1:31  error  'color' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/HTML.jsx
+  1:32  error  'color' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/JSON.jsx
+  1:32  error  'color' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/MongoDB.jsx
+  1:35  error  'color' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/Node.jsx
+  1:34  error  'color' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/Npm.jsx
+  1:31  error  'color' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/Postman.jsx
+  1:35  error  'color' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/React.jsx
+  1:37  error  'color' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/TailwindCss.jsx
+  2:39  error  'color' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/TypeScript.jsx
+  1:38  error  'color' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/VS.jsx
+  1:30  error  'color' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/Vite.jsx
+  1:32  error  'color' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/Zod.jsx
+  1:31  error  'color' is assigned a value but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ChatBubble.jsx
+  62:13  error  Empty block statement  no-empty
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/Header-Nav/navComps.jsx
+  1:10  error  'Link' is defined but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ReadCard.jsx
+  3:24  error  'FileText' is defined but never used   no-unused-vars
+  3:34  error  'Twitter' is defined but never used    no-unused-vars
+  3:43  error  'Youtube' is defined but never used    no-unused-vars
+  3:52  error  'Instagram' is defined but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/common/IconLink.jsx
+  4:46  error  'label' is defined but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/constants/techIcons.js
+  30:8  error  'NextIcon' is defined but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/context/NavToggleContext.jsx
+  15:17  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/context/ProjectContext.jsx
+   5:14  error  Fast refresh only works when a file only exports components. Move your React context(s) to a separate file                      react-refresh/only-export-components
+  15:14  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/context/ScrollContext.jsx
+  21:14  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/hooks/useActiveSection.js
+  44:40  error  'key' is defined but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/src/main.jsx
+  1:10  error  'StrictMode' is defined but never used  no-unused-vars
+
+/mnt/533172392EC44796/Kunal/V/Portfolio/vite.config.js
+  11:25  error  '__dirname' is not defined  no-undef
+
+✖ 60 problems (59 errors, 1 warning)
+

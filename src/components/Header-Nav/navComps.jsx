@@ -1,14 +1,13 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { HomeIcon, ProjectIcon, AboutIcon, ReadsIcon } from "../../assets/icons/sideBarIcon";
 import { useScrollContext } from "@/context/ScrollContext";
-import { useScrollTo } from "@/hooks/useScrollTo";
+
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { useQueryClient } from "@tanstack/react-query";
 import { API_URL } from "@/config/api";
 
 export const NavComps = ({ toggle }) => {
     const { HomeRef, AboutRef, ProjectsRef, ReadsRef } = useScrollContext();
-    const scrollTo = useScrollTo();
     const activeSection = useActiveSection({ HomeRef, AboutRef, ProjectsRef, ReadsRef });
     const queryClient = useQueryClient();
 
@@ -22,7 +21,7 @@ export const NavComps = ({ toggle }) => {
         if (location.pathname !== '/') {
             navigate('/', { state: { scrollTo: label } });
         } else {
-            scrollTo(ref);
+            ref.current?.scrollIntoView({ behavior: 'smooth' });
         }
     }
 

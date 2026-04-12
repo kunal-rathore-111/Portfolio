@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils';
-import ToolTipEffect from '@/components/tooltip';
+import ToolTipEffect from '@/components/ui/tooltip';
 
 // badge for skills
 export function TechBadge({ iconName, Icon, className }) {

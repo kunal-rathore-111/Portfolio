@@ -59,7 +59,7 @@ export default function ChatBubble() {
 				const raw = await response.text().catch(() => null);
 				try {
 					parsed = raw ? JSON.parse(raw) : null;
-				} catch { }
+				} catch { /* ignore */ }
 				if (response.status === 429) {
 					const retryAfter = parsed?.retryAfter ?? 30;
 					setCooldown(retryAfter);

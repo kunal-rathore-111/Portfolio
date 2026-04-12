@@ -1,10 +1,12 @@
-export default function ReactIcon({ color = "currentColor" }) {
+export default function ReactIcon({ color = "currentColor", size = 24 }) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 128 128"
             fill="none"
-            className="size-6"
+            width={size}
+            height={size}
+
         >
             <g fill="#61DAFB">
                 <circle cx="64" cy="64" r="11.4"></circle>

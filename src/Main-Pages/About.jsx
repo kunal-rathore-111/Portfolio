@@ -1,14 +1,15 @@
-import { ProfileCard } from "../common/ProfileCard";
+import { ProfileCard } from "../components/common/ProfileCard";
 import { SKILLIcons } from "@/constants";
-import { PageHeader } from "../common/PageHeader";
-import { HighLightText } from "../common/HighLightText";
-import { MarqueeTechStack } from "../common/MarqueeTechStack";
+import { PageHeader } from "../components/common/PageHeader";
+import { HighLightText } from "../components/common/HighLightText";
 import { motion } from "framer-motion";
 import { animations } from "@/lib/animations";
 
+import { TECH_ICONS } from "@/constants";
+import ToolTipEffect from "@/components/ui/tooltip";
 export const AboutPage = () => {
     {/* second section  */ }
-    return <section className="h-full w-full flex flex-col items-center justify-evenly gap-10 lg:gap-25 p-4 md:p-0" >
+    return <section className="h-full w-full flex flex-col items-center justify-evenly gap-10  p-4 md:p-0" >
         {/* image div */}
         <div className="h-full w-full flex flex-col md:flex-row items-center justify-between gap-8 lg:gap-0">
 
@@ -23,6 +24,10 @@ export const AboutPage = () => {
                 <ProfileCard />
             </motion.div>
         </div>
+        {/* Skills - animates last */}
+        <motion.div {...animations.fadeInUp} className="w-full">
+            <SkillsComponent />
+        </motion.div>
     </section >
 }
 
@@ -52,10 +57,7 @@ const AboutComp = () => {
                 in everything I create.
             </motion.p>
 
-            {/* Skills - animates last */}
-            <motion.div {...animations.fadeInUp} className="w-full">
-                <SkillsComponent />
-            </motion.div>
+
         </span>
     </div>
 }
@@ -63,14 +65,17 @@ const AboutComp = () => {
 
 const SkillsComponent = () => {
     return (
-        <div className="mt-4 w-full flex flex-col">
-
-            <h3 className="text-sm md:text-base font-semibold tracking-widest text-muted-foreground  mb-2 pl-1">
+        <div className="mt-4 w-full flex flex-col pl ">
+            <h3 className="text-sm md:text-base font-semibold tracking-widest text-muted-foreground mb-2">
                 EXPERTISE AREAS
             </h3>
-
-            <div className="font-medium flex flex-col gap-2 text-2xl w-full">
-                <MarqueeTechStack technologies={SKILLIcons} className={''} />
+            <div className="font-medium flex  gap-6 text-2xl w-full">
+                {SKILLIcons.map((iconName) => {
+                    const Icon = TECH_ICONS[iconName];
+                    return Icon ? (
+                        <ToolTipEffect key={iconName} Icon={Icon} name={iconName} />
+                        ) : null;
+                })}
             </div>
         </div>
     );

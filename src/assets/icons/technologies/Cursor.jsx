@@ -1,10 +1,11 @@
-export default function Cursor({ color = "currentColor" }) {
+export default function Cursor({ color = "currentColor", size = 24 }) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 512 512"
-            className="size-6"
+            width={size}
+            height={size}
         >
             <g clipPath="url(#clip0)">
                 <rect width="512" height="512" rx="122" fill="#000" />

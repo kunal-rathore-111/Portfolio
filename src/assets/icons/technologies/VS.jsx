@@ -1,10 +1,11 @@
-export default function VS({ color = "currentColor" }) {
+export default function VS({ color = "currentColor", size = 24 }) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 128 128"
             fill="none"
-            className="size-6"
+            width={size}
+            height={size}
         >
             <mask
                 id="a"
