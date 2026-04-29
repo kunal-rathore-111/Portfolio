@@ -2,8 +2,7 @@ import { ProfileCard } from "../components/common/ProfileCard";
 import { SKILLIcons } from "@/constants";
 import { PageHeader } from "../components/common/PageHeader";
 import { HighLightText } from "../components/common/HighLightText";
-import { motion } from "framer-motion";
-import { animations } from "@/lib/animations";
+
 
 import { TECH_ICONS } from "@/constants";
 import ToolTipEffect from "@/components/ui/tooltip";
@@ -18,16 +17,15 @@ export const AboutPage = () => {
                 <AboutComp />
             </div>
             {/* Image - animates with first paragraph */}
-            <motion.div
-                {...animations.fadeInUp}
+            <div
             >
                 <ProfileCard />
-            </motion.div>
+            </div>
         </div>
         {/* Skills - animates last */}
-        <motion.div {...animations.fadeInUp} className="w-full">
+        <div className="w-full">
             <SkillsComponent />
-        </motion.div>
+        </div>
     </section >
 }
 
@@ -35,27 +33,27 @@ export const AboutPage = () => {
 const AboutComp = () => {
     return <div className="flex flex-col gap-8 w-full md:w-150 font-light dark:font-extralight ">
         {/* Header - animates first */}
-        <motion.div {...animations.fadeInUp}>
+        <div>
             <PageHeader val={'01.'} subheading={"About"} mainHeading={"Me"} />
-        </motion.div>
+        </div>
 
         <span className="text-base md:text-xl flex flex-col gap-4">
             {/* First paragraph - animates with image */}
-            <motion.p {...animations.fadeInUp}>
+            <p>
                 Hey! I'm Kunal. I don't just write code; I build solutions that
                 <HighLightText text={' connect smart logic with great design. '} />
                 I believe that the best apps aren't just fast—they are
                 <HighLightText text={' reliable and easy to use. '} />
-            </motion.p>
+            </p>
 
             {/* Second paragraph - animates after first */}
-            <motion.p {...animations.fadeInUp}>
+            <p>
                 My goal is simple: making software that feels
                 <HighLightText text={' effortless for the user. '} />
                 I love the challenge of building things right. I’m always learning and keeping a
                 <HighLightText text={' human-first mindset '} />
                 in everything I create.
-            </motion.p>
+            </p>
 
 
         </span>

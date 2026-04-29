@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useDarkMode } from '@/hooks/useDarkMode';
@@ -31,11 +30,9 @@ const ReadCard = (props) => {
     };
 
     return (
-        <motion.div
+        <div
             onClick={handleClick}
-            className={`relative rounded-3xl overflow-hidden h-100 group cursor-pointer shadow-sm hover:shadow-xl transition-all duration-500 ${isDark ? 'bg-gray-800' : 'bg-gray-100'}`}
-            whileHover={{ scale: 1.02 }}
-            transition={{ type: "spring", stiffness: 300 }}
+            className={`relative rounded-3xl overflow-hidden h-100 group cursor-pointer shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all duration-500 ${isDark ? 'bg-gray-800' : 'bg-gray-100'}`}
         >
             {/* Background Image */}
             <img
@@ -60,12 +57,10 @@ const ReadCard = (props) => {
                 ))}
             </div>
 
-            {/* Arrow Button */}
             <div className={`absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100 bg-white text-black hover:bg-gray-100`}>
                 <ArrowUpRight className="w-5 h-5" />
             </div>
 
-            {/* Bottom Content */}
             <div className="absolute bottom-0 left-0 right-0 p-6">
                 <div className="mb-2 text-[10px] md:text-xs text-white/60 font-medium uppercase tracking-wider">
                     {displayType}
@@ -80,7 +75,7 @@ const ReadCard = (props) => {
                     </p>
                 )}
             </div>
-        </motion.div>
+        </div>
     );
 };
 

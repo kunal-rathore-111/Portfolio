@@ -7,7 +7,7 @@ import { SunMedium, Moon } from "lucide-react";
 import { useDarkMode } from "@/hooks/useDarkMode";
 
 
-import { MainComp } from "./Main-Pages/Main.jsx";
+import { MainComp } from "./Main-Pages/LayoutMain.jsx";
 import { ErrorPage } from "./Main-Pages/ErrorPage.jsx";
 import { ProjectInfoPage } from "./Main-Pages/ProjectInfoPage.jsx";
 import { ScrollContextProvider } from "./context/ScrollContext.jsx";
@@ -19,6 +19,7 @@ import { TooltipProvider } from "./components/ui/tooltip.jsx";
 
 import { ReadDetail } from "./Main-Pages/ReadDetail.jsx";
 import { AllProjectsPage } from "./Main-Pages/AllProjectsPage.jsx";
+import { AllCertificatesPage } from "./Main-Pages/AllCertificatesPage.jsx";
 
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -61,6 +62,7 @@ export default function App() {
                                     } />
                                     <Route path="/project/:id" element={<ProjectInfoPage />} />
                                     <Route path="/all-projects" element={<AllProjectsPage />} />
+                                    <Route path="/all-certificates" element={<AllCertificatesPage />} />
                                     <Route path="/read/:id" element={<ReadDetail />} />
                                     <Route path="/*" element={<ErrorPage />} />
                                 </Routes>

@@ -1,7 +1,6 @@
 import { PROJECTS } from "@/constants";
 import { ProjectContextProvider, useProject } from "@/context/ProjectContext";
 import { useNavToggleContextProvider } from "@/context/NavToggleContext";
-import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Github, Globe, ArrowUpRight } from "lucide-react";
 
@@ -32,22 +31,16 @@ export const AllProjectsPage = () => {
                 </button>
 
                 <div className="flex flex-col gap-4">
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                    <h1
                         className="text-5xl md:text-7xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100"
                     >
                         My Work
-                    </motion.h1>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+                    </h1>
+                    <p
                         className="text-xl text-zinc-500 dark:text-zinc-400 max-w-2xl font-light leading-relaxed"
                     >
                         A collection of projects focused on web development, design systems, and interactive interfaces.
-                    </motion.p>
+                    </p>
                 </div>
             </div>
 
@@ -72,10 +65,7 @@ const ProjectCard = ({ index }) => {
     };
 
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+        <div
             className="group flex flex-col gap-4 cursor-pointer"
             onClick={handleNavigation}
         >
@@ -149,6 +139,6 @@ const ProjectCard = ({ index }) => {
                     )}
                 </div>
             </div>
-        </motion.div>
+        </div>
     );
 };

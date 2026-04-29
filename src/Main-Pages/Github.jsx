@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { ActivityCalendar } from 'react-activity-calendar';
-import { motion } from 'framer-motion';
+
 import { Tooltip as ReactTooltip } from 'react-tooltip';
 import { PageHeader } from "../components/common/PageHeader";
 import { useQuery } from '@tanstack/react-query';
 import { API_URL } from '@/config/api';
 
 
-export const ExtrasPage = () => {
+export const GithubPage = () => {
 
     // Detect dark mode from DOM class
     const [isDark, setIsDark] = useState(() =>
@@ -52,14 +52,11 @@ export const ExtrasPage = () => {
 
     return (
         <div className="min-h-screen flex flex-col w-full">
-            <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
+            <div
                 className="w-full max-w-6xl mx-auto"
             >
                 <div className="mb-12">
-                    <PageHeader val={'04.'} subheading={"Beyond Code"} mainHeading={"My Activity"} />
+                    <PageHeader val={'05.'} subheading={"Beyond Code"} mainHeading={"My Activity"} />
                 </div>
 
                 {isLoading ? (
@@ -112,7 +109,7 @@ export const ExtrasPage = () => {
                         </div>
                     </div>
                 )}
-            </motion.div>
+            </div>
         </div>
     );
 };

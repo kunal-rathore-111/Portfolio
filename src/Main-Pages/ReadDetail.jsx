@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { ArrowLeft, SunMedium, Moon } from 'lucide-react';
-import { motion } from 'framer-motion';
 
 import { useDarkMode } from '@/hooks/useDarkMode';
 import { BLOGS_API_URL } from '@/config/api';
@@ -102,22 +101,16 @@ export const ReadDetail = () => {
             <div className="max-w-4xl mx-auto px-6 md:px-10 flex flex-col gap-12">
 
                 {/* Back Button */}
-                <motion.button
+                <button
                     onClick={() => navigate(-1)}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 0.7, x: 0 }}
-                    whileHover={{ opacity: 1, x: -4 }}
-                    className="flex items-center gap-2 self-start text-sm md:text-base transition-all"
+                    className="flex items-center gap-2 self-start text-sm md:text-base transition-all hover:opacity-100 opacity-70 hover:-translate-x-1"
                 >
                     <ArrowLeft className="w-4 h-4" /> Back to posts
-                </motion.button>
+                </button>
 
                 {/* Hero Image */}
                 {post.image && (
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
+                    <div
                         className="w-full h-100 md:h-125 rounded-3xl overflow-hidden shadow-2xl border border-gray-100 dark:border-white/10"
                     >
                         <img
@@ -125,14 +118,11 @@ export const ReadDetail = () => {
                             alt={post.title}
                             className="w-full h-full object-cover"
                         />
-                    </motion.div>
+                    </div>
                 )}
 
                 {/* Meta Info */}
-                <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
+                <div
                     className="flex flex-wrap items-center gap-3"
                 >
                     <span className={`px-4 py-2 rounded-full text-sm ${isDark ? 'bg-white/10 text-white border border-white/20' : 'bg-gray-100 text-black border border-gray-200'}`}>
@@ -146,14 +136,11 @@ export const ReadDetail = () => {
                             - By {post.author}
                         </span>
                     )}
-                </motion.div>
+                </div>
 
                 {/* Tags */}
                 {displayTags.length > 0 && (
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: 0.4 }}
+                    <div
                         className="flex flex-wrap gap-2"
                     >
                         {displayTags.map((tag, index) => (
@@ -164,39 +151,30 @@ export const ReadDetail = () => {
                                 + {tag}
                             </span>
                         ))}
-                    </motion.div>
+                    </div>
                 )}
 
                 {/* Title */}
-                <motion.h1
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.5 }}
+                <h1
                     className="text-4xl md:text-6xl font-bold tracking-tight"
                 >
                     {post.title}
-                </motion.h1>
+                </h1>
 
                 {/* Description */}
                 {post.description && (
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.6 }}
+                    <p
                         className={`text-xl md:text-2xl ${isDark ? 'text-white/80' : 'text-slate-600'} leading-relaxed`}
                     >
                         {post.description}
-                    </motion.p>
+                    </p>
                 )}
 
 
                 <div className={`border-t ${isDark ? 'border-white/20' : 'border-black/20'}`} />
 
                 {/* Content */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.8 }}
+                <div
                     className="flex flex-col gap-8 max-w-none"
                 >
                     {(post.content || post.fullDetail) ? (
@@ -233,19 +211,16 @@ export const ReadDetail = () => {
                             </a>
                         </div>
                     )}
-                </motion.div>
+                </div>
 
                 <div className={`border-t ${isDark ? 'border-white/20' : 'border-black/20'}`} />
 
-                <motion.button
+                <button
                     onClick={() => navigate(-1)}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 0.7, x: 0 }}
-                    whileHover={{ opacity: 1, x: -4 }}
-                    className="flex items-center gap-2 self-start text-sm md:text-base transition-all mb-10"
+                    className="flex items-center gap-2 self-start text-sm md:text-base transition-all hover:opacity-100 opacity-70 hover:-translate-x-1 mb-10"
                 >
                     <ArrowLeft className="w-4 h-4" /> Back to posts
-                </motion.button>
+                </button>
             </div>
         </div >
     );

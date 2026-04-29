@@ -1,14 +1,15 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { HomeIcon, ProjectIcon, AboutIcon, ReadsIcon } from "../../assets/icons/sideBarIcon";
+import { HomeIcon, ProjectIcon, AboutIcon, } from "../../assets/icons/sideBarIcon";
 import { useScrollContext } from "@/context/ScrollContext";
 
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { useQueryClient } from "@tanstack/react-query";
 import { API_URL } from "@/config/api";
+import { StarIcon } from "lucide-react";
 
 export const NavComps = ({ toggle }) => {
-    const { HomeRef, AboutRef, ProjectsRef, ReadsRef } = useScrollContext();
-    const activeSection = useActiveSection({ HomeRef, AboutRef, ProjectsRef, ReadsRef });
+    const { HomeRef, AboutRef, ProjectsRef, MoreRef } = useScrollContext();
+    const activeSection = useActiveSection({ HomeRef, AboutRef, ProjectsRef, MoreRef });
     const queryClient = useQueryClient();
 
     const location = useLocation();
@@ -45,7 +46,7 @@ export const NavComps = ({ toggle }) => {
         { ref: HomeRef, label: "Home", Icon: HomeIcon },
         { ref: AboutRef, label: "About", Icon: AboutIcon },
         { ref: ProjectsRef, label: "Projects", Icon: ProjectIcon },
-        { ref: ReadsRef, label: "Reads", Icon: ReadsIcon },
+        { ref: MoreRef, label: "More", Icon: StarIcon },
     ]
 
     return (<>

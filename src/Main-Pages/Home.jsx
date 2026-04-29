@@ -2,7 +2,6 @@ import React from "react";
 
 import { SOCIAL_LINKS } from "@/constants";
 import { IconLink } from "@/components/common/IconLink";
-import { motion } from "framer-motion";
 import { RetroGrid } from "@/components/ui/retro-grid";
 
 
@@ -35,52 +34,31 @@ const GreetComp = () => {
     return <>
         {/* Greeting text */}
 
-        <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-                delay: 0.2,
-                duration: 0.8,
-                ease: [0.25, 0.1, 0.25, 1]
-            }}
+        <h1
             className={`text-2xl  md:text-4xl font-[300] text-red-500 dark:text-yellow-300`}
         >
             👋Hey there!, I'm-
-        </motion.h1>
+        </h1>
 
         {/* Left aligned below xl, centered on xl+ */}
         <div className="flex flex-col gap-4 md:gap-6 w-full md:w-auto items-start xl:items-center">
             {/* Name */}
-            <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                    delay: 0.4,
-                    duration: 0.8,
-                    ease: [0.25, 0.1, 0.25, 1]
-                }}
+            <h1
                 className="text-[21vw] sm:text-7xl md:text-[148px] font-[600] text-black dark:text-gray-200 leading-tight text-left xl:text-center xl:whitespace-nowrap"
             >
                 Kunal Rathore
-            </motion.h1>
+            </h1>
 
             {/* Description */}
             <DiscComp />
 
             {/* Buttons - Centered */}
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                    delay: 0.8,
-                    duration: 0.8,
-                    ease: [0.25, 0.1, 0.25, 1]
-                }}
+            <div
                 className="flex gap-4 justify-start xl:justify-center"
             >
                 <ResumeComp />
                 <ContactComps />
-            </motion.div>
+            </div>
 
             {/* RetroGrid */}
             <div className="absolute h-[500px] w-screen overflow-hidden -z-10">
@@ -107,14 +85,7 @@ const DiscComp = () => {
         return () => clearInterval(interval);
     }, []);
 
-    return <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-            delay: 0.6,
-            duration: 0.8,
-            ease: [0.25, 0.1, 0.25, 1]
-        }}
+    return <div
         className="relative h-28 overflow-hidden w-full flex justify-start xl:justify-center"
     >
         {descriptions.map((text, index) => {
@@ -122,16 +93,12 @@ const DiscComp = () => {
             const isPrev = currentIndex === (index + descriptions.length - 1) % descriptions.length;
 
             return (
-                <motion.p
+                <p
                     key={index}
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{
+                    style={{
                         opacity: isActive ? 1 : 0,
-                        y: isActive ? 0 : isPrev ? -40 : 40
-                    }}
-                    transition={{
-                        duration: 0.7,
-                        ease: [0.25, 0.1, 0.25, 1]
+                        transform: `translateY(${isActive ? 0 : isPrev ? -40 : 40}px)`,
+                        transition: 'all 0.7s cubic-bezier(0.25, 0.1, 0.25, 1)'
                     }}
                     className="absolute top-0 left-0 text-lg md:text-3xl font-[400] w-full text-left xl:text-center"
                 >
@@ -139,10 +106,10 @@ const DiscComp = () => {
                     <span className="text-gray-600 dark:text-slate-400 font-[300]">
                         {text.split('.').slice(1).join('.')}
                     </span>
-                </motion.p>
+                </p>
             );
         })}
-    </motion.div>
+    </div>
 }
 
 const ResumeComp = () => {

@@ -1,1 +1,175 @@
-{"dependencies":["dotenv","prismjs","react-type-animation","styled-components","zod"],"devDependencies":["autoprefixer","baseline-browser-mapping","postcss","tailwindcss","tw-animate-css"],"missing":{"prop-types":["/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ReadCard.jsx"]},"using":{"@eslint/js":["/mnt/533172392EC44796/Kunal/V/Portfolio/eslint.config.js"],"globals":["/mnt/533172392EC44796/Kunal/V/Portfolio/eslint.config.js"],"eslint-plugin-react-hooks":["/mnt/533172392EC44796/Kunal/V/Portfolio/eslint.config.js"],"eslint-plugin-react-refresh":["/mnt/533172392EC44796/Kunal/V/Portfolio/eslint.config.js"],"eslint":["/mnt/533172392EC44796/Kunal/V/Portfolio/eslint.config.js","/mnt/533172392EC44796/Kunal/V/Portfolio/package.json"],"vite":["/mnt/533172392EC44796/Kunal/V/Portfolio/package.json","/mnt/533172392EC44796/Kunal/V/Portfolio/vite.config.js"],"react":["/mnt/533172392EC44796/Kunal/V/Portfolio/package.json","/mnt/533172392EC44796/Kunal/V/Portfolio/src/App.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/main.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/hooks/useActiveSection.js","/mnt/533172392EC44796/Kunal/V/Portfolio/src/hooks/useDarkMode.js","/mnt/533172392EC44796/Kunal/V/Portfolio/src/context/NavToggleContext.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/context/ProjectContext.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/context/ScrollContext.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ChatBubble.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ReadCard.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/avatar.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/button.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/expandable-chat.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/input.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/retro-grid.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/scroll-area.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/tooltip.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/common/ProfileCard.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/common/SpotlightCard.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/Header-Nav/navComps.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/ChatBubbleIcon.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/SendIcon.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/sideBarIcon.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/Drizzle.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/Postgres.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/social/Email.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/social/Github.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/social/Linkedin.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/social/Twitter.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/About.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/AllProjectsPage.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/ErrorPage.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Extras.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Home.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Main.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/ProjectInfoPage.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Projects.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/ReadDetail.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Reads.jsx"],"@vitejs/plugin-react":["/mnt/533172392EC44796/Kunal/V/Portfolio/vite.config.js"],"@tailwindcss/vite":["/mnt/533172392EC44796/Kunal/V/Portfolio/vite.config.js"],"react-router-dom":["/mnt/533172392EC44796/Kunal/V/Portfolio/src/App.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ReadCard.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/Header-Nav/navComps.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/AllProjectsPage.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/ErrorPage.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Main.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/ProjectInfoPage.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Projects.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/ReadDetail.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Reads.jsx"],"lucide-react":["/mnt/533172392EC44796/Kunal/V/Portfolio/src/App.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ReadCard.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/expandable-chat.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/sideBarIcon.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/AllProjectsPage.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/ProjectInfoPage.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Projects.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/ReadDetail.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Reads.jsx"],"@tanstack/react-query":["/mnt/533172392EC44796/Kunal/V/Portfolio/src/App.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/Header-Nav/navComps.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Extras.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Reads.jsx"],"react-dom":["/mnt/533172392EC44796/Kunal/V/Portfolio/src/App.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/main.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ReadCard.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/avatar.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/tooltip.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/Header-Nav/navComps.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/About.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/AllProjectsPage.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/ErrorPage.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Extras.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Home.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Main.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/ProjectInfoPage.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Projects.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/ReadDetail.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Reads.jsx"],"clsx":["/mnt/533172392EC44796/Kunal/V/Portfolio/src/lib/utils.js"],"tailwind-merge":["/mnt/533172392EC44796/Kunal/V/Portfolio/src/lib/utils.js"],"react-markdown":["/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ChatBubble.jsx"],"@types/react":["/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ChatBubble.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/avatar.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/tooltip.jsx"],"prop-types":["/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ReadCard.jsx"],"framer-motion":["/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ReadCard.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/About.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/AllProjectsPage.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Extras.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Home.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/ProjectInfoPage.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Projects.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/ReadDetail.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Reads.jsx"],"@radix-ui/react-avatar":["/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/avatar.jsx"],"@types/react-dom":["/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/avatar.jsx","/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/tooltip.jsx"],"class-variance-authority":["/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/button.jsx"],"@radix-ui/react-tooltip":["/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/tooltip.jsx"],"react-activity-calendar":["/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Extras.jsx"],"react-tooltip":["/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Extras.jsx"]},"invalidFiles":{},"invalidDirs":{}}
+{
+  "dependencies": [
+    "dotenv",
+    "prismjs",
+    "react-type-animation",
+    "styled-components",
+    "zod"
+  ],
+  "devDependencies": [
+    "autoprefixer",
+    "baseline-browser-mapping",
+    "postcss",
+    "tailwindcss",
+    "tw-animate-css"
+  ],
+  "missing": {
+    "prop-types": [
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ReadCard.jsx"
+    ]
+  },
+  "using": {
+    "@eslint/js": [
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/eslint.config.js"
+    ],
+    "globals": [
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/eslint.config.js"
+    ],
+    "eslint-plugin-react-hooks": [
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/eslint.config.js"
+    ],
+    "eslint-plugin-react-refresh": [
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/eslint.config.js"
+    ],
+    "eslint": [
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/eslint.config.js",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/package.json"
+    ],
+    "vite": [
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/package.json",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/vite.config.js"
+    ],
+    "react": [
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/package.json",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/App.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/main.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/hooks/useActiveSection.js",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/hooks/useDarkMode.js",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/context/NavToggleContext.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/context/ProjectContext.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/context/ScrollContext.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ChatBubble.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ReadCard.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/avatar.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/button.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/expandable-chat.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/input.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/retro-grid.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/scroll-area.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/tooltip.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/common/ProfileCard.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/common/SpotlightCard.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/Header-Nav/navComps.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/ChatBubbleIcon.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/SendIcon.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/sideBarIcon.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/Drizzle.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/technologies/Postgres.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/social/Email.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/social/Github.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/social/Linkedin.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/social/Twitter.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/About.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/AllProjectsPage.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/ErrorPage.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Extras.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Home.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Main.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/ProjectInfoPage.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Projects.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/ReadDetail.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Reads.jsx"
+    ],
+    "@vitejs/plugin-react": [
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/vite.config.js"
+    ],
+    "@tailwindcss/vite": [
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/vite.config.js"
+    ],
+    "react-router-dom": [
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/App.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ReadCard.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/Header-Nav/navComps.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/AllProjectsPage.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/ErrorPage.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Main.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/ProjectInfoPage.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Projects.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/ReadDetail.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Reads.jsx"
+    ],
+    "lucide-react": [
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/App.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ReadCard.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/expandable-chat.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/assets/icons/sideBarIcon.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/AllProjectsPage.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/ProjectInfoPage.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Projects.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/ReadDetail.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Reads.jsx"
+    ],
+    "@tanstack/react-query": [
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/App.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/Header-Nav/navComps.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Extras.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Reads.jsx"
+    ],
+    "react-dom": [
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/App.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/main.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ReadCard.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/avatar.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/tooltip.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/Header-Nav/navComps.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/About.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/AllProjectsPage.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/ErrorPage.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Extras.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Home.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Main.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/ProjectInfoPage.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Projects.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/ReadDetail.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Reads.jsx"
+    ],
+    "clsx": [
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/lib/utils.js"
+    ],
+    "tailwind-merge": [
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/lib/utils.js"
+    ],
+    "react-markdown": [
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ChatBubble.jsx"
+    ],
+    "@types/react": [
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ChatBubble.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/avatar.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/tooltip.jsx"
+    ],
+    "prop-types": [
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ReadCard.jsx"
+    ],
+    "@radix-ui/react-avatar": [
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/avatar.jsx"
+    ],
+    "@types/react-dom": [
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/avatar.jsx",
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/tooltip.jsx"
+    ],
+    "class-variance-authority": [
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/button.jsx"
+    ],
+    "@radix-ui/react-tooltip": [
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/components/ui/tooltip.jsx"
+    ],
+    "react-activity-calendar": [
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Extras.jsx"
+    ],
+    "react-tooltip": [
+      "/mnt/533172392EC44796/Kunal/V/Portfolio/src/Main-Pages/Extras.jsx"
+    ]
+  },
+  "invalidFiles": {},
+  "invalidDirs": {}
+}

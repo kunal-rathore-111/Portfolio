@@ -2,7 +2,6 @@ import { PROJECTS, TECH_ICONS } from "@/constants";
 import { TechStack } from "@/components/common/TechStack";
 
 import { ProjectContextProvider, useProject } from "@/context/ProjectContext";
-import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { onhoverBlackWhite } from "@/lib/default_Tailwind";
 import { PageHeader } from "../components/common/PageHeader";
@@ -22,30 +21,12 @@ export const ProjectsPage = () => {
     return <div className="h-full flex flex-col p-2 font-light overflow-x-hidden">
 
 
-        <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            variants={{
-                hidden: { opacity: 0 },
-                visible: {
-                    opacity: 1,
-                    transition: {
-                        duration: 0.1,
-                        staggerChildren: 0.0, // Start together
-                    }
-                }
-            }}
+        <div
             className="flex flex-col gap-4 overflow-x-hidden w-full max-w-6xl mx-auto"
         >
-            <motion.div
-                variants={{
-                    hidden: { opacity: 0 },
-                    visible: { opacity: 1, transition: { duration: 0.8, ease: "easeOut" } }
-                }}
-            >
+            <div>
                 <PageHeader val={'02.'} subheading={"Some Things"} mainHeading={"I've Built"} />
-            </motion.div>
+            </div>
             {ProjectsArray.map((props, i) => {
                 const index = i % 2;
                 const val = { props, index };
@@ -53,7 +34,7 @@ export const ProjectsPage = () => {
                     <ProjectInfoDiv />
                 </ProjectContextProvider>
             })}
-        </motion.div>
+        </div>
         <div className="flex justify-center mt-10">
             <button
                 onClick={() => {
@@ -80,11 +61,7 @@ const ProjectInfoDiv = () => {
     const { index, props } = useProject();
 
     return (
-        <motion.div
-            variants={{
-                hidden: { opacity: 0 },
-                visible: { opacity: 1, transition: { duration: 0.8, ease: "easeOut" } }
-            }}
+        <div
             className="max-w-6xl w-full mx-auto p-2 md:p-4 my-8 md:my-16"
         >
             <div className={cn(
@@ -146,7 +123,7 @@ const ProjectInfoDiv = () => {
 
                 </div>
             </div >
-        </motion.div >)
+        </div >)
 }
 
 const ProjectImageDiv = () => {
